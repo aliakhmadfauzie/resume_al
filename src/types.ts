@@ -86,6 +86,21 @@ export interface CertificationItem {
   credentialUrl?: string;
 }
 
+export interface TestimonialItem {
+  id: string;
+  name: string;
+  role: string;
+  company: string;
+  avatar?: string;
+  content: string;
+  projectOrScope: string;
+  rating: number;
+  date: string;
+  tags: string[];
+  relationship?: string;
+  badge?: string;
+}
+
 export interface MessagePayload {
   name: string;
   email: string;

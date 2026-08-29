@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { timelineData } from '../data/resumeData';
 import { ProfileMode } from '../types';
-import { motion, AnimatePresence } from 'motion/react';
 import {
   Briefcase,
   GraduationCap,
@@ -27,210 +26,160 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({ currentMode })
 
   const getNodeIcon = (type: string, category: string) => {
     if (type === 'education') {
-      return <GraduationCap className="w-4 h-4 text-[#8aceff]" />;
+      return <GraduationCap className="w-3.5 h-3.5 text-[#121212]" />;
     }
-    if (category === 'architect') {
-      return <Briefcase className="w-4 h-4 text-[#009de0]" />;
-    }
-    return <Briefcase className="w-4 h-4 text-emerald-400" />;
+    return <Briefcase className="w-3.5 h-3.5 text-[#121212]" />;
   };
 
   return (
-    <section id="timeline" className="py-20 px-4 sm:px-6 relative overflow-hidden">
-      <div className="max-w-[1000px] mx-auto relative z-10">
-        {/* Section Header with Motion Reveal */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono-code text-[#8aceff] mb-3">
-            <Calendar className="w-3.5 h-3.5" />
-            <span>Chronological Career Narrative</span>
+    <section id="timeline" className="py-20 sm:py-24 border-b border-[#e0e0d8] bg-[#fdfdfc] relative">
+      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 border-x border-[#e0e0d8]">
+        
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <span className="label-mono mb-4 block">
+              04 — Chronological Career Narrative
+            </span>
+            <h2 className="font-serif-display italic text-4xl sm:text-5xl md:text-6xl font-light text-[#121212] tracking-tight">
+              Career Trajectory & Milestones
+            </h2>
+            <p className="text-sm sm:text-base font-light text-[#444440] max-w-2xl mt-3 leading-relaxed">
+              Professional trajectory across Enterprise Architecture, Multilingual Contact Center Leadership, and Academic Foundations.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-2">
-            Timeline
-          </h2>
-          <p className="text-neutral-400 text-lg font-medium">
-            Professional trajectory in Solution Architecture, Leadership & Academic Foundations
-          </p>
 
           {/* Filter Pills */}
-          <div className="flex items-center justify-center gap-2 mt-6">
+          <div className="flex items-center gap-1.5 bg-[#f7f7f0] p-1.5 border border-[#e0e0d8] self-start md:self-auto font-mono-code text-xs">
             <button
               onClick={() => setActiveFilter('all')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+              className={`px-3 py-1.5 text-[0.7rem] uppercase tracking-wider transition-all ${
                 activeFilter === 'all'
-                  ? 'bg-[#009de0] text-white shadow-md shadow-[#009de0]/20 font-semibold'
-                  : 'bg-[#1c1c20] text-neutral-400 hover:text-white border border-white/10'
+                  ? 'bg-[#121212] text-[#fdfdfc] font-medium'
+                  : 'text-[#444440] hover:text-[#121212]'
               }`}
             >
-              All Milestones ({timelineData.length})
+              All ({timelineData.length})
             </button>
             <button
               onClick={() => setActiveFilter('experience')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+              className={`px-3 py-1.5 text-[0.7rem] uppercase tracking-wider transition-all ${
                 activeFilter === 'experience'
-                  ? 'bg-[#009de0] text-white shadow-md shadow-[#009de0]/20 font-semibold'
-                  : 'bg-[#1c1c20] text-neutral-400 hover:text-white border border-white/10'
+                  ? 'bg-[#121212] text-[#fdfdfc] font-medium'
+                  : 'text-[#444440] hover:text-[#121212]'
               }`}
             >
-              Work Experience (6)
+              Experience (6)
             </button>
             <button
               onClick={() => setActiveFilter('education')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+              className={`px-3 py-1.5 text-[0.7rem] uppercase tracking-wider transition-all ${
                 activeFilter === 'education'
-                  ? 'bg-[#009de0] text-white shadow-md shadow-[#009de0]/20 font-semibold'
-                  : 'bg-[#1c1c20] text-neutral-400 hover:text-white border border-white/10'
+                  ? 'bg-[#121212] text-[#fdfdfc] font-medium'
+                  : 'text-[#444440] hover:text-[#121212]'
               }`}
             >
-              Education & Honors (1)
+              Education (1)
             </button>
-          </div>
-        </motion.div>
-
-        {/* Vertical Timeline Axis */}
-        <div className="relative">
-          {/* Central 2px Axis Line */}
-          <div className="absolute left-4 md:left-1/2 top-4 bottom-4 w-[2px] -translate-x-1/2 bg-gradient-to-b from-[#009de0] via-white/20 to-[#009de0]/40 z-0" />
-
-          <div className="space-y-12 relative z-10">
-            <AnimatePresence mode="popLayout">
-              {filteredItems.map((item, index) => {
-                const isEven = index % 2 === 0;
-                const isExpanded = expandedId === item.id;
-
-                return (
-                  <motion.div
-                    key={item.id}
-                    layout
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-40px' }}
-                    transition={{ duration: 0.5, delay: index * 0.05, ease: 'easeOut' }}
-                    className={`flex flex-col md:flex-row items-start md:items-center gap-6 ${
-                      isEven ? 'md:flex-row-reverse' : ''
-                    }`}
-                  >
-                    {/* Content Card (Half Width on Desktop) */}
-                    <div className="w-full md:w-[calc(50%-2rem)] pl-10 md:pl-0">
-                      <motion.div
-                        whileHover={{
-                          y: -4,
-                          boxShadow: '0 16px 30px -10px rgba(0, 157, 224, 0.15)',
-                          transition: { duration: 0.2 },
-                        }}
-                        className={`bg-[#19191e]/90 border rounded-2xl p-6 backdrop-blur-md shadow-xl transition-colors duration-200 ${
-                          item.featured
-                            ? 'border-[#009de0]/40 hover:border-[#009de0]'
-                            : 'border-white/10 hover:border-white/25'
-                        }`}
-                      >
-                        {/* Top Header: Period & Category Badge */}
-                        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                          <span className="inline-flex items-center gap-1 text-xs font-mono-code text-[#8aceff] font-semibold">
-                            <Calendar className="w-3 h-3 text-[#009de0]" />
-                            <span>{item.period}</span>
-                          </span>
-                          <span className="text-[11px] font-mono-code px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-neutral-400">
-                            {item.company}
-                          </span>
-                        </div>
-
-                        {/* Role Heading */}
-                        <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
-                          {item.role}
-                        </h3>
-
-                        <div className="flex items-center gap-1.5 text-xs text-neutral-400 mb-4">
-                          <MapPin className="w-3.5 h-3.5 text-neutral-500" />
-                          <span>{item.location}</span>
-                        </div>
-
-                        {/* Quantifiable Metrics Strip */}
-                        {item.metrics && item.metrics.length > 0 && (
-                          <div className="grid grid-cols-2 gap-2 mb-4">
-                            {item.metrics.map((metric, idx) => (
-                              <div
-                                key={idx}
-                                className="bg-black/30 rounded-lg p-2 border border-white/5"
-                              >
-                                <span className="block text-sm font-bold text-white font-mono-code">
-                                  {metric.value}
-                                </span>
-                                <span className="block text-[11px] text-neutral-400">
-                                  {metric.label}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-
-                        {/* Description Points */}
-                        <div className="space-y-2 mb-4">
-                          {(isExpanded ? item.description : item.description.slice(0, 2)).map(
-                            (bullet, idx) => (
-                              <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-neutral-300">
-                                <CheckCircle2 className="w-3.5 h-3.5 text-[#009de0] shrink-0 mt-0.5" />
-                                <span className="leading-relaxed">{bullet}</span>
-                              </div>
-                            )
-                          )}
-                        </div>
-
-                        {item.description.length > 2 && (
-                          <button
-                            onClick={() => setExpandedId(isExpanded ? null : item.id)}
-                            className="text-xs text-[#8aceff] hover:text-white flex items-center gap-1 font-mono-code mb-4"
-                          >
-                            <span>{isExpanded ? 'Show less details' : `Show all ${item.description.length} accomplishments`}</span>
-                            {isExpanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
-                          </button>
-                        )}
-
-                        {/* Tags */}
-                        <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/10">
-                          {item.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-2 py-0.5 rounded text-[11px] font-mono-code bg-white/5 text-neutral-300 border border-white/10"
-                            >
-                              #{tag}
-                            </span>
-                          ))}
-                        </div>
-                      </motion.div>
-                    </div>
-
-                    {/* Center Node on 2px axis with Hover Pulse */}
-                    <motion.div
-                      whileHover={{ scale: 1.25, rotate: 10 }}
-                      className="absolute left-4 md:left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-[#121214] border-2 border-[#009de0] flex items-center justify-center shadow-lg shadow-[#009de0]/30 z-20 transition-all cursor-pointer"
-                    >
-                      {getNodeIcon(item.type, item.category)}
-                    </motion.div>
-
-                    {/* Date indicator tag on desktop */}
-                    <div className={`hidden md:block w-[calc(50%-2rem)] text-xs font-mono-code text-neutral-400 ${isEven ? 'text-right pr-6' : 'text-left pl-6'}`}>
-                      <span className="px-3 py-1.5 rounded-full bg-[#1c1c20] border border-white/10 text-neutral-300">
-                        {item.period}
-                      </span>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </AnimatePresence>
           </div>
         </div>
 
+        {/* Timeline Items List */}
+        <div className="space-y-6">
+          {filteredItems.map((item) => {
+            const isExpanded = expandedId === item.id;
+
+            return (
+              <div
+                key={item.id}
+                className="bg-[#fdfdfc] border border-[#e0e0d8] p-6 sm:p-8 hover:border-[#121212] transition-colors"
+              >
+                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 pb-4 mb-4 border-b border-[#e0e0d8]">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                      <div className="w-6 h-6 bg-[#f7f7f0] border border-[#e0e0d8] flex items-center justify-center">
+                        {getNodeIcon(item.type, item.category)}
+                      </div>
+                      <span className="label-mono text-[#888880]">
+                        {item.company}
+                      </span>
+                      <span className="text-[#888880] text-xs">•</span>
+                      <span className="flex items-center gap-1 font-mono-code text-[0.65rem] text-[#888880] uppercase tracking-wider">
+                        <MapPin className="w-3 h-3" />
+                        <span>{item.location}</span>
+                      </span>
+                    </div>
+
+                    <h3 className="font-serif-display italic text-2xl sm:text-3xl font-light text-[#121212]">
+                      {item.role}
+                    </h3>
+                  </div>
+
+                  <div className="font-mono-code text-xs uppercase tracking-wider text-[#121212] bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-1.5 self-start md:self-auto">
+                    {item.period}
+                  </div>
+                </div>
+
+                {/* Metrics strip */}
+                {item.metrics && item.metrics.length > 0 && (
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6 p-3 bg-[#f7f7f0] border border-[#e0e0d8]">
+                    {item.metrics.map((metric, idx) => (
+                      <div key={idx}>
+                        <span className="block font-mono-code text-base font-normal text-[#121212]">
+                          {metric.value}
+                        </span>
+                        <span className="block font-mono-code text-[10px] uppercase tracking-wider text-[#888880]">
+                          {metric.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Description Bullets */}
+                <div className="space-y-2 mb-4">
+                  {(isExpanded ? item.description : item.description.slice(0, 2)).map(
+                    (bullet, idx) => (
+                      <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm font-light text-[#444440] leading-relaxed">
+                        <span className="font-mono-code text-[#888880] select-none mt-0.5">—</span>
+                        <span>{bullet}</span>
+                      </div>
+                    )
+                  )}
+                </div>
+
+                {item.description.length > 2 && (
+                  <button
+                    onClick={() => setExpandedId(isExpanded ? null : item.id)}
+                    className="text-[0.7rem] font-mono-code uppercase tracking-wider text-[#121212] hover:underline flex items-center gap-1 mb-4"
+                  >
+                    <span>{isExpanded ? 'Show less' : `Show all (${item.description.length}) details`}</span>
+                    {isExpanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+                  </button>
+                )}
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-[#e0e0d8]">
+                  {item.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-0.5 text-[0.65rem] font-mono-code uppercase tracking-wider bg-[#f7f7f0] text-[#444440] border border-[#e0e0d8]"
+                    >
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
         {/* Footer Note */}
-        <div className="text-center mt-12 text-xs font-mono-code text-neutral-500 italic">
-          Showing complete professional trajectory. All roles verified with references & project documentation.
+        <div className="text-center mt-12 text-xs font-mono-code text-[#888880] uppercase tracking-wider">
+          Complete professional timeline • verified with references & project documentation
         </div>
       </div>
     </section>
   );
 };
+

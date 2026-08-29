@@ -4,17 +4,17 @@ export const initialArticlesData: ArticleItem[] = [
   {
     id: "art-lotus-domino-dataverse-migration",
     slug: "migrating-361-lotus-domino-applications-to-dataverse",
-    title: "Architecting Enterprise Modernization: Migrating 361 Lotus Domino Applications to Dataverse & Saving RM4.2M/yr",
+    title: "Architecting Enterprise Modernization: Migrating 361 Lotus Domino Applications to Dataverse & Saving MYR 360K/yr",
     date: "Jan 18, 2025",
     readTime: "7 min read",
     category: "architecture",
     featured: true,
     excerpt:
-      "A deep dive into the dual-track architecture used at IOI Corporation: Phase 1 SharePoint Online staging layer to avoid $960K/yr in licensing, followed by Phase 2 Dataverse Target Blueprint with Business Units and C# Plugins.",
+      "A deep dive into the dual-track architecture used at IOI Corporation: Phase 1 SharePoint Online staging layer to avoid MYR 360K/yr in licensing, followed by Phase 2 Dataverse Target Blueprint with Business Units and C# Plugins.",
     tags: ["Dataverse", "Power Apps", "Lotus Domino Migration", "Enterprise Architecture", "C# Plugins", "ALM"],
     author: {
       name: "Ali Akhmad Fauzie",
-      role: "Enterprise Power Platform & Dataverse Architect",
+      role: "Fullstack & Enterprise Solution Architect",
     },
     content: `## The Legacy Domino Modernization Challenge
 
@@ -32,7 +32,7 @@ Rather than an impulsive "big-bang" replatforming, we engineered a deliberate **
 
 ### Phase 1: Rapid Interim Migration via SharePoint Online
 - **Cost Optimization**: Deployed 16 production Power Apps using SharePoint Online strictly as an interim staging store.
-- **License Avoidance**: Avoided **RM4.2M/year ($960K/yr)** in premium connector licensing during the immediate operational cutover.
+- **License Avoidance**: Avoided **MYR 360K/year** in premium connector licensing during the immediate operational cutover.
 - **Immediate User Adoption**: 2,000+ enterprise users transitioned with zero downtime and familiar Microsoft 365 authentication.
 
 ### Phase 2: The Dataverse Target Blueprint
@@ -63,7 +63,7 @@ git add . && git commit -m "feat(security): enforce Field Security Profile on re
 ## Key Results
 1. **361 Legacy Forms Catalogued & Modernized**: Zero data loss across 28+ business units.
 2. **16 Production Power Apps**: Serving daily operations with 98%+ SLA compliance.
-3. **RM4.2M/year License Cost Avoided**: Through strategic staged architecture.
+3. **MYR 360K/year License Cost Avoided**: Through strategic staged architecture.
 4. **Sub-Second Response Times**: Powered by optimized Power Fx delegation-safe queries.
 `
   },

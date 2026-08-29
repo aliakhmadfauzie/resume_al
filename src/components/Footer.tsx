@@ -1,6 +1,6 @@
 import React from 'react';
 import { personalInfo } from '../data/resumeData';
-import { ArrowUp, Heart, Code2, Globe, Sparkles } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 interface FooterProps {
   onNavigateHome?: (sectionId?: string) => void;
@@ -23,41 +23,41 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
   };
 
   return (
-    <footer className="py-12 px-4 sm:px-6 bg-[#0e0e11] border-t border-white/10 text-xs font-mono-code text-neutral-400 no-print">
-      <div className="max-w-[1140px] mx-auto">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-white/5">
+    <footer className="py-16 bg-[#fdfdfc] text-xs font-mono-code text-[#888880] no-print">
+      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 border-x border-[#e0e0d8]">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 border-b border-[#e0e0d8]">
           {/* Copyright & Identity */}
           <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
-            <span className="text-white font-bold">
+            <span className="text-[#121212] font-medium">
               © 2017–2026 {personalInfo.name}
             </span>
-            <span className="hidden sm:inline text-neutral-600">•</span>
-            <span className="text-neutral-400">
+            <span className="hidden sm:inline text-[#e0e0d8]">•</span>
+            <span className="text-[#888880] uppercase tracking-wider text-[0.7rem]">
               Enterprise Solution Architecture & Operations
             </span>
           </div>
 
           {/* Quick Nav Links */}
-          <div className="flex flex-wrap items-center justify-center gap-4 text-neutral-400">
-            <a href="#home" onClick={(e) => handleLinkClick('#home', e)} className="hover:text-white transition-colors">
-              Home
+          <div className="flex flex-wrap items-center justify-center gap-6 uppercase tracking-wider text-[0.7rem]">
+            <a href="#home" onClick={(e) => handleLinkClick('#home', e)} className="text-[#444440] hover:text-[#121212] transition-colors">
+              Index
             </a>
-            <a href="#projects" onClick={(e) => handleLinkClick('#projects', e)} className="hover:text-white transition-colors">
-              Projects
+            <a href="#projects" onClick={(e) => handleLinkClick('#projects', e)} className="text-[#444440] hover:text-[#121212] transition-colors">
+              Works
             </a>
-            <a href="#articles" onClick={(e) => handleLinkClick('#articles', e)} className="hover:text-white transition-colors">
+            <a href="#articles" onClick={(e) => handleLinkClick('#articles', e)} className="text-[#444440] hover:text-[#121212] transition-colors">
               Articles
             </a>
-            <a href="#timeline" onClick={(e) => handleLinkClick('#timeline', e)} className="hover:text-white transition-colors">
-              Timeline
+            <a href="#timeline" onClick={(e) => handleLinkClick('#timeline', e)} className="text-[#444440] hover:text-[#121212] transition-colors">
+              Trajectory
             </a>
-            <a href="#architecture" onClick={(e) => handleLinkClick('#architecture', e)} className="hover:text-white transition-colors">
-              Architecture
+            <a href="#architecture" onClick={(e) => handleLinkClick('#architecture', e)} className="text-[#444440] hover:text-[#121212] transition-colors">
+              DevOps
             </a>
-            <a href="#skills" onClick={(e) => handleLinkClick('#skills', e)} className="hover:text-white transition-colors">
-              Skills
+            <a href="#skills" onClick={(e) => handleLinkClick('#skills', e)} className="text-[#444440] hover:text-[#121212] transition-colors">
+              Stack
             </a>
-            <a href="#contact" onClick={(e) => handleLinkClick('#contact', e)} className="hover:text-white transition-colors">
+            <a href="#contact" onClick={(e) => handleLinkClick('#contact', e)} className="text-[#444440] hover:text-[#121212] transition-colors">
               Contact
             </a>
           </div>
@@ -66,22 +66,23 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
           <button
             onClick={scrollToTop}
             id="back-to-top-btn"
-            className="flex items-center gap-1 text-[#8aceff] hover:text-white hover:underline transition-all"
+            className="flex items-center gap-1.5 text-[#121212] hover:underline uppercase tracking-wider text-[0.7rem] cursor-pointer"
           >
             <span>Top</span>
             <ArrowUp className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-neutral-500">
-          <div className="flex items-center gap-1.5">
-            <span>Built with React 19, TypeScript, Tailwind CSS & WebGL Canvas Shader</span>
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[0.65rem] uppercase tracking-wider text-[#888880]">
+          <div>
+            Built with React 19, TypeScript & Tailwind CSS • Editorial Grid
           </div>
-          <div className="flex items-center gap-2">
-            <span>Kuala Lumpur, Malaysia (MYT UTC+8)</span>
+          <div>
+            Kuala Lumpur, Malaysia (MYT UTC+8)
           </div>
         </div>
       </div>
     </footer>
   );
 };
+

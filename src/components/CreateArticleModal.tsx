@@ -90,25 +90,25 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm overflow-y-auto"
       onClick={onClose}
     >
       <div
-        className="bg-[#18181d] border border-white/20 rounded-2xl w-full max-w-3xl shadow-2xl overflow-hidden relative my-6"
+        className="bg-[#fdfdfc] border border-[#121212] w-full max-w-3xl shadow-2xl overflow-hidden relative my-6"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-6 bg-gradient-to-b from-white/5 to-transparent border-b border-white/10 flex items-center justify-between">
+        <div className="p-6 bg-[#f7f7f0] border-b border-[#e0e0d8] flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#009de0]/20 border border-[#009de0]/30 flex items-center justify-center text-[#8aceff]">
-              <Edit3 className="w-5 h-5" />
+            <div className="w-10 h-10 bg-[#fdfdfc] border border-[#e0e0d8] flex items-center justify-center text-[#121212]">
+              <Edit3 className="w-4 h-4" />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-white tracking-tight">
-                Publish New Article / Post
+              <h2 className="font-serif-display italic text-2xl font-light text-[#121212] tracking-tight">
+                Publish Technical Writing
               </h2>
-              <p className="text-xs font-mono-code text-neutral-400">
-                Share technical insights, architecture patterns, or operational playbooks
+              <p className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880]">
+                Add article, architecture review, or leadership playbook
               </p>
             </div>
           </div>
@@ -116,23 +116,23 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
           <button
             onClick={onClose}
             id="close-create-article-modal-btn"
-            className="p-2 rounded-full bg-white/10 text-neutral-300 hover:text-white hover:bg-white/20 transition-all"
+            className="p-1.5 bg-[#fdfdfc] border border-[#e0e0d8] text-[#121212] hover:bg-[#e0e0d8] transition-colors cursor-pointer"
             aria-label="Close dialog"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Tab Switcher: Write vs Markdown Preview */}
-        <div className="flex items-center justify-between px-6 py-2.5 bg-[#141418] border-b border-white/10">
+        <div className="flex items-center justify-between px-6 py-2.5 bg-[#f7f7f0] border-b border-[#e0e0d8] font-mono-code text-xs">
           <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={() => setActiveTab('write')}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1 uppercase tracking-wider text-[0.7rem] transition-all cursor-pointer ${
                 activeTab === 'write'
-                  ? 'bg-[#009de0] text-white shadow-sm'
-                  : 'text-neutral-400 hover:text-white'
+                  ? 'bg-[#121212] text-[#fdfdfc]'
+                  : 'text-[#444440] hover:text-[#121212]'
               }`}
             >
               <Edit3 className="w-3.5 h-3.5" />
@@ -141,25 +141,25 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
             <button
               type="button"
               onClick={() => setActiveTab('preview')}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1 uppercase tracking-wider text-[0.7rem] transition-all cursor-pointer ${
                 activeTab === 'preview'
-                  ? 'bg-[#009de0] text-white shadow-sm'
-                  : 'text-neutral-400 hover:text-white'
+                  ? 'bg-[#121212] text-[#fdfdfc]'
+                  : 'text-[#444440] hover:text-[#121212]'
               }`}
             >
               <Eye className="w-3.5 h-3.5" />
-              <span>Live Markdown Preview</span>
+              <span>Preview</span>
             </button>
           </div>
-          <span className="text-[11px] font-mono-code text-neutral-400">
-            Supports Markdown formatting
+          <span className="text-[0.65rem] uppercase tracking-wider text-[#888880]">
+            Markdown Supported
           </span>
         </div>
 
         {/* Form or Preview */}
         <form onSubmit={handleSubmit} className="p-6 space-y-4 max-h-[65vh] overflow-y-auto">
           {errorMessage && (
-            <div className="p-3 bg-red-950/40 border border-red-500/30 rounded-xl text-red-300 text-xs flex items-center gap-2">
+            <div className="p-3 bg-[#f7f7f0] border border-[#121212] text-[#121212] font-mono-code text-xs flex items-center gap-2">
               <AlertCircle className="w-4 h-4 shrink-0" />
               <span>{errorMessage}</span>
             </div>
@@ -169,7 +169,7 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
             <>
               {/* Title */}
               <div>
-                <label className="block text-xs font-mono-code uppercase tracking-wider text-neutral-300 mb-1.5">
+                <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
                   Article Title *
                 </label>
                 <input
@@ -182,14 +182,14 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
                     setFormData({ ...formData, title: e.target.value });
                     if (errorMessage) setErrorMessage('');
                   }}
-                  className="w-full bg-[#121215] border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#009de0] placeholder-neutral-500"
+                  className="w-full bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-2 text-xs text-[#121212] focus:outline-none focus:border-[#121212]"
                 />
               </div>
 
               {/* Grid: Category, Date, Author */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
-                  <label className="block text-xs font-mono-code uppercase tracking-wider text-neutral-300 mb-1.5">
+                  <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
                     Category
                   </label>
                   <select
@@ -201,7 +201,7 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
                         category: e.target.value as NewArticleInput['category'],
                       })
                     }
-                    className="w-full bg-[#121215] border border-white/15 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-[#009de0]"
+                    className="w-full bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-2 text-xs text-[#121212] focus:outline-none focus:border-[#121212]"
                   >
                     <option value="powerplatform">Power Platform</option>
                     <option value="architecture">Enterprise Architecture</option>
@@ -212,8 +212,8 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono-code uppercase tracking-wider text-neutral-300 mb-1.5 flex items-center gap-1">
-                    <Calendar className="w-3 h-3 text-[#8aceff]" />
+                  <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5 flex items-center gap-1">
+                    <Calendar className="w-3 h-3 text-[#888880]" />
                     <span>Publish Date</span>
                   </label>
                   <input
@@ -221,12 +221,12 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
                     id="article-date-input"
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full bg-[#121215] border border-white/15 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-[#009de0]"
+                    className="w-full bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-2 text-xs text-[#121212] focus:outline-none focus:border-[#121212]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono-code uppercase tracking-wider text-neutral-300 mb-1.5">
+                  <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
                     Author
                   </label>
                   <input
@@ -236,15 +236,15 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
                     onChange={(e) =>
                       setFormData({ ...formData, authorName: e.target.value })
                     }
-                    className="w-full bg-[#121215] border border-white/15 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-[#009de0]"
+                    className="w-full bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-2 text-xs text-[#121212] focus:outline-none focus:border-[#121212]"
                   />
                 </div>
               </div>
 
               {/* Tags */}
               <div>
-                <label className="block text-xs font-mono-code uppercase tracking-wider text-neutral-300 mb-1.5 flex items-center gap-1">
-                  <Tag className="w-3 h-3 text-[#8aceff]" />
+                <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5 flex items-center gap-1">
+                  <Tag className="w-3 h-3 text-[#888880]" />
                   <span>Tags (Comma-separated)</span>
                 </label>
                 <input
@@ -253,13 +253,13 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
                   placeholder="Power Apps, Dataverse, CI/CD, Architecture"
                   value={formData.tags}
                   onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
-                  className="w-full bg-[#121215] border border-white/15 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-[#009de0] placeholder-neutral-500"
+                  className="w-full bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-2 text-xs text-[#121212] focus:outline-none focus:border-[#121212]"
                 />
               </div>
 
               {/* Excerpt / Summary */}
               <div>
-                <label className="block text-xs font-mono-code uppercase tracking-wider text-neutral-300 mb-1.5">
+                <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
                   Brief Summary / Excerpt *
                 </label>
                 <textarea
@@ -272,70 +272,70 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
                     setFormData({ ...formData, excerpt: e.target.value });
                     if (errorMessage) setErrorMessage('');
                   }}
-                  className="w-full bg-[#121215] border border-white/15 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-[#009de0] placeholder-neutral-500"
+                  className="w-full bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-2 text-xs text-[#121212] focus:outline-none focus:border-[#121212] resize-none"
                 />
               </div>
 
               {/* Content in Markdown */}
               <div>
-                <label className="block text-xs font-mono-code uppercase tracking-wider text-neutral-300 mb-1.5">
+                <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
                   Article Body (Markdown Supported) *
                 </label>
                 <textarea
                   id="article-content-input"
                   required
-                  rows={9}
+                  rows={8}
                   placeholder="Write your article in Markdown... (e.g. ## Heading, *bullet points*, `code` snippets, etc.)"
                   value={formData.content}
                   onChange={(e) => {
                     setFormData({ ...formData, content: e.target.value });
                     if (errorMessage) setErrorMessage('');
                   }}
-                  className="w-full bg-[#121215] border border-white/15 rounded-xl p-4 font-mono-code text-xs text-neutral-200 focus:outline-none focus:border-[#009de0] placeholder-neutral-600 leading-relaxed"
+                  className="w-full bg-[#f7f7f0] border border-[#e0e0d8] p-3 font-mono-code text-xs text-[#121212] focus:outline-none focus:border-[#121212] resize-none"
                 />
               </div>
             </>
           ) : (
             /* Live Markdown Preview */
             <div className="space-y-4 py-2">
-              <div className="border-b border-white/10 pb-4">
-                <span className="text-xs font-mono-code text-[#8aceff] uppercase">
+              <div className="border-b border-[#e0e0d8] pb-4">
+                <span className="label-mono bg-[#121212] text-[#fdfdfc] px-2 py-0.5">
                   {formData.category}
                 </span>
-                <h1 className="text-2xl font-bold text-white mt-1">
+                <h1 className="font-serif-display italic text-2xl font-light text-[#121212] mt-2">
                   {formData.title || 'Untitled Article'}
                 </h1>
-                <p className="text-xs text-neutral-400 mt-1">
+                <p className="text-xs font-mono-code text-[#888880] mt-1">
                   {formData.date} • {calculateReadTime(formData.content || '')} • By{' '}
                   {formData.authorName}
                 </p>
               </div>
 
-              <div className="prose prose-invert max-w-none text-neutral-300 text-sm leading-relaxed space-y-4">
+              <div className="prose prose-neutral max-w-none text-[#444440] text-xs font-light leading-relaxed space-y-3">
                 {formData.content ? (
                   <ReactMarkdown>{formData.content}</ReactMarkdown>
                 ) : (
-                  <p className="text-neutral-500 italic">No content typed yet.</p>
+                  <p className="text-[#888880] italic">No content typed yet.</p>
                 )}
               </div>
             </div>
           )}
 
           {/* Form Actions */}
-          <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+          <div className="pt-4 border-t border-[#e0e0d8] flex items-center justify-between font-mono-code text-xs">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-semibold transition-colors"
+              className="px-4 py-2 bg-[#f7f7f0] hover:bg-[#e0e0d8] text-[#121212] border border-[#e0e0d8] uppercase tracking-wider transition-colors cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="submit"
               id="publish-article-submit-btn"
-              className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#009de0] hover:bg-[#0087c2] text-white text-xs font-semibold shadow-md shadow-[#009de0]/25 transition-all"
+              className="flex items-center gap-1.5 px-5 py-2 bg-[#121212] hover:bg-[#222222] text-[#fdfdfc] uppercase tracking-wider transition-colors cursor-pointer"
             >
-              <Plus className="w-4 h-4" />
+              <Plus className="w-3.5 h-3.5" />
               <span>Publish Article</span>
             </button>
           </div>

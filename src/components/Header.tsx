@@ -4,15 +4,11 @@ import { ProfileMode } from '../types';
 import {
   FileText,
   Mail,
-  Layers,
   Menu,
   X,
   Compass,
   Cpu,
   Users,
-  CheckCircle2,
-  Workflow,
-  Sparkles,
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -42,13 +38,12 @@ export const Header: React.FC<HeaderProps> = ({
   }, []);
 
   const navLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Articles', href: '#articles' },
+    { label: 'Work', href: '#projects' },
+    { label: 'Insight', href: '#articles' },
     { label: 'Timeline', href: '#timeline' },
     { label: 'Architecture', href: '#architecture' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Certifications', href: '#certifications' },
+    { label: 'Testimonials', href: '#testimonials' },
+    { label: 'Systems', href: '#skills' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -62,110 +57,111 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header
       id="main-header"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 no-print ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 no-print border-b border-[#e0e0d8] ${
         isScrolled
-          ? 'bg-[#121214]/90 backdrop-blur-md border-b border-white/10 shadow-2xl py-3.5'
-          : 'bg-transparent py-5'
+          ? 'bg-[#fdfdfc]/95 backdrop-blur-md py-3 shadow-[0_2px_12px_rgba(0,0,0,0.03)]'
+          : 'bg-[#fdfdfc]/90 backdrop-blur-sm py-4'
       }`}
     >
-      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 flex items-center justify-between">
-        {/* Brand Logo */}
+      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 flex items-center justify-between">
+        {/* Brand Logo / Monogram */}
         <a
           href="#home"
           id="logo-brand-link"
           onClick={(e) => handleLinkClick('#home', e)}
           className="flex items-center gap-3 group focus:outline-none"
         >
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#009de0] to-[#005580] flex items-center justify-center font-bold text-white text-sm shadow-md shadow-[#009de0]/20 group-hover:scale-105 transition-transform">
-            {personalInfo.initials}
-          </div>
-          <div className="flex flex-col">
-            <span className="font-bold text-base tracking-tight text-white group-hover:text-[#8aceff] transition-colors">
-              {personalInfo.name}
-            </span>
-            <span className="text-[11px] font-mono-code text-neutral-400">
-              Kuala Lumpur • MYT (UTC+8)
-            </span>
-          </div>
+          <span className="font-mono-code font-bold text-xs uppercase tracking-[0.2em] text-[#121212] group-hover:text-[#888880] transition-colors">
+            Ali Fauzie
+          </span>
+          <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-[#121212]" />
+          <span className="hidden sm:inline-block font-mono-code text-[0.65rem] uppercase tracking-[0.15em] text-[#888880]">
+            Solution Arch
+          </span>
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-5 text-sm font-medium text-neutral-300">
+        <nav className="hidden md:flex items-center gap-8 text-[0.75rem] font-mono-code uppercase tracking-[0.12em] text-[#121212]">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={(e) => handleLinkClick(link.href, e)}
-              className="hover:text-white transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-[#009de0] after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-200"
+              className="text-[#121212] hover:text-[#888880] transition-colors py-1 relative hover:after:w-full after:w-0 after:h-[1px] after:bg-[#121212] after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-200"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        {/* Action Controls */}
-        <div className="hidden lg:flex items-center gap-3">
-          {/* Quick Perspective Filter */}
-          <div className="flex items-center bg-[#1c1c20] p-1 rounded-lg border border-white/10 text-xs">
+        {/* Action Controls & Location Stamp */}
+        <div className="hidden lg:flex items-center gap-4">
+          {/* Perspective Switcher */}
+          <div className="flex items-center bg-[#f7f7f0] p-0.5 rounded-full border border-[#e0e0d8] text-[0.65rem] font-mono-code uppercase tracking-[0.1em]">
             <button
               id="mode-hybrid-btn"
               onClick={() => onSelectMode('hybrid')}
-              className={`px-2.5 py-1 rounded transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1 rounded-full transition-all flex items-center gap-1 ${
                 currentMode === 'hybrid'
-                  ? 'bg-[#009de0] text-white font-medium shadow-sm'
-                  : 'text-neutral-400 hover:text-white'
+                  ? 'bg-[#121212] text-[#fdfdfc] font-medium'
+                  : 'text-[#888880] hover:text-[#121212]'
               }`}
               title="All-around hybrid profile"
             >
-              <Compass className="w-3 h-3" />
+              <Compass className="w-2.5 h-2.5" />
               <span>Full</span>
             </button>
             <button
               id="mode-architect-btn"
               onClick={() => onSelectMode('architect')}
-              className={`px-2.5 py-1 rounded transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1 rounded-full transition-all flex items-center gap-1 ${
                 currentMode === 'architect'
-                  ? 'bg-[#009de0] text-white font-medium shadow-sm'
-                  : 'text-neutral-400 hover:text-white'
+                  ? 'bg-[#121212] text-[#fdfdfc] font-medium'
+                  : 'text-[#888880] hover:text-[#121212]'
               }`}
               title="Filter by Enterprise Architecture & Power Platform"
             >
-              <Cpu className="w-3 h-3" />
-              <span>Architect</span>
+              <Cpu className="w-2.5 h-2.5" />
+              <span>Arch</span>
             </button>
             <button
               id="mode-ops-btn"
               onClick={() => onSelectMode('operations')}
-              className={`px-2.5 py-1 rounded transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1 rounded-full transition-all flex items-center gap-1 ${
                 currentMode === 'operations'
-                  ? 'bg-[#009de0] text-white font-medium shadow-sm'
-                  : 'text-neutral-400 hover:text-white'
+                  ? 'bg-[#121212] text-[#fdfdfc] font-medium'
+                  : 'text-[#888880] hover:text-[#121212]'
               }`}
               title="Filter by Operations Leadership & Customer Delivery"
             >
-              <Users className="w-3 h-3" />
+              <Users className="w-2.5 h-2.5" />
               <span>Ops</span>
             </button>
+          </div>
+
+          {/* Location Badge */}
+          <div className="font-mono-code text-[0.65rem] uppercase tracking-[0.2em] text-[#888880] px-2 py-1">
+            Kuala Lumpur, MY
           </div>
 
           {/* CV Button */}
           <button
             id="view-cv-nav-btn"
             onClick={onOpenResumeModal}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-white/10 hover:bg-white/15 border border-white/15 rounded-lg transition-all"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 font-mono-code text-[0.7rem] uppercase tracking-[0.1em] text-[#121212] bg-[#f7f7f0] hover:bg-[#ebebe2] border border-[#e0e0d8] rounded transition-all"
           >
-            <FileText className="w-3.5 h-3.5 text-[#8aceff]" />
-            <span>Interactive CV</span>
+            <FileText className="w-3 h-3 text-[#121212]" />
+            <span>CV</span>
           </button>
 
           {/* Contact CTA */}
           <button
             id="nav-contact-btn"
             onClick={onOpenContactModal}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-[#009de0] hover:bg-[#0087c2] rounded-lg shadow-md shadow-[#009de0]/25 transition-all"
+            className="flex items-center gap-1.5 px-4 py-1.5 font-mono-code text-[0.7rem] uppercase tracking-[0.15em] text-[#fdfdfc] bg-[#121212] hover:bg-[#333333] transition-all"
           >
-            <Mail className="w-3.5 h-3.5" />
-            <span>Get in Touch</span>
+            <Mail className="w-3 h-3" />
+            <span>Transmit</span>
           </button>
         </div>
 
@@ -174,73 +170,73 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             id="mobile-cv-quick-btn"
             onClick={onOpenResumeModal}
-            className="p-2 rounded-lg bg-white/10 text-white border border-white/15 text-xs flex items-center gap-1"
+            className="p-1.5 rounded bg-[#f7f7f0] text-[#121212] border border-[#e0e0d8] text-xs flex items-center gap-1 font-mono-code"
           >
-            <FileText className="w-4 h-4 text-[#8aceff]" />
-            <span className="text-[11px] font-medium">CV</span>
+            <FileText className="w-3.5 h-3.5" />
+            <span className="text-[10px] font-medium">CV</span>
           </button>
           <button
             id="mobile-menu-toggle-btn"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg bg-white/5 text-neutral-300 hover:text-white border border-white/10"
+            className="p-2 rounded bg-[#f7f7f0] text-[#121212] border border-[#e0e0d8]"
             aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#161619] border-b border-white/10 px-4 py-5 space-y-4 animate-in slide-in-from-top duration-200">
-          <div className="space-y-1">
-            <span className="text-[11px] uppercase tracking-wider text-neutral-400 font-mono-code">
-              Filter Experience View
+        <div className="md:hidden bg-[#fdfdfc] border-b border-[#e0e0d8] px-6 py-6 space-y-5 animate-in slide-in-from-top duration-200">
+          <div className="space-y-2">
+            <span className="label-mono">
+              Profile Perspective
             </span>
-            <div className="grid grid-cols-3 gap-1.5 pt-1">
+            <div className="grid grid-cols-3 gap-2 pt-1 font-mono-code text-xs">
               <button
                 onClick={() => {
                   onSelectMode('hybrid');
                   setMobileMenuOpen(false);
                 }}
-                className={`py-2 text-xs rounded text-center border ${
+                className={`py-2 text-[0.7rem] uppercase tracking-wider rounded text-center border ${
                   currentMode === 'hybrid'
-                    ? 'bg-[#009de0] text-white border-[#009de0]'
-                    : 'bg-white/5 text-neutral-300 border-white/10'
+                    ? 'bg-[#121212] text-[#fdfdfc] border-[#121212]'
+                    : 'bg-[#f7f7f0] text-[#121212] border-[#e0e0d8]'
                 }`}
               >
-                Full Profile
+                Full
               </button>
               <button
                 onClick={() => {
                   onSelectMode('architect');
                   setMobileMenuOpen(false);
                 }}
-                className={`py-2 text-xs rounded text-center border ${
+                className={`py-2 text-[0.7rem] uppercase tracking-wider rounded text-center border ${
                   currentMode === 'architect'
-                    ? 'bg-[#009de0] text-white border-[#009de0]'
-                    : 'bg-white/5 text-neutral-300 border-white/10'
+                    ? 'bg-[#121212] text-[#fdfdfc] border-[#121212]'
+                    : 'bg-[#f7f7f0] text-[#121212] border-[#e0e0d8]'
                 }`}
               >
-                Architect
+                Arch
               </button>
               <button
                 onClick={() => {
                   onSelectMode('operations');
                   setMobileMenuOpen(false);
                 }}
-                className={`py-2 text-xs rounded text-center border ${
+                className={`py-2 text-[0.7rem] uppercase tracking-wider rounded text-center border ${
                   currentMode === 'operations'
-                    ? 'bg-[#009de0] text-white border-[#009de0]'
-                    : 'bg-white/5 text-neutral-300 border-white/10'
+                    ? 'bg-[#121212] text-[#fdfdfc] border-[#121212]'
+                    : 'bg-[#f7f7f0] text-[#121212] border-[#e0e0d8]'
                 }`}
               >
-                Operations
+                Ops
               </button>
             </div>
           </div>
 
-          <div className="border-t border-white/10 pt-3 space-y-2">
+          <div className="border-t border-[#e0e0d8] pt-4 space-y-3 font-mono-code text-[0.75rem] uppercase tracking-[0.15em]">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -249,7 +245,7 @@ export const Header: React.FC<HeaderProps> = ({
                   handleLinkClick(link.href, e);
                   setMobileMenuOpen(false);
                 }}
-                className="block py-2 text-sm text-neutral-300 hover:text-[#8aceff]"
+                className="block py-1 text-[#121212] hover:text-[#888880]"
               >
                 {link.label}
               </a>
@@ -262,20 +258,20 @@ export const Header: React.FC<HeaderProps> = ({
                 onOpenResumeModal();
                 setMobileMenuOpen(false);
               }}
-              className="w-full py-2.5 text-xs font-semibold text-center bg-white/10 border border-white/15 text-white rounded-lg flex items-center justify-center gap-2"
+              className="w-full py-2.5 font-mono-code text-xs uppercase tracking-[0.15em] text-center bg-[#f7f7f0] border border-[#e0e0d8] text-[#121212] flex items-center justify-center gap-2"
             >
-              <FileText className="w-4 h-4 text-[#8aceff]" />
-              <span>Open ATS & Executive CV</span>
+              <FileText className="w-3.5 h-3.5" />
+              <span>Executive CV</span>
             </button>
             <button
               onClick={() => {
                 onOpenContactModal();
                 setMobileMenuOpen(false);
               }}
-              className="w-full py-2.5 text-xs font-semibold text-center bg-[#009de0] text-white rounded-lg flex items-center justify-center gap-2 shadow-md shadow-[#009de0]/20"
+              className="w-full py-2.5 font-mono-code text-xs uppercase tracking-[0.15em] text-center bg-[#121212] text-[#fdfdfc] flex items-center justify-center gap-2"
             >
-              <Mail className="w-4 h-4" />
-              <span>Contact Ali Directly</span>
+              <Mail className="w-3.5 h-3.5" />
+              <span>Send Transmission</span>
             </button>
           </div>
         </div>
@@ -283,3 +279,4 @@ export const Header: React.FC<HeaderProps> = ({
     </header>
   );
 };
+

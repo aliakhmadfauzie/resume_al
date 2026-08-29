@@ -115,60 +115,60 @@ END:VCARD`;
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/85 backdrop-blur-md overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/60 backdrop-blur-sm overflow-y-auto"
       onClick={onClose}
     >
       <div
-        className="bg-[#121215] border border-white/20 rounded-2xl w-full max-w-4xl shadow-2xl overflow-hidden my-6 relative flex flex-col max-h-[92vh]"
+        className="bg-[#fdfdfc] border border-[#121212] w-full max-w-4xl shadow-2xl overflow-hidden my-6 relative flex flex-col max-h-[92vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Controls Header */}
-        <div className="p-4 sm:p-5 bg-[#1a1a20] border-b border-white/10 flex flex-wrap items-center justify-between gap-3 no-print">
+        <div className="p-4 sm:p-5 bg-[#f7f7f0] border-b border-[#e0e0d8] flex flex-wrap items-center justify-between gap-3 no-print font-mono-code text-xs">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-[#009de0]/20 text-[#8aceff]">
-              <FileText className="w-5 h-5" />
+            <div className="p-2 bg-[#fdfdfc] border border-[#e0e0d8] text-[#121212]">
+              <FileText className="w-4 h-4" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-white leading-tight">
-                Executive & ATS Resume Viewer
+              <h2 className="font-serif-display italic text-lg font-light text-[#121212] leading-tight">
+                Curriculum Vitae & Verified Credentials
               </h2>
-              <p className="text-xs text-neutral-400 font-mono-code">
-                Print-ready format • Verified credentials
+              <p className="text-[0.65rem] text-[#888880] uppercase tracking-wider">
+                Print-ready document • Formatted for ATS & Executive Review
               </p>
             </div>
           </div>
 
           {/* Profile Focus Filter Pills */}
-          <div className="flex items-center bg-black/40 p-1 rounded-lg border border-white/10 text-xs">
+          <div className="flex items-center bg-[#fdfdfc] p-1 border border-[#e0e0d8] text-xs">
             <button
               onClick={() => setSelectedFocus('hybrid')}
-              className={`px-3 py-1 rounded transition-all ${
+              className={`px-3 py-1 transition-all text-[0.7rem] uppercase tracking-wider ${
                 selectedFocus === 'hybrid'
-                  ? 'bg-[#009de0] text-white font-medium'
-                  : 'text-neutral-400 hover:text-white'
+                  ? 'bg-[#121212] text-[#fdfdfc] font-medium'
+                  : 'text-[#444440] hover:text-[#121212]'
               }`}
             >
-              Complete CV
+              Complete
             </button>
             <button
               onClick={() => setSelectedFocus('architect')}
-              className={`px-3 py-1 rounded transition-all ${
+              className={`px-3 py-1 transition-all text-[0.7rem] uppercase tracking-wider ${
                 selectedFocus === 'architect'
-                  ? 'bg-[#009de0] text-white font-medium'
-                  : 'text-neutral-400 hover:text-white'
+                  ? 'bg-[#121212] text-[#fdfdfc] font-medium'
+                  : 'text-[#444440] hover:text-[#121212]'
               }`}
             >
-              Architect Focus
+              Architect
             </button>
             <button
               onClick={() => setSelectedFocus('operations')}
-              className={`px-3 py-1 rounded transition-all ${
+              className={`px-3 py-1 transition-all text-[0.7rem] uppercase tracking-wider ${
                 selectedFocus === 'operations'
-                  ? 'bg-[#009de0] text-white font-medium'
-                  : 'text-neutral-400 hover:text-white'
+                  ? 'bg-[#121212] text-[#fdfdfc] font-medium'
+                  : 'text-[#444440] hover:text-[#121212]'
               }`}
             >
-              Ops Focus
+              Operations
             </button>
           </div>
 
@@ -177,7 +177,7 @@ END:VCARD`;
             <button
               onClick={handlePrint}
               id="cv-print-btn"
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-[#009de0] hover:bg-[#0087c2] text-white rounded-lg transition-all shadow-md shadow-[#009de0]/20"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs bg-[#121212] hover:bg-[#222222] text-[#fdfdfc] uppercase tracking-wider transition-colors cursor-pointer"
               title="Print directly or save as PDF"
             >
               <Printer className="w-3.5 h-3.5" />
@@ -187,42 +187,42 @@ END:VCARD`;
             <button
               onClick={handleCopyPlainText}
               id="cv-copy-plain-btn"
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-white/10 hover:bg-white/15 text-white rounded-lg border border-white/10 transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs bg-[#fdfdfc] hover:bg-[#e0e0d8] text-[#121212] border border-[#e0e0d8] uppercase tracking-wider transition-colors cursor-pointer"
               title="Copy plain-text version"
             >
               {copiedText ? (
-                <Check className="w-3.5 h-3.5 text-emerald-400" />
+                <Check className="w-3.5 h-3.5 text-[#121212]" />
               ) : (
-                <Copy className="w-3.5 h-3.5 text-neutral-300" />
+                <Copy className="w-3.5 h-3.5 text-[#888880]" />
               )}
-              <span>{copiedText ? 'Copied!' : 'Copy Text'}</span>
+              <span>{copiedText ? 'Copied' : 'Copy'}</span>
             </button>
 
             <button
               onClick={handleDownloadVCard}
               id="cv-vcard-btn"
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-white/10 hover:bg-white/15 text-white rounded-lg border border-white/10 transition-all"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs bg-[#fdfdfc] hover:bg-[#e0e0d8] text-[#121212] border border-[#e0e0d8] uppercase tracking-wider transition-colors cursor-pointer"
               title="Download Contact vCard"
             >
-              <Download className="w-3.5 h-3.5 text-[#8aceff]" />
+              <Download className="w-3.5 h-3.5 text-[#121212]" />
               <span>.vcf</span>
             </button>
 
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-neutral-400 hover:text-white transition-all ml-1"
+              className="p-1.5 bg-[#fdfdfc] border border-[#e0e0d8] text-[#121212] hover:bg-[#e0e0d8] transition-colors ml-1 cursor-pointer"
               aria-label="Close modal"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
           </div>
         </div>
 
         {/* Printable Resume Canvas / Paper Simulation */}
-        <div className="overflow-y-auto p-4 sm:p-8 bg-[#0e0e11]">
+        <div className="overflow-y-auto p-4 sm:p-8 bg-[#ecece4]">
           <div
             id="printable-resume"
-            className="print-page max-w-[800px] mx-auto bg-white text-[#111827] rounded-xl p-8 sm:p-12 shadow-2xl font-sans"
+            className="print-page max-w-[800px] mx-auto bg-white text-[#111827] p-8 sm:p-12 shadow-xl font-sans"
             style={{ minHeight: '1000px' }}
           >
             {/* Resume Header */}
@@ -238,7 +238,7 @@ END:VCARD`;
                   : personalInfo.titles.hybrid}
               </p>
 
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-neutral-700 font-mono-code">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-neutral-700 font-mono-code mb-2">
                 <span>{personalInfo.location}</span>
                 <span>•</span>
                 <span>{personalInfo.phoneMY}</span>
@@ -246,6 +246,22 @@ END:VCARD`;
                 <span className="font-semibold text-neutral-900">{personalInfo.email}</span>
                 <span>•</span>
                 <span>{personalInfo.linkedinHandle}</span>
+              </div>
+
+              {/* Developer Ecosystem Badges */}
+              <div className="flex flex-wrap items-center gap-2 pt-1">
+                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-blue-50 border border-blue-200 text-blue-800 text-[11px] font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#4285F4]" />
+                  Google Developer (Android & Cloud)
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-teal-50 border border-teal-200 text-teal-800 text-[11px] font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00D6B9]" />
+                  Lark Developer (Certified • Open Platform)
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-sky-50 border border-sky-200 text-sky-800 text-[11px] font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00A4EF]" />
+                  Microsoft Developer (Power Platform & ALM)
+                </span>
               </div>
             </div>
 
@@ -256,10 +272,10 @@ END:VCARD`;
               </h2>
               <p className="text-xs sm:text-sm text-neutral-800 leading-relaxed">
                 {selectedFocus === 'architect'
-                  ? "Power Platform Developer and Enterprise Architect with 4+ years of hands-on experience designing, developing, and deploying enterprise-grade low-code/pro-code hybrid solutions. Proven track record of modernizing legacy infrastructures (migrating 365+ Lotus Domino legacy databases to Microsoft 365, SharePoint Online, and Dataverse) and delivering 16+ production Power Apps. Expert in leveraging Power Apps Canvas/Model-driven apps, Advanced Power Automate cloud workflows, Dataverse modeling, and AI Builder integrations to eliminate manual reporting by 90% and streamline complex business operations."
+                  ? "Fullstack Engineer, Mobile App Developer (Android/iOS), and Enterprise Power Platform Architect with 9+ years of hands-on experience designing, developing, and deploying enterprise-grade native mobile, web, and low-code/pro-code hybrid solutions. Proven track record of modernizing legacy infrastructures (migrating 361 Lotus Domino legacy databases to Microsoft 365, SharePoint Online, and Dataverse) and delivering 16+ production apps. Expert in React Native, Flutter, Swift, Kotlin, TypeScript, React 19, Dataverse modeling, C# Plugins, and AI Builder integrations to eliminate manual reporting and streamline complex business operations while avoiding MYR 360K/yr in licensing costs."
                   : selectedFocus === 'operations'
-                  ? "Results-driven Customer Service Manager and Operations Leader with over 8 years of progressive experience leading high-performing, multilingual service delivery teams across global markets. Proven track record of managing end-to-end operations (up to 34 direct reports), driving customer satisfaction, and consistently exceeding strict SLA benchmarks (>98% compliance). Adept at leveraging process automation, real-time analytics, and workforce efficiency frameworks to streamline customer support workflows, reduce handle times, and elevate overall customer experience."
-                  : "Power Platform Developer, Solution Architect, and Operations Leader with 8+ years of blended technical and leadership excellence. Experienced in migrating 365+ legacy databases to Microsoft 365/Dataverse, delivering 16+ production Power Apps, and scaling multilingual service operations teams from 9 to 34 agents across 7 international markets with >98% SLA compliance and Six Sigma Green Belt precision."}
+                  ? "Results-driven Operations Leader and Service Delivery Manager with over 8 years of progressive experience leading high-performing, multilingual service delivery teams across global markets. Proven track record of managing end-to-end operations (up to 34 direct reports), driving customer satisfaction, and consistently exceeding strict SLA benchmarks (>98% compliance). Adept at leveraging process automation, real-time analytics, and workforce efficiency frameworks to streamline customer support workflows, reduce handle times, and elevate overall customer experience."
+                  : "Fullstack Engineer, Mobile App Developer (Android & iOS), Solution Architect, and Operations Leader with 9+ years of blended technical and leadership excellence. Experienced in building cross-platform & native mobile apps, modern fullstack web platforms, migrating 361 legacy databases to modern Microsoft 365/Dataverse architectures (saving MYR 360K/yr in licensing), and scaling multilingual service operations teams from 9 to 34 agents across 7 international markets with >98% SLA compliance and Six Sigma Green Belt precision."}
               </p>
             </div>
 
@@ -270,16 +286,16 @@ END:VCARD`;
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-xs text-neutral-800">
                 <div>
-                  <span className="font-bold text-neutral-900">Power Platform Stack:</span>{' '}
-                  Power Apps (Canvas & Model-Driven, PCF), Power Automate (Cloud & Desktop Flows), Power BI, Dataverse Data Modeling, SharePoint Online, Microsoft 365.
+                  <span className="font-bold text-neutral-900">Mobile & Fullstack Stack:</span>{' '}
+                  Android (Kotlin/Java), iOS (Swift), React Native & Expo, Flutter, TypeScript, React 19, Next.js, Node.js, Express, REST & GraphQL APIs.
                 </div>
                 <div>
-                  <span className="font-bold text-neutral-900">Pro-Code & Developer Stack:</span>{' '}
-                  TypeScript, React 19, Vite, Power Fx, JavaScript, REST APIs, Custom Connectors, PAC CLI, PnP PowerShell, Git CI/CD.
+                  <span className="font-bold text-neutral-900">Power Platform & Dataverse:</span>{' '}
+                  Power Apps (Canvas & Model-Driven, PCF), Dataverse Modeling, Power Automate (Cloud & Desktop Flows), C# Plugins, Power BI, SharePoint Online.
                 </div>
                 <div>
                   <span className="font-bold text-neutral-900">AI & Intelligent Automation:</span>{' '}
-                  AI Builder, Copilot Studio, Azure OpenAI Integration, LLM Prompt Engineering, Lark Automation.
+                  AI Builder, Copilot Studio, Azure OpenAI Integration, LLM Prompt Engineering, Lark Automation & Bots.
                 </div>
                 <div>
                   <span className="font-bold text-neutral-900">Leadership & Operations:</span>{' '}

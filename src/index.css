@@ -2,40 +2,75 @@
 
 @layer base {
   :root {
-    --font-sans: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --bg: #fdfdfc;
+    --ink: #121212;
+    --ink-muted: #888880;
+    --line: #e0e0d8;
+    --surface-warm: #f7f7f0;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
   body {
     font-family: var(--font-sans);
-    background-color: #121214;
-    color: #e5e2e1;
+    background-color: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-sans);
-    letter-spacing: -0.02em;
+    font-family: var(--font-serif);
+    color: var(--ink);
+    font-weight: 300;
+  }
+
+  .font-serif-display {
+    font-family: var(--font-serif);
   }
 
   .font-mono-code {
     font-family: var(--font-mono);
   }
+
+  .font-sans-body {
+    font-family: var(--font-sans);
+  }
+
+  .label-mono {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--ink-muted);
+  }
+}
+
+::selection {
+  background: #dcdccb;
+  color: #121212;
+}
+
+/* Editorial Dot Grid Texture */
+.dot-grid-pattern {
+  background-image: radial-gradient(var(--line) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #121214;
+  background: #fdfdfc;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
-  border-radius: 4px;
+  background: #d4d4cc;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #a8a89f;
 }
 
 /* Print styling for clean physical / PDF resume export */
@@ -61,3 +96,4 @@
     width: 100% !important;
   }
 }
+

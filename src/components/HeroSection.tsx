@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { personalInfo } from '../data/resumeData';
 import { ProfileMode } from '../types';
 import { motion } from 'motion/react';
@@ -9,16 +9,17 @@ import {
   MessageSquare,
   Globe,
   Award,
-  Key,
   Download,
   ArrowDown,
   Cpu,
   Users,
   Compass,
   Check,
-  MapPin,
-  ExternalLink,
+  Camera,
   Sparkles,
+  ArrowRight,
+  Send,
+  ExternalLink,
 } from 'lucide-react';
 
 interface HeroSectionProps {
@@ -35,6 +36,33 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onOpenContactModal,
 }) => {
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [profilePhoto, setProfilePhoto] = useState<string>(personalInfo.avatarUrl || '');
+  const [imageLoadError, setImageLoadError] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('user_profile_photo');
+    if (saved) {
+      setProfilePhoto(saved);
+      setImageLoadError(false);
+    }
+  }, []);
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (uploadEvent) => {
+        const result = uploadEvent.target?.result as string;
+        if (result) {
+          setProfilePhoto(result);
+          setImageLoadError(false);
+          localStorage.setItem('user_profile_photo', result);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const handleCopyEmail = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -55,277 +83,323 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   };
 
   return (
-    <section id="home" className="relative pt-32 pb-16 px-4 sm:px-6 overflow-hidden">
-      <div className="max-w-[880px] mx-auto text-center relative z-10">
-        {/* Profile Avatar Card with Subtle Float Animation */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9, y: 15 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="relative inline-block mb-6 group"
-        >
-          <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl p-1 bg-gradient-to-b from-white/20 to-white/5 border border-white/20 shadow-2xl overflow-hidden mx-auto transition-transform duration-300 group-hover:scale-105 group-hover:shadow-[#009de0]/25 group-hover:shadow-xl">
-            {/* Photo / representation */}
-            <div className="w-full h-full rounded-xl bg-[#1c1c22] overflow-hidden relative flex items-center justify-center">
-              <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
-                alt="Ali Akhmad Fauzie"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-105"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#121214] via-transparent to-transparent opacity-40" />
-            </div>
-          </div>
-
-          {/* Status Badge with Live Pulse */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#182a20] border border-emerald-500/30 text-emerald-400 text-[11px] font-mono-code shadow-lg -mt-3 relative z-10">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Open for Architecture & Leadership</span>
-          </div>
-        </motion.div>
-
-        {/* Primary Name Display */}
-        <motion.h1
-          id="hero-name-heading"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-3"
-        >
-          {personalInfo.name}
-        </motion.h1>
-
-        {/* Subtitle & Role Tagline */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
-          className="min-h-[36px] flex items-center justify-center mb-6"
-        >
-          <p className="text-lg sm:text-xl font-medium text-[#8aceff] tracking-tight">
-            {getActiveTitle()}
-          </p>
-        </motion.div>
-
-        {/* Perspective Mode Switcher Pills */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4, delay: 0.25, ease: 'easeOut' }}
-          className="inline-flex items-center justify-center bg-[#1c1c22]/90 border border-white/10 rounded-full p-1.5 mb-8 backdrop-blur-sm shadow-xl"
-        >
-          <button
-            id="hero-tab-hybrid"
-            onClick={() => onSelectMode('hybrid')}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs transition-all ${
-              currentMode === 'hybrid'
-                ? 'bg-[#009de0] text-white font-semibold shadow-md shadow-[#009de0]/25'
-                : 'text-neutral-400 hover:text-white'
-            }`}
-          >
-            <Compass className="w-3.5 h-3.5" />
-            <span>Complete Profile</span>
-          </button>
-          <button
-            id="hero-tab-architect"
-            onClick={() => onSelectMode('architect')}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs transition-all ${
-              currentMode === 'architect'
-                ? 'bg-[#009de0] text-white font-semibold shadow-md shadow-[#009de0]/25'
-                : 'text-neutral-400 hover:text-white'
-            }`}
-          >
-            <Cpu className="w-3.5 h-3.5" />
-            <span>Power Platform & Arch</span>
-          </button>
-          <button
-            id="hero-tab-ops"
-            onClick={() => onSelectMode('operations')}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs transition-all ${
-              currentMode === 'operations'
-                ? 'bg-[#009de0] text-white font-semibold shadow-md shadow-[#009de0]/25'
-                : 'text-neutral-400 hover:text-white'
-            }`}
-          >
-            <Users className="w-3.5 h-3.5" />
-            <span>Operations & Leadership</span>
-          </button>
-        </motion.div>
-
-        {/* Social / Contact Icons Row */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
-          className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs text-neutral-300 mb-10"
-        >
-          <a
-            href={personalInfo.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            id="social-linkedin"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#009de0]/50 transition-all hover:text-white hover:-translate-y-0.5"
-          >
-            <Linkedin className="w-3.5 h-3.5 text-[#0077b5]" />
-            <span>LinkedIn</span>
-          </a>
-
-          <button
-            onClick={handleCopyEmail}
-            id="social-email-copy"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#009de0]/50 transition-all hover:text-white hover:-translate-y-0.5"
-            title="Click to copy email address"
-          >
-            {copiedEmail ? (
-              <Check className="w-3.5 h-3.5 text-emerald-400" />
-            ) : (
-              <Mail className="w-3.5 h-3.5 text-[#8aceff]" />
-            )}
-            <span>{copiedEmail ? 'Email Copied!' : 'Email'}</span>
-          </button>
-
-          <a
-            href={personalInfo.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            id="social-whatsapp"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-500/50 transition-all hover:text-white hover:-translate-y-0.5"
-          >
-            <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
-            <span>WhatsApp</span>
-          </a>
-
-          <a
-            href={`tel:${personalInfo.phoneMY.replace(/\s+/g, '')}`}
-            id="social-phone"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#009de0]/50 transition-all hover:text-white hover:-translate-y-0.5"
-          >
-            <Phone className="w-3.5 h-3.5 text-neutral-400" />
-            <span>{personalInfo.phoneMY}</span>
-          </a>
-
-          <a
-            href={personalInfo.portfolioUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            id="social-portfolio"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#009de0]/50 transition-all hover:text-white hover:-translate-y-0.5"
-          >
-            <Globe className="w-3.5 h-3.5 text-[#8aceff]" />
-            <span>Live Portfolio</span>
-          </a>
-
-          <a
-            href="#certifications"
-            id="social-six-sigma"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-500/50 transition-all hover:text-white hover:-translate-y-0.5"
-          >
-            <Award className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Six Sigma Green Belt</span>
-          </a>
-
-          <span
-            id="social-gpg"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-neutral-400 font-mono-code text-[11px]"
-            title="Public Key"
-          >
-            <Key className="w-3 h-3 text-neutral-500" />
-            <span>GPG: {personalInfo.gpgKey}</span>
-          </span>
-        </motion.div>
-
-        {/* Hey! Introductory Summary Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.35, ease: 'easeOut' }}
-          className="max-w-[680px] mx-auto bg-[#18181c]/70 border border-white/10 rounded-2xl p-6 sm:p-7 backdrop-blur-md mb-10 shadow-xl text-left hover:border-white/20 transition-colors"
-        >
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs font-mono-code uppercase tracking-wider text-[#8aceff] font-semibold flex items-center gap-1">
-              <Sparkles className="w-3 h-3" />
-              <span>Professional Summary</span>
+    <section id="home" className="relative pt-24 sm:pt-28 pb-0 border-b border-[#e0e0d8] overflow-hidden">
+      <div className="max-w-[1360px] mx-auto grid grid-cols-1 lg:grid-cols-12 border-x border-[#e0e0d8]">
+        
+        {/* Left Column: Hero & Key Statements */}
+        <div className="lg:col-span-7 xl:col-span-8 p-6 sm:p-12 xl:p-16 lg:border-r border-[#e0e0d8] flex flex-col justify-center bg-[#fdfdfc]">
+          
+          {/* Top Label & Perspective Filter Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <span className="label-mono">
+              Fullstack Engineer & Architect
             </span>
-            <div className="h-[1px] flex-1 bg-white/10" />
+            <div className="flex items-center gap-1.5 font-mono-code text-[0.65rem] uppercase tracking-wider text-[#888880]">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>Available for Enterprise Engagements</span>
+            </div>
           </div>
 
-          <h3 className="text-xl font-bold text-white mb-2">
-            Hey! I'm Ali from Kuala Lumpur.
-          </h3>
-          <p className="text-neutral-300 text-sm sm:text-base leading-relaxed mb-4">
-            {personalInfo.aboutParagraphs[0]}
-          </p>
-          <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed">
-            {personalInfo.aboutParagraphs[1]}
-          </p>
+          {/* Large Serif Headline */}
+          <motion.h1
+            id="hero-name-heading"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="font-serif-display italic text-6xl sm:text-7xl md:text-8xl lg:text-[6.8rem] xl:text-[7.8rem] font-light leading-[0.88] tracking-[-0.04em] text-[#121212] my-4 sm:my-6"
+          >
+            Ali Akhmad<br />
+            <span className="text-[#121212]">Fauzie</span>
+          </motion.h1>
 
-          <div className="flex flex-wrap items-center justify-between gap-4 mt-6 pt-4 border-t border-white/10 text-xs text-neutral-400">
-            <div className="flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-[#009de0]" />
-              <span>Based in Kuala Lumpur & Bandung • Worldwide Delivery</span>
+          {/* Subtitle / Focus */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
+            className="text-base sm:text-lg md:text-xl font-light text-[#444440] leading-relaxed max-w-2xl mt-2 mb-6"
+          >
+            Architecting the digital shift. Specializing in enterprise-scale modernization, mobile engineering across iOS & Android, and high-impact Lark bot automations.
+          </motion.p>
+
+          {/* Concentrix BPO Highlight Banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
+            className="mb-8 p-3.5 sm:p-4 rounded-none bg-[#f7f7f0] border border-[#e0e0d8] flex items-center gap-3 text-xs sm:text-sm text-[#121212]"
+          >
+            <Sparkles className="w-4 h-4 text-[#121212] flex-shrink-0" />
+            <span className="font-mono-code text-xs uppercase tracking-wider text-[#444440]">
+              <strong className="text-[#121212]">Concentrix Milestone:</strong> Multilingual BPO team scaling across 7 markets and automated Lark bot workflows.
+            </span>
+          </motion.div>
+
+          {/* Profile Photo & Developer Accreditations Row */}
+          <div className="flex flex-wrap items-center gap-6 mb-10 pb-8 border-b border-[#e0e0d8]">
+            {/* Interactive Photo Avatar */}
+            <div
+              onClick={() => fileInputRef.current?.click()}
+              className="relative group cursor-pointer flex items-center gap-4"
+              title="Click to change or upload photo"
+            >
+              <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleFileUpload}
+                accept="image/*"
+                className="hidden"
+              />
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border border-[#e0e0d8] p-1 bg-[#fdfdfc] overflow-hidden relative group-hover:border-[#121212] transition-colors">
+                <div className="w-full h-full rounded-full overflow-hidden bg-[#f7f7f0] relative">
+                  {!imageLoadError && profilePhoto ? (
+                    <img
+                      src={profilePhoto}
+                      alt="Ali Akhmad Fauzie"
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      onError={() => setImageLoadError(true)}
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center font-mono-code text-sm font-bold">
+                      {personalInfo.initials}
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-[#121212]/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                    <Camera className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-mono-code text-xs uppercase tracking-wider text-[#121212] font-semibold">
+                  Ali A. Fauzie
+                </span>
+                <span className="text-[11px] text-[#888880] font-mono-code">
+                  Kuala Lumpur & Bandung
+                </span>
+                <button
+                  type="button"
+                  className="text-[10px] font-mono-code text-[#121212] underline mt-1 text-left"
+                >
+                  Change Photo
+                </button>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
+
+            {/* Developer Ecosystem Pills */}
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="font-mono-code text-[0.65rem] uppercase tracking-wider px-3 py-1.5 rounded-full border border-[#e0e0d8] bg-[#f7f7f0] text-[#121212]">
+                Google Dev (Android/Cloud)
+              </span>
+              <span className="font-mono-code text-[0.65rem] uppercase tracking-wider px-3 py-1.5 rounded-full border border-[#e0e0d8] bg-[#f7f7f0] text-[#121212]">
+                Certified Lark Developer
+              </span>
+              <span className="font-mono-code text-[0.65rem] uppercase tracking-wider px-3 py-1.5 rounded-full border border-[#e0e0d8] bg-[#f7f7f0] text-[#121212]">
+                Microsoft Power Platform
+              </span>
+            </div>
+          </div>
+
+          {/* Experience Statistics Bar */}
+          <div className="grid grid-cols-3 gap-6 sm:gap-10 mb-10">
+            <div className="stat-item">
+              <span className="label-mono block mb-1">Applications</span>
+              <h4 className="font-mono-code text-3xl sm:text-4xl text-[#121212] font-normal">16+</h4>
+            </div>
+            <div className="stat-item">
+              <span className="label-mono block mb-1">SLA Rate</span>
+              <h4 className="font-mono-code text-3xl sm:text-4xl text-[#121212] font-normal">98%</h4>
+            </div>
+            <div className="stat-item">
+              <span className="label-mono block mb-1">Legacy Forms</span>
+              <h4 className="font-mono-code text-3xl sm:text-4xl text-[#121212] font-normal">361</h4>
+            </div>
+          </div>
+
+          {/* Featured Case Study Rows */}
+          <div className="project-list">
+            <div className="label-mono mb-3">Featured Case Studies</div>
+            
+            {/* Case 01 */}
+            <a
+              href="#projects"
+              className="grid grid-cols-12 py-5 border-t border-[#e0e0d8] items-start group hover:bg-[#f7f7f0]/50 transition-colors"
+            >
+              <div className="col-span-3 sm:col-span-2 label-mono pt-1 text-[#888880] group-hover:text-[#121212]">
+                CASE 01
+              </div>
+              <div className="col-span-6 sm:col-span-7 pr-4">
+                <h3 className="font-serif-display text-2xl sm:text-3xl font-light italic text-[#121212] group-hover:translate-x-1 transition-transform">
+                  IOI Modernization
+                </h3>
+                <p className="text-xs sm:text-sm text-[#888880] mt-1 font-light leading-relaxed">
+                  Modernizing 361 legacy forms & apps for 2,000+ users via Dataverse & Power Platform.
+                </p>
+              </div>
+              <div className="col-span-3 text-right label-mono pt-1 text-[#121212]">
+                Solution Arch →
+              </div>
+            </a>
+
+            {/* Case 02 */}
+            <a
+              href="#projects"
+              className="grid grid-cols-12 py-5 border-t border-b border-[#e0e0d8] items-start group hover:bg-[#f7f7f0]/50 transition-colors"
+            >
+              <div className="col-span-3 sm:col-span-2 label-mono pt-1 text-[#888880] group-hover:text-[#121212]">
+                CASE 02
+              </div>
+              <div className="col-span-6 sm:col-span-7 pr-4">
+                <h3 className="font-serif-display text-2xl sm:text-3xl font-light italic text-[#121212] group-hover:translate-x-1 transition-transform">
+                  Concentrix Scaling
+                </h3>
+                <p className="text-xs sm:text-sm text-[#888880] mt-1 font-light leading-relaxed">
+                  Scaling multilingual BPO support across 7 regional markets via custom Lark bot automation.
+                </p>
+              </div>
+              <div className="col-span-3 text-right label-mono pt-1 text-[#121212]">
+                BPO Strategy →
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+        {/* Right Column: Details & Interaction Hub */}
+        <div className="lg:col-span-5 xl:col-span-4 grid grid-rows-2 bg-[#fdfdfc]">
+          
+          {/* Detail Block 01: Expertise Hub */}
+          <div className="p-6 sm:p-10 border-b border-[#e0e0d8] flex flex-col justify-between">
+            <div>
+              <span className="label-mono">01 — Expertise Hub</span>
+
+              <div className="mt-6 sm:mt-8">
+                <span className="label-mono block mb-3 text-[#121212]">
+                  Development Stack
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {['Kotlin', 'Swift', 'React Native', 'TypeScript', 'C#', 'Python', 'Flutter'].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 border border-[#e0e0d8] rounded-full text-xs font-mono-code text-[#444440] hover:border-[#121212] hover:text-[#121212] transition-colors"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-6">
+                <span className="label-mono block mb-3 text-[#121212]">
+                  Platforms & Operations
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {['Power Platform', 'Dataverse', 'Azure DevOps', 'Six Sigma', 'Lark Open Platform', 'CI/CD'].map((plat) => (
+                    <span
+                      key={plat}
+                      className="px-3 py-1 border border-[#e0e0d8] rounded-full text-xs font-mono-code text-[#444440] hover:border-[#121212] hover:text-[#121212] transition-colors"
+                    >
+                      {plat}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-6 mt-6 border-t border-[#e0e0d8] flex items-center justify-between text-xs font-mono-code text-[#888880]">
+              <span>PROFILE PERSPECTIVE</span>
               <button
-                onClick={onOpenResumeModal}
-                className="text-[#8aceff] hover:underline flex items-center gap-1 font-medium"
+                onClick={() => onSelectMode(currentMode === 'hybrid' ? 'architect' : currentMode === 'architect' ? 'operations' : 'hybrid')}
+                className="text-[#121212] font-semibold underline uppercase"
               >
-                <span>Read Full CV</span>
-                <ExternalLink className="w-3 h-3" />
+                {currentMode.toUpperCase()} VIEW
               </button>
             </div>
           </div>
-        </motion.div>
 
-        {/* High-Impact Stat Metrics Bar with Staggered Entrance */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4, ease: 'easeOut' }}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-10"
-        >
-          {personalInfo.stats.map((stat, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ y: -4, scale: 1.03, transition: { duration: 0.2 } }}
-              className="bg-[#19191d]/80 border border-white/10 rounded-xl p-3 text-center backdrop-blur-sm hover:border-[#009de0]/50 hover:shadow-lg hover:shadow-[#009de0]/10 transition-all cursor-default"
-            >
-              <div className="text-xl sm:text-2xl font-extrabold text-white font-mono-code tracking-tight">
-                {stat.value}
-              </div>
-              <div className="text-[11px] text-neutral-400 leading-snug mt-1 font-medium">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+          {/* Detail Block 02: Interaction & Transmissions */}
+          <div className="p-6 sm:p-10 bg-[#f7f7f0] flex flex-col justify-between">
+            <div>
+              <span className="label-mono">02 — Interaction</span>
+              <p className="mt-4 text-xs sm:text-sm text-[#444440] leading-relaxed font-light">
+                Available for enterprise architecture, solution modernization, mobile application delivery, and high-impact digital workflows.
+              </p>
 
-        {/* Quick CTA Actions */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.45, ease: 'easeOut' }}
-          className="flex flex-wrap items-center justify-center gap-3"
-        >
-          <a
-            href="#projects"
-            id="hero-explore-projects-btn"
-            className="px-5 py-2.5 rounded-xl bg-[#009de0] hover:bg-[#0087c2] text-white font-semibold text-sm flex items-center gap-2 shadow-lg shadow-[#009de0]/25 transition-all hover:scale-105"
-          >
-            <span>Explore Portfolio Projects</span>
-            <ArrowDown className="w-4 h-4" />
-          </a>
-          <button
-            onClick={onOpenResumeModal}
-            id="hero-open-cv-btn"
-            className="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white font-semibold text-sm flex items-center gap-2 hover:scale-105 transition-all"
-          >
-            <Download className="w-4 h-4 text-[#8aceff]" />
-            <span>Print / Download Resume</span>
-          </button>
-        </motion.div>
+              {/* Solid Ink Action Button */}
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href="#contact"
+                  id="hero-cta-transmission"
+                  className="inline-flex items-center gap-2 bg-[#121212] text-[#fdfdfc] px-6 py-3.5 font-mono-code text-xs uppercase tracking-[0.15em] hover:bg-[#333333] transition-colors shadow-sm"
+                >
+                  <span>Send Transmission</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+
+                <button
+                  onClick={onOpenResumeModal}
+                  id="hero-cta-cv-direct"
+                  className="inline-flex items-center gap-2 bg-[#fdfdfc] text-[#121212] border border-[#e0e0d8] px-5 py-3.5 font-mono-code text-xs uppercase tracking-[0.15em] hover:border-[#121212] transition-colors"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>CV</span>
+                </button>
+              </div>
+
+              {/* Direct Channels Bar */}
+              <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-mono-code text-[#444440]">
+                <a
+                  href={personalInfo.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#121212] underline"
+                >
+                  LinkedIn
+                </a>
+                <button
+                  onClick={handleCopyEmail}
+                  className="hover:text-[#121212] underline"
+                >
+                  {copiedEmail ? 'Email Copied' : 'Email'}
+                </button>
+                <a
+                  href={personalInfo.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#121212] underline"
+                >
+                  WhatsApp
+                </a>
+                <a
+                  href={`tel:${personalInfo.phoneMY.replace(/\s+/g, '')}`}
+                  className="hover:text-[#121212] underline"
+                >
+                  Call
+                </a>
+              </div>
+            </div>
+
+            {/* Recent Insight / Article Preview */}
+            <div className="mt-8 pt-6 border-t border-[#e0e0d8]">
+              <span className="label-mono">Recent Insight</span>
+              <p className="font-serif-display text-lg sm:text-xl italic text-[#121212] my-1 font-light">
+                "Migrating 361 legacy applications to Dataverse"
+              </p>
+              <a
+                href="#articles"
+                className="label-mono text-[#121212] hover:text-[#888880] inline-flex items-center gap-1 mt-1"
+              >
+                <span>Read insight</span>
+                <span>→</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
     </section>
   );
 };
+

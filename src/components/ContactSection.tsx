@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
 import { personalInfo } from '../data/resumeData';
-import { motion } from 'motion/react';
 import {
   Mail,
-  Phone,
-  MessageSquare,
-  Linkedin,
-  Globe,
-  Key,
   Send,
   CheckCircle2,
   Copy,
   Check,
-  MapPin,
-  Clock,
+  Key,
 } from 'lucide-react';
 
 interface ContactSectionProps {
@@ -53,151 +46,134 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 relative border-t border-white/10 bg-[#121215] overflow-hidden">
-      <div className="max-w-[1140px] mx-auto relative z-10">
+    <section id="contact" className="py-20 sm:py-24 border-b border-[#e0e0d8] bg-[#fdfdfc] relative">
+      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 border-x border-[#e0e0d8]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Direct Contact Details */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="lg:col-span-5 space-y-6"
-          >
+          <div className="lg:col-span-5 space-y-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono-code text-[#8aceff] mb-3">
-                <Mail className="w-3.5 h-3.5" />
-                <span>Let's Connect</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 tracking-tight">
-                Contact me
+              <span className="label-mono mb-4 block">
+                09 — Consultation & Inquiries
+              </span>
+              <h2 className="font-serif-display italic text-4xl sm:text-5xl font-light text-[#121212] tracking-tight mb-3">
+                Let's Discuss Architecture & Scaling
               </h2>
-              <p className="text-neutral-400 text-sm leading-relaxed">
+              <p className="text-sm sm:text-base font-light text-[#444440] leading-relaxed">
                 Available for enterprise solution architecture consulting, Power Platform migrations, and operational leadership advisory.
               </p>
             </div>
 
             {/* Contact Information List */}
-            <div className="bg-[#18181d] border border-white/10 rounded-2xl p-6 space-y-3.5 font-mono-code text-xs shadow-xl">
-              <div className="flex items-center justify-between py-1 border-b border-white/5">
-                <span className="text-neutral-400">Email:</span>
+            <div className="bg-[#f7f7f0] border border-[#e0e0d8] p-6 space-y-3 font-mono-code text-xs">
+              <div className="flex items-center justify-between py-1.5 border-b border-[#e0e0d8]">
+                <span className="text-[#888880] uppercase tracking-wider text-[0.65rem]">Email</span>
                 <button
                   onClick={() => handleCopy(personalInfo.email, 'email')}
-                  className="text-[#8aceff] hover:underline flex items-center gap-1.5"
+                  className="text-[#121212] hover:underline flex items-center gap-1.5"
                   title="Click to copy email"
                 >
                   <span>{personalInfo.email}</span>
                   {copiedField === 'email' ? (
-                    <Check className="w-3 h-3 text-emerald-400" />
+                    <Check className="w-3 h-3 text-[#121212]" />
                   ) : (
-                    <Copy className="w-3 h-3 text-neutral-500" />
+                    <Copy className="w-3 h-3 text-[#888880]" />
                   )}
                 </button>
               </div>
 
-              <div className="flex items-center justify-between py-1 border-b border-white/5">
-                <span className="text-neutral-400">WhatsApp / Phone MY:</span>
+              <div className="flex items-center justify-between py-1.5 border-b border-[#e0e0d8]">
+                <span className="text-[#888880] uppercase tracking-wider text-[0.65rem]">WhatsApp (MY)</span>
                 <a
                   href={personalInfo.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-emerald-400 hover:underline flex items-center gap-1.5"
+                  className="text-[#121212] hover:underline"
                 >
                   <span>{personalInfo.phoneMY}</span>
                 </a>
               </div>
 
-              <div className="flex items-center justify-between py-1 border-b border-white/5">
-                <span className="text-neutral-400">Phone ID:</span>
+              <div className="flex items-center justify-between py-1.5 border-b border-[#e0e0d8]">
+                <span className="text-[#888880] uppercase tracking-wider text-[0.65rem]">Phone (ID)</span>
                 <a
                   href={`tel:${personalInfo.phoneID.replace(/\s+/g, '')}`}
-                  className="text-neutral-300 hover:underline"
+                  className="text-[#121212] hover:underline"
                 >
                   <span>{personalInfo.phoneID}</span>
                 </a>
               </div>
 
-              <div className="flex items-center justify-between py-1 border-b border-white/5">
-                <span className="text-neutral-400">LinkedIn:</span>
+              <div className="flex items-center justify-between py-1.5 border-b border-[#e0e0d8]">
+                <span className="text-[#888880] uppercase tracking-wider text-[0.65rem]">LinkedIn</span>
                 <a
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#8aceff] hover:underline"
+                  className="text-[#121212] hover:underline"
                 >
                   <span>linkedin.com/in/aliakhmadf</span>
                 </a>
               </div>
 
-              <div className="flex items-center justify-between py-1 border-b border-white/5">
-                <span className="text-neutral-400">Portfolio:</span>
+              <div className="flex items-center justify-between py-1.5 border-b border-[#e0e0d8]">
+                <span className="text-[#888880] uppercase tracking-wider text-[0.65rem]">Portfolio</span>
                 <a
                   href={personalInfo.portfolioUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#8aceff] hover:underline"
+                  className="text-[#121212] hover:underline"
                 >
                   <span>altechsolutionportofilo.vercel.app</span>
                 </a>
               </div>
 
-              <div className="flex items-center justify-between py-1">
-                <span className="text-neutral-400">GPG Key:</span>
+              <div className="flex items-center justify-between py-1.5">
+                <span className="text-[#888880] uppercase tracking-wider text-[0.65rem]">GPG Fingerprint</span>
                 <button
                   onClick={() => handleCopy(personalInfo.gpgKey, 'gpg')}
-                  className="text-neutral-300 hover:underline flex items-center gap-1"
+                  className="text-[#121212] hover:underline flex items-center gap-1"
                 >
                   <span>{personalInfo.gpgKey}</span>
                   {copiedField === 'gpg' ? (
-                    <Check className="w-3 h-3 text-emerald-400" />
+                    <Check className="w-3 h-3 text-[#121212]" />
                   ) : (
-                    <Key className="w-3 h-3 text-neutral-500" />
+                    <Key className="w-3 h-3 text-[#888880]" />
                   )}
                 </button>
               </div>
             </div>
 
-            {/* Timezone and response SLA badge */}
-            <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white/5 border border-white/10 text-xs text-neutral-300">
-              <Clock className="w-4 h-4 text-[#009de0] shrink-0" />
-              <span>
-                Current Location: <strong>Kuala Lumpur (MYT UTC+8)</strong> • Rapid response within 24 hours.
-              </span>
+            <div className="p-4 bg-[#fdfdfc] border border-[#e0e0d8] font-mono-code text-[0.65rem] uppercase tracking-wider text-[#888880]">
+              Base: Kuala Lumpur (MYT UTC+8) • Standard response SLA: within 24 hours
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Direct Message Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="lg:col-span-7"
-          >
-            <div className="bg-[#18181d] border border-white/10 rounded-2xl p-6 sm:p-8 shadow-xl">
-              <h3 className="text-xl font-bold text-white mb-1">
+          <div className="lg:col-span-7">
+            <div className="bg-[#fdfdfc] border border-[#e0e0d8] p-6 sm:p-8">
+              <h3 className="font-serif-display italic text-2xl sm:text-3xl font-light text-[#121212] mb-1">
                 Send a Direct Message
               </h3>
-              <p className="text-xs text-neutral-400 mb-6">
-                Fill in the details below to initiate a consultation or project inquiry directly with Ali.
+              <p className="text-xs text-[#888880] font-mono-code uppercase tracking-wider mb-6">
+                Consultation • Migration Advisory • Leadership Inquiries
               </p>
 
               {isSubmitted ? (
-                <div className="p-6 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-center space-y-3 animate-in fade-in duration-300">
-                  <CheckCircle2 className="w-10 h-10 text-emerald-400 mx-auto" />
-                  <h4 className="text-base font-bold text-white">
-                    Message Prepared & Email Client Launched!
+                <div className="p-8 bg-[#f7f7f0] border border-[#e0e0d8] text-center space-y-3">
+                  <CheckCircle2 className="w-8 h-8 text-[#121212] mx-auto" />
+                  <h4 className="font-serif-display italic text-2xl font-light text-[#121212]">
+                    Message Prepared & Client Opened
                   </h4>
-                  <p className="text-xs text-neutral-300 max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong>{formData.name}</strong>. If your email client didn't open automatically, you can write directly to{' '}
-                    <span className="text-[#8aceff] font-mono-code font-bold">{personalInfo.email}</span>.
+                  <p className="text-xs text-[#444440] font-light max-w-md mx-auto leading-relaxed">
+                    Thank you, <strong>{formData.name}</strong>. If your email client did not automatically trigger, please write directly to{' '}
+                    <span className="font-mono-code text-[#121212]">{personalInfo.email}</span>.
                   </p>
                   <button
                     onClick={() => {
                       setIsSubmitted(false);
                       setFormData({ name: '', email: '', subject: 'Power Platform / Operations Inquiry', message: '' });
                     }}
-                    className="mt-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/15 text-xs text-white font-medium"
+                    className="mt-4 px-4 py-2 bg-[#121212] text-[#fdfdfc] text-xs font-mono-code uppercase tracking-wider"
                   >
                     Send Another Message
                   </button>
@@ -206,7 +182,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-mono-code text-neutral-300 mb-1.5">
+                      <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
                         Your Name *
                       </label>
                       <input
@@ -214,13 +190,13 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="e.g. John Doe / Sarah Lin"
-                        className="w-full bg-[#121215] border border-white/10 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#009de0] transition-colors"
+                        placeholder="John Doe"
+                        className="w-full bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-2 text-xs text-[#121212] placeholder-[#888880] focus:outline-none focus:border-[#121212]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-mono-code text-neutral-300 mb-1.5">
+                      <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
                         Email Address *
                       </label>
                       <input
@@ -228,20 +204,20 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="e.g. name@company.com"
-                        className="w-full bg-[#121215] border border-white/10 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#009de0] transition-colors"
+                        placeholder="name@company.com"
+                        className="w-full bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-2 text-xs text-[#121212] placeholder-[#888880] focus:outline-none focus:border-[#121212]"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono-code text-neutral-300 mb-1.5">
+                    <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
                       Subject / Engagement Scope
                     </label>
                     <select
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full bg-[#121215] border border-white/10 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-[#009de0] transition-colors"
+                      className="w-full bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-2 text-xs text-[#121212] focus:outline-none focus:border-[#121212]"
                     >
                       <option value="Power Platform / Operations Inquiry">Power Platform & Solution Architecture</option>
                       <option value="Legacy Lotus Domino / M365 Migration">Lotus Domino to M365 / Dataverse Migration</option>
@@ -252,7 +228,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono-code text-neutral-300 mb-1.5">
+                    <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
                       Project Details or Message *
                     </label>
                     <textarea
@@ -260,25 +236,26 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                       rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Describe your project requirements, team goals, or timeline..."
-                      className="w-full bg-[#121215] border border-white/10 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#009de0] transition-colors resize-none"
+                      placeholder="Describe your architecture requirements, team goals, or timeline..."
+                      className="w-full bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-2 text-xs text-[#121212] placeholder-[#888880] focus:outline-none focus:border-[#121212] resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
                     id="submit-contact-form-btn"
-                    className="w-full py-3 rounded-xl bg-[#009de0] hover:bg-[#0087c2] text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#009de0]/20 transition-all hover:scale-[1.01]"
+                    className="w-full py-3 bg-[#121212] hover:bg-[#222222] text-[#fdfdfc] font-mono-code text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer"
                   >
-                    <Send className="w-4 h-4" />
+                    <Send className="w-3.5 h-3.5" />
                     <span>Send Message to Ali</span>
                   </button>
                 </form>
               )}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
   );
 };
+

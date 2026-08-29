@@ -9,6 +9,7 @@ import { ArticleDetailView } from './components/ArticleDetailView';
 import { CreateArticleModal } from './components/CreateArticleModal';
 import { ArchitectureDiagram } from './components/ArchitectureDiagram';
 import { TimelineSection } from './components/TimelineSection';
+import { TestimonialsSection } from './components/TestimonialsSection';
 import { SkillsSection } from './components/SkillsSection';
 import { CertificationsSection } from './components/CertificationsSection';
 import { ContactSection } from './components/ContactSection';
@@ -91,7 +92,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#121214] text-[#e5e2e1] selection:bg-[#009de0] selection:text-white">
+    <div className="relative min-h-screen bg-[#fdfdfc] text-[#121212] selection:bg-[#dcdccb] selection:text-[#121212]">
       {/* Top Scroll Indicator & Back to Top Floating Button */}
       <ScrollProgress onScrollToTop={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
 
@@ -166,6 +167,9 @@ export default function App() {
 
                 {/* Chronological Timeline */}
                 <TimelineSection currentMode={currentMode} />
+
+                {/* Professional Testimonials & Client Feedback Carousel */}
+                <TestimonialsSection />
 
                 {/* Enterprise CI/CD & Solution Architecture Pipeline */}
                 <ArchitectureDiagram />

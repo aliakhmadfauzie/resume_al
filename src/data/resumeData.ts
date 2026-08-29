@@ -1,14 +1,15 @@
-import { ProjectItem, TimelineItem, SkillCategory, CertificationItem } from "../types";
+import { ProjectItem, TimelineItem, SkillCategory, CertificationItem, TestimonialItem } from "../types";
 
 export const personalInfo = {
   name: "Ali Akhmad Fauzie",
   initials: "AF",
+  avatarUrl: "https://altechsolutionportofilo.vercel.app/avatar.jpg",
   titles: {
-    hybrid: "Enterprise Power Platform & Dynamics 365 Solution Architect | Operations Lead",
-    architect: "Enterprise Power Platform & Dataverse Solution Architect | ALM & AI Lead",
-    operations: "Service Delivery & Operations Leadership | Six Sigma Green Belt",
+    hybrid: "Fullstack Engineer (Android / iOS) & Enterprise Solution Architect",
+    architect: "Fullstack Mobile & Web Engineer (Android/iOS) | Power Platform Architect",
+    operations: "Operations Leader | Multilingual BPO Scaling & Lark Bot Automation at Concentrix",
   },
-  tagline: "Dataverse-first architecture · 16 production Power Apps · C# Plugins & PCF Controls · Enterprise ALM · 28+ departments modernized",
+  tagline: "Fullstack Engineer · Android & iOS App Developer · Enterprise Power Platform · Multilingual BPO Scaling & Lark Bot Automation at Concentrix · 16+ Production Apps · Enterprise ALM",
   location: "Kuala Lumpur, Malaysia (Open to Global & Hybrid)",
   secondaryLocation: "Bandung, West Java, Indonesia",
   email: "aliakhmadfauzie@gmail.com",
@@ -21,19 +22,20 @@ export const personalInfo = {
   github: "https://github.com/altechsolution123",
   whatsappUrl: "https://wa.me/60132957406",
   gpgKey: "0xAF8849F12026",
-  bio: "Enterprise Power Platform & Dynamics 365 Solution Architect with 9+ years of service delivery, operations leadership, and dual-track transformation experience spanning low-code Canvas Apps, code-first React/TypeScript platforms, and Dataverse data architecture. Proven track record leading large-scale digital modernization at a publicly listed Malaysian conglomerate — cataloguing 361 legacy Lotus Domino forms and migrating them into a modern Microsoft 365 environment with RM4.2M ($960K/yr) in license cost avoided.",
+  bio: "Fullstack Engineer and Mobile App Developer (Android & iOS) with deep pro-code and low-code architecture experience spanning mobile apps (React Native, Flutter, Swift, Kotlin), modern fullstack web (TypeScript, React 19, Next.js, Node.js), Multilingual BPO team scaling, and Lark bot workflow automation at Concentrix. Proven track record modernizing 361 legacy Lotus Domino databases at a major conglomerate into modern scalable architectures with MYR 360K in license cost avoided.",
   aboutParagraphs: [
-    "Enterprise Power Platform & Dynamics 365 Solution Architect with 9+ years of service delivery, operations leadership, and dual-track transformation experience spanning low-code Canvas Apps, code-first React/TypeScript platforms, and Dataverse data architecture.",
-    "Proven track record leading large-scale digital modernization at a publicly listed Malaysian conglomerate (palm oil, oleochemicals, property) — cataloguing 361 legacy Lotus Domino forms and migrating them into a modern Microsoft 365 environment. The architecture follows a deliberate two-phase strategy: Phase 1 deployed 16 production Canvas Apps using SharePoint Online strictly as an interim staging data store to eliminate $960K/year in premium licensing during rapid migration (28+ department sites), while Phase 2 — the Dataverse Migration Blueprint — defines the enterprise-grade target architecture with full relational data modeling, Business Unit hierarchy, Security Role inheritance, Field Security Profiles, polymorphic lookups, and managed solution ALM.",
-    "Core expertise spans Dataverse solution design with managed/unmanaged solution boundaries, environment strategy (Dev → Build → Test → Prod), connection reference management, environment variables, C# Dataverse Plugins with pre/post-operation execution pipeline stages, PCF Controls (TypeScript/React), and Solution Segmentation for enterprise ALM. AI-assisted development with 50+ domain-specific Copilot agents across 12 pipelines governed by DLP policies, WCAG 2.2 AA, OWASP Top 10, and GxP compliance standards."
+    "Fullstack Engineer and Mobile App Developer (Android & iOS) with 9+ years of blended technical innovation, service delivery, and operations leadership across mobile, web, and enterprise architectures.",
+    "Proven leader in Multilingual BPO team scaling and Lark bot workflow automation at Concentrix, scaling squads up to 34 agents across 7 regional markets with >98% SLA compliance and eliminating 90% of manual queue reporting through custom Lark Open Platform bots and AI integrations.",
+    "Specializes in engineering high-performance mobile applications (Android with Kotlin/Java, iOS with Swift, React Native, and Flutter) as well as fullstack web architectures with TypeScript, React 19, Next.js, Node.js, and REST/GraphQL APIs. Combines deep pro-code software engineering with enterprise low-code velocity across Microsoft Power Platform, Dataverse, and C# Plugins.",
+    "Proven track record leading large-scale digital modernization at a publicly listed Malaysian conglomerate (palm oil, oleochemicals, property) — cataloguing 361 legacy Lotus Domino forms and migrating them into a modern Microsoft 365 / Dataverse ecosystem, eliminating MYR 360K/year in premium licensing across 28+ department sites with robust managed solution ALM and 50+ Copilot AI agents."
   ],
   stats: [
     { label: "Forms Catalogued", value: "361" },
-    { label: "Production Power Apps", value: "16" },
+    { label: "Production Apps Built", value: "16+" },
     { label: "Departments Modernized", value: "28+" },
-    { label: "License Cost Avoided", value: "RM4.2M/yr" },
-    { label: "AI Automation Agents", value: "50+" },
-    { label: "Years Enterprise Experience", value: "9+ Yrs" }
+    { label: "License Cost Avoided", value: "MYR 360K/yr" },
+    { label: "Mobile & AI Systems", value: "50+" },
+    { label: "Years Enterprise Exp", value: "9+ Yrs" }
   ]
 };
 
@@ -1019,7 +1021,7 @@ export const timelineData: TimelineItem[] = [
     featured: true,
     description: [
       "Led the enterprise-wide digital modernization of 361 legacy Lotus Domino business applications across 28+ departments for over 2,000 enterprise users.",
-      "Designed and executed a deliberate two-phase architecture: Phase 1 deployed 16 production Power Apps using SharePoint Online as an interim staging store, eliminating RM4.2M ($960K/yr) in premium licensing during rapid migration.",
+      "Designed and executed a deliberate two-phase architecture: Phase 1 deployed 16 production Power Apps using SharePoint Online as an interim staging store, eliminating MYR 360K/year in premium licensing during rapid migration.",
       "Engineered the Phase 2 Dataverse Migration Blueprint featuring full relational data modeling, Business Unit hierarchy, Security Role inheritance, Field Security Profiles, polymorphic lookups, and managed solution ALM.",
       "Built C# Dataverse Plugins (Pre/Post-Operation stages) and custom PCF Controls (TypeScript/React 19) for enterprise grid rendering.",
       "Architected the E-Procurement suite with bidirectional Oracle ERP integration and the Tasek Cement 5-tier GxP-compliant rebate approval workflow (cutting turnaround from 2–3 days to 15 minutes)."
@@ -1028,7 +1030,7 @@ export const timelineData: TimelineItem[] = [
     metrics: [
       { label: "Domino Forms", value: "361" },
       { label: "Production Apps", value: "16" },
-      { label: "Cost Saved", value: "RM4.2M/yr" },
+      { label: "Cost Saved", value: "MYR 360K/yr" },
       { label: "Turnaround Cut", value: "15 Mins vs 3 Days" }
     ]
   },
@@ -1139,14 +1141,30 @@ export const timelineData: TimelineItem[] = [
 
 export const skillsCategories: SkillCategory[] = [
   {
+    title: "Fullstack & Mobile App Development (Android / iOS)",
+    subtitle: "Native & Cross-Platform Mobile, React Native, Swift & Kotlin",
+    iconName: "Code2",
+    skills: [
+      { name: "Android App Development (Kotlin & Java)", level: "Production-Grade", highlight: true, yearsOrScope: "Native Android Apps" },
+      { name: "iOS App Development (Swift & SwiftUI/UIKit)", level: "Production-Grade", highlight: true, yearsOrScope: "Native iOS Apps" },
+      { name: "React Native & Expo", level: "Expert", highlight: true, yearsOrScope: "Cross-Platform Mobile" },
+      { name: "Flutter & Dart", level: "Advanced", highlight: true, yearsOrScope: "Cross-Platform Mobile" },
+      { name: "TypeScript & JavaScript (ES6+)", level: "Expert", highlight: true, yearsOrScope: "Strict Type Safety" },
+      { name: "React 19 & Next.js", level: "Advanced", highlight: true, yearsOrScope: "Fullstack SPAs & SSR" },
+      { name: "Node.js & Express / NestJS", level: "Advanced", yearsOrScope: "Backend REST APIs" },
+      { name: "Mobile CI/CD & App Store / Play Store", level: "Advanced", yearsOrScope: "Deployment & Fastlane" }
+    ]
+  },
+  {
     title: "Microsoft Power Platform & Dataverse",
     subtitle: "Enterprise Low-Code, Model-Driven & Data Architecture",
-    iconName: "Layers",
+    iconName: "Cpu",
     skills: [
       { name: "Power Apps (Canvas & Model-Driven)", level: "Production-Grade", highlight: true, yearsOrScope: "16+ Prod Apps" },
       { name: "Dataverse Data Architecture", level: "Enterprise Architect", highlight: true, yearsOrScope: "50+ Target Tables" },
       { name: "Power Automate (Cloud & Desktop RPA)", level: "Expert", highlight: true, yearsOrScope: "100+ Workflows" },
-      { name: "Power Pages & Portals", level: "Advanced", yearsOrScope: "Vendor Portals" },
+      { name: "C# Dataverse Plugins", level: "Advanced", highlight: true, yearsOrScope: "Pre/Post Stages" },
+      { name: "Power Apps Component Framework (PCF)", level: "Advanced", yearsOrScope: "TypeScript/React PCF" },
       { name: "Power Fx Expressions", level: "Expert", highlight: true, yearsOrScope: "Delegation-safe" },
       { name: "Power Platform CLI (PAC)", level: "Advanced", yearsOrScope: "ALM Automation" },
       { name: "Center of Excellence (CoE) Starter Kit", level: "Architect", yearsOrScope: "DLP & Governance" },
@@ -1155,37 +1173,23 @@ export const skillsCategories: SkillCategory[] = [
     ]
   },
   {
-    title: "Code-First, React & Full-Stack",
-    subtitle: "Modern Web Engineering, C# Extensibility & PCF",
-    iconName: "Code",
+    title: "Cloud, DevOps & Backend APIs",
+    subtitle: "Continuous Integration, Azure, REST & SQL",
+    iconName: "Terminal",
     skills: [
-      { name: "TypeScript", level: "Advanced", highlight: true, yearsOrScope: "Strict Type Safety" },
-      { name: "React 19 & Next.js", level: "Advanced", highlight: true, yearsOrScope: "Enterprise SPAs" },
-      { name: "C# Dataverse Plugins", level: "Advanced", highlight: true, yearsOrScope: "Pre/Post Stages" },
-      { name: "Power Apps Component Framework (PCF)", level: "Advanced", yearsOrScope: "Custom UI Controls" },
-      { name: "JavaScript (ES6+)", level: "Advanced", yearsOrScope: "Full-Stack" },
-      { name: "SQL & T-SQL", level: "Advanced", yearsOrScope: "Relational Queries" },
-      { name: "Python", level: "Proficient", yearsOrScope: "AI & Scripts" },
-      { name: "REST APIs & Custom Connectors", level: "Expert", highlight: true, yearsOrScope: "Oracle/SAP Sync" }
-    ]
-  },
-  {
-    title: "Cloud, DevOps & Architecture Governance",
-    subtitle: "Continuous Integration, Azure & Compliance",
-    iconName: "GitBranch",
-    skills: [
+      { name: "REST APIs, GraphQL & Custom Connectors", level: "Expert", highlight: true, yearsOrScope: "Oracle/SAP/Custom Sync" },
       { name: "Azure DevOps & Multi-Stage Pipelines", level: "Advanced", highlight: true, yearsOrScope: "CI/CD Deployment" },
       { name: "Git & GitHub Actions", level: "Advanced", highlight: true, yearsOrScope: "Automated Workflows" },
-      { name: "Microsoft Azure Services", level: "Advanced", yearsOrScope: "App Services, Entra ID" },
+      { name: "SQL, PostgreSQL & Relational DBs", level: "Advanced", yearsOrScope: "Relational Queries" },
       { name: "GxP & 21 CFR Part 11 Compliance", level: "Practitioner", highlight: true, yearsOrScope: "Immutable Audits" },
-      { name: "OWASP Top 10 & DLP Policies", level: "Advanced", yearsOrScope: "Tenant Security" },
+      { name: "OWASP Top 10 & Mobile App Security", level: "Advanced", yearsOrScope: "App & Tenant Security" },
       { name: "WCAG 2.2 AA Accessibility", level: "Standard", yearsOrScope: "Inclusive UI Design" }
     ]
   },
   {
     title: "AI, Copilots & Intelligent Automation",
     subtitle: "Generative AI, Prompt Architecture & Lark Bots",
-    iconName: "Bot",
+    iconName: "Sparkles",
     skills: [
       { name: "Microsoft Copilot Studio", level: "Advanced", highlight: true, yearsOrScope: "Enterprise Agents" },
       { name: "AI Builder NLP & Document Processing", level: "Expert", highlight: true, yearsOrScope: "120+ SOP Models" },
@@ -1197,7 +1201,7 @@ export const skillsCategories: SkillCategory[] = [
   {
     title: "Operations, Service Delivery & Leadership",
     subtitle: "High-Volume BPO, SLA Optimization & Six Sigma",
-    iconName: "TrendingUp",
+    iconName: "Users",
     skills: [
       { name: "SLA & KPI Management (>98% Benchmark)", level: "Executive Lead", highlight: true, yearsOrScope: "7 Global Markets" },
       { name: "Six Sigma DMAIC Methodology", level: "Green Belt", highlight: true, yearsOrScope: "Root-Cause Triage" },
@@ -1254,5 +1258,148 @@ export const languagesData = [
   { language: "English", proficiency: "Full Professional Working Proficiency", level: "C1 / Advanced", flag: "🇬🇧" },
   { language: "Bahasa Indonesia", proficiency: "Native / Bilingual", level: "Native", flag: "🇮🇩" },
   { language: "Bahasa Melayu / Malay", proficiency: "Professional Working Proficiency", level: "Fluent", flag: "🇲🇾" }
+];
+
+export interface DeveloperAccreditation {
+  id: string;
+  name: string;
+  shortLabel: string;
+  platform: 'google' | 'lark' | 'microsoft';
+  title: string;
+  badgeLabel: string;
+  description: string;
+  verifiedStatus: string;
+  accentColor: string;
+  bgGradient: string;
+  skills: string[];
+}
+
+export const developerBadges: DeveloperAccreditation[] = [
+  {
+    id: "google-developer",
+    name: "Google Developer",
+    shortLabel: "Google Developer",
+    platform: "google",
+    title: "Android & Cloud Ecosystem Developer",
+    badgeLabel: "Verified Developer",
+    description: "Building native Android apps (Kotlin/Java), Flutter cross-platform applications, Google Cloud integrations, and modern fullstack Progressive Web Apps.",
+    verifiedStatus: "Active Ecosystem Developer",
+    accentColor: "#4285F4",
+    bgGradient: "from-[#4285F4]/15 via-[#EA4335]/10 to-[#FBBC05]/10",
+    skills: ["Android (Kotlin)", "Flutter & Dart", "Google Cloud Platform", "Firebase", "Web APIs"]
+  },
+  {
+    id: "lark-developer",
+    name: "Lark Developer",
+    shortLabel: "Lark Developer",
+    platform: "lark",
+    title: "Open Platform & Bot Automation Specialist",
+    badgeLabel: "Lark Developer Certified",
+    description: "Certified Lark Open Platform developer building custom interactive bots, automated event webhooks, Base multi-dimensional databases, and enterprise workplace workflows.",
+    verifiedStatus: "Certified Lark Developer (2024)",
+    accentColor: "#00D6B9",
+    bgGradient: "from-[#00D6B9]/15 via-[#0088FF]/10 to-[#121214]",
+    skills: ["Lark Open Platform", "Custom Interactive Bots", "Base Automations", "Lark Webhooks", "API Integrations"]
+  },
+  {
+    id: "microsoft-developer",
+    name: "Microsoft Developer",
+    shortLabel: "Microsoft Developer",
+    platform: "microsoft",
+    title: "Power Platform & Dataverse Solution Architect",
+    badgeLabel: "Enterprise Solution Architect",
+    description: "Enterprise Power Platform, Dataverse, C# Plugins, PCF custom React components, Power Automate cloud flows, and Azure DevOps ALM pipeline development.",
+    verifiedStatus: "Enterprise Verified Architect",
+    accentColor: "#00A4EF",
+    bgGradient: "from-[#00A4EF]/15 via-[#7FBA00]/10 to-[#FFB900]/10",
+    skills: ["Power Apps (Canvas & Model-Driven)", "Dataverse Architecture", "C# Plugins", "PCF React Controls", "Azure DevOps ALM"]
+  }
+];
+
+export const testimonialsData: TestimonialItem[] = [
+  {
+    id: "test-michael-tan",
+    name: "Eng. Michael Tan",
+    role: "Head of Enterprise Information Systems",
+    company: "IOI Corporation Berhad",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+    content: "Ali's dual-track architecture for our 361 Lotus Domino database modernization was nothing short of brilliant. By engineering a staged SharePoint Online layer followed by the Dataverse target migration blueprint, he saved IOI over MYR 360K annually in licensing while ensuring zero operational downtime across 28 business units.",
+    projectOrScope: "361 Lotus Domino to Dataverse Modernization",
+    rating: 5,
+    date: "Jan 2025",
+    tags: ["Power Platform", "Dataverse", "Domino Modernization", "Cost Optimization"],
+    relationship: "Direct Enterprise Stakeholder",
+    badge: "Enterprise Modernization"
+  },
+  {
+    id: "test-sarah-jenkins",
+    name: "Sarah Jenkins",
+    role: "Director of Global Service Delivery",
+    company: "Concentrix",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
+    content: "Ali transformed our multilingual operations squad at Concentrix. Leading multilingual BPO team scaling from 9 to 34 agents across 7 regional markets with >98.6% SLA adherence was outstanding. His custom Lark bot workflow automation and Power Platform tools eliminated 90% of manual queue reporting, making his operations squad the gold standard for efficiency.",
+    projectOrScope: "Multilingual BPO Team Scaling & Lark Bot Workflow Automation at Concentrix",
+    rating: 5,
+    date: "Nov 2024",
+    tags: ["Concentrix", "Multilingual BPO Scaling", "Lark Bot Automation", "SLA Benchmark"],
+    relationship: "Senior Operations Executive",
+    badge: "BPO Operations & Lark Bots"
+  },
+  {
+    id: "test-hishamudin-razak",
+    name: "Dato' Ir. Hishamudin Razak",
+    role: "Senior Vice President of Operations",
+    company: "Tasek Cement Berhad",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+    content: "The GxP-compliant 5-tier rebate approval system designed by Ali reduced our cement consignment turnaround time from 3 business days down to 15 minutes. The immutable audit logs and automated ERP reconciliation gave our compliance board 100% confidence.",
+    projectOrScope: "GxP Rebate Approval Engine & Oracle ERP Sync",
+    rating: 5,
+    date: "Sep 2024",
+    tags: ["GxP Compliance", "Oracle ERP", "Workflow Automation", "Audit Trails"],
+    relationship: "Executive Client Lead",
+    badge: "GxP Compliance & ERP"
+  },
+  {
+    id: "test-raymond-lee",
+    name: "Dr. Raymond Lee",
+    role: "Principal Mobile Solutions Architect & Google Developer Mentor",
+    company: "Mobile Tech Innovations APAC",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80",
+    content: "Ali's software engineering across native Android (Kotlin) and cross-platform React Native is exemplary. He writes clean, modular code with strict typing, robust offline-first synchronization, and state management that delivers silky 60fps performance across diverse mobile hardware.",
+    projectOrScope: "Android & Cross-Platform Mobile Applications",
+    rating: 5,
+    date: "Jul 2024",
+    tags: ["Android Development", "Google Developer", "React Native", "TypeScript"],
+    relationship: "Technical Collaborator & Mentor",
+    badge: "Mobile Engineering"
+  },
+  {
+    id: "test-brenda-wong",
+    name: "Brenda Wong",
+    role: "Head of Digital Procurement",
+    company: "Oleochemicals Manufacturing Division",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
+    content: "Our e-Procurement and RFQ suite required strict bidirectional ERP synchronization and multi-currency vendor quote evaluations. Ali built custom connectors and automated approval matrixes that cut vendor turnaround by 65%. Highly recommended for complex digital initiatives.",
+    projectOrScope: "E-Procurement Suite & Custom ERP Connectors",
+    rating: 5,
+    date: "May 2024",
+    tags: ["Custom Connectors", "Power Automate", "Procurement", "Dataverse"],
+    relationship: "Business Unit Head",
+    badge: "Digital Procurement"
+  },
+  {
+    id: "test-marcus-vance",
+    name: "Marcus Vance",
+    role: "Enterprise Cloud & Collaboration Lead",
+    company: "APAC Modern Workplace",
+    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80",
+    content: "Whether deploying multi-stage Azure DevOps ALM pipelines, designing C# Dataverse plugins, or creating intelligent Lark open platform bots, Ali bridges the gap between deep pro-code software engineering and rapid enterprise delivery seamlessly.",
+    projectOrScope: "Enterprise ALM, Dataverse Plugins & Lark Open Platform",
+    rating: 5,
+    date: "Mar 2024",
+    tags: ["Microsoft Developer", "Lark Developer", "Azure DevOps", "C# Plugins"],
+    relationship: "Cloud Architecture Peer",
+    badge: "DevOps & ALM"
+  }
 ];
 
