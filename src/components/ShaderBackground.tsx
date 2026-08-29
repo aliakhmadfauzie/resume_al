@@ -29,7 +29,7 @@ export const ShaderBackground: React.FC<ShaderBackgroundProps> = () => {
     syncSize();
     window.addEventListener('resize', syncSize);
 
-    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    const gl = (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')) as WebGLRenderingContext | null;
     if (!gl) {
       console.warn('WebGL not supported');
       return;

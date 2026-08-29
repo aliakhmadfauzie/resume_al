@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { ShaderBackground } from './components/ShaderBackground';
+import { ScrollProgress } from './components/ScrollProgress';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { ProjectsSection } from './components/ProjectsSection';
+import { ArticlesSection } from './components/ArticlesSection';
+import { ArticleDetailView } from './components/ArticleDetailView';
+import { CreateArticleModal } from './components/CreateArticleModal';
 import { ArchitectureDiagram } from './components/ArchitectureDiagram';
 import { TimelineSection } from './components/TimelineSection';
 import { SkillsSection } from './components/SkillsSection';
@@ -11,22 +15,86 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ProjectDetailModal } from './components/ProjectDetailModal';
 import { ResumeModal } from './components/ResumeModal';
-import { ProjectItem, ProfileMode } from './types';
+import { ProjectItem, ArticleItem, ProfileMode } from './types';
+import { initialArticlesData } from './data/articlesData';
+import { motion, AnimatePresence } from 'motion/react';
+
+const STORAGE_KEY_ARTICLES = 'ali_resume_custom_articles_v1';
 
 export default function App() {
   const [currentMode, setCurrentMode] = useState<ProfileMode>('hybrid');
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [resumeModalOpen, setResumeModalOpen] = useState<boolean>(false);
+  const [createArticleModalOpen, setCreateArticleModalOpen] = useState<boolean>(false);
+
+  // Articles state initialized from local storage + initial seeds
+  const [articles, setArticles] = useState<ArticleItem[]>(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY_ARTICLES);
+      if (saved) {
+        const customArticles: ArticleItem[] = JSON.parse(saved);
+        return [...customArticles, ...initialArticlesData];
+      }
+    } catch (e) {
+      console.warn('Failed to load custom articles from localStorage', e);
+    }
+    return initialArticlesData;
+  });
+
+  const [selectedArticle, setSelectedArticle] = useState<ArticleItem | null>(null);
+
+  const handleCreateArticle = (newArticle: ArticleItem) => {
+    setArticles((prev) => {
+      const updated = [newArticle, ...prev];
+      try {
+        const customOnly = updated.filter((a) => a.isCustom);
+        localStorage.setItem(STORAGE_KEY_ARTICLES, JSON.stringify(customOnly));
+      } catch (e) {
+        console.warn('Failed to save article to localStorage', e);
+      }
+      return updated;
+    });
+    // Open the newly created article for previewing/reading immediately
+    setSelectedArticle(newArticle);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateHome = (sectionId?: string) => {
+    setSelectedArticle(null);
+    if (sectionId) {
+      setTimeout(() => {
+        const elem = document.getElementById(sectionId);
+        if (elem) {
+          elem.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 50);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   const handleOpenContactModal = () => {
-    const contactElem = document.getElementById('contact');
-    if (contactElem) {
-      contactElem.scrollIntoView({ behavior: 'smooth' });
+    if (selectedArticle) {
+      setSelectedArticle(null);
+      setTimeout(() => {
+        const contactElem = document.getElementById('contact');
+        if (contactElem) {
+          contactElem.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 50);
+    } else {
+      const contactElem = document.getElementById('contact');
+      if (contactElem) {
+        contactElem.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
   return (
     <div className="relative min-h-screen bg-[#121214] text-[#e5e2e1] selection:bg-[#009de0] selection:text-white">
+      {/* Top Scroll Indicator & Back to Top Floating Button */}
+      <ScrollProgress onScrollToTop={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+
       {/* Dynamic WebGL Shader Background Canvas */}
       <ShaderBackground />
 
@@ -38,42 +106,85 @@ export default function App() {
           onSelectMode={setCurrentMode}
           onOpenResumeModal={() => setResumeModalOpen(true)}
           onOpenContactModal={handleOpenContactModal}
+          onNavigateHome={handleNavigateHome}
         />
 
-        {/* Main Content Sections */}
-        <main className="flex-grow">
-          {/* Profile Hero & Overview */}
-          <HeroSection
-            currentMode={currentMode}
-            onSelectMode={setCurrentMode}
-            onOpenResumeModal={() => setResumeModalOpen(true)}
-            onOpenContactModal={handleOpenContactModal}
-          />
+        {/* Main Content Sections or Individual Article Page with Smooth View Transition */}
+        <main className="flex-grow pt-16 sm:pt-20">
+          <AnimatePresence mode="wait">
+            {selectedArticle ? (
+              /* Dedicated Individual Article Page with Smooth Entrance */
+              <motion.div
+                key="article-detail-page"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
+              >
+                <ArticleDetailView
+                  article={selectedArticle}
+                  allArticles={articles}
+                  onBack={() => handleNavigateHome('articles')}
+                  onSelectArticle={(art) => {
+                    setSelectedArticle(art);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                />
+              </motion.div>
+            ) : (
+              /* Portfolio Index & Sections with Smooth Page Load */
+              <motion.div
+                key="portfolio-index-page"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.35 }}
+              >
+                {/* Profile Hero & Overview */}
+                <HeroSection
+                  currentMode={currentMode}
+                  onSelectMode={setCurrentMode}
+                  onOpenResumeModal={() => setResumeModalOpen(true)}
+                  onOpenContactModal={handleOpenContactModal}
+                />
 
-          {/* Portfolio & Top Projects Grid */}
-          <ProjectsSection
-            currentMode={currentMode}
-            onSelectProject={setSelectedProject}
-          />
+                {/* Projects Section with Grid/List Toggle & Live Demo/Repo Links */}
+                <ProjectsSection
+                  currentMode={currentMode}
+                  onSelectProject={setSelectedProject}
+                />
 
-          {/* Chronological Timeline */}
-          <TimelineSection currentMode={currentMode} />
+                {/* Blog & Articles Section */}
+                <ArticlesSection
+                  articles={articles}
+                  onSelectArticle={(art) => {
+                    setSelectedArticle(art);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  onOpenCreateModal={() => setCreateArticleModalOpen(true)}
+                />
 
-          {/* Enterprise CI/CD & Solution Architecture Pipeline */}
-          <ArchitectureDiagram />
+                {/* Chronological Timeline */}
+                <TimelineSection currentMode={currentMode} />
 
-          {/* Skills & Competencies Breakdown */}
-          <SkillsSection />
+                {/* Enterprise CI/CD & Solution Architecture Pipeline */}
+                <ArchitectureDiagram />
 
-          {/* Certifications & Education */}
-          <CertificationsSection />
+                {/* Skills & Competencies Breakdown */}
+                <SkillsSection />
 
-          {/* Direct Contact & Outreach */}
-          <ContactSection />
+                {/* Certifications & Education */}
+                <CertificationsSection />
+
+                {/* Direct Contact & Outreach */}
+                <ContactSection />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </main>
 
         {/* Minimalist Footer */}
-        <Footer />
+        <Footer onNavigateHome={handleNavigateHome} />
       </div>
 
       {/* Case Study & Deep Dive Modal */}
@@ -87,6 +198,13 @@ export default function App() {
         isOpen={resumeModalOpen}
         onClose={() => setResumeModalOpen(false)}
         initialMode={currentMode}
+      />
+
+      {/* Create New Article Dialog Modal */}
+      <CreateArticleModal
+        isOpen={createArticleModalOpen}
+        onClose={() => setCreateArticleModalOpen(false)}
+        onCreateArticle={handleCreateArticle}
       />
     </div>
   );

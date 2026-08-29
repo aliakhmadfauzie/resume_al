@@ -2,9 +2,24 @@ import React from 'react';
 import { personalInfo } from '../data/resumeData';
 import { ArrowUp, Heart, Code2, Globe, Sparkles } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigateHome?: (sectionId?: string) => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (onNavigateHome) {
+      onNavigateHome('home');
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleLinkClick = (href: string, e: React.MouseEvent) => {
+    if (onNavigateHome) {
+      e.preventDefault();
+      onNavigateHome(href.replace('#', ''));
+    }
   };
 
   return (
@@ -24,22 +39,25 @@ export const Footer: React.FC = () => {
 
           {/* Quick Nav Links */}
           <div className="flex flex-wrap items-center justify-center gap-4 text-neutral-400">
-            <a href="#home" className="hover:text-white transition-colors">
+            <a href="#home" onClick={(e) => handleLinkClick('#home', e)} className="hover:text-white transition-colors">
               Home
             </a>
-            <a href="#projects" className="hover:text-white transition-colors">
+            <a href="#projects" onClick={(e) => handleLinkClick('#projects', e)} className="hover:text-white transition-colors">
               Projects
             </a>
-            <a href="#timeline" className="hover:text-white transition-colors">
+            <a href="#articles" onClick={(e) => handleLinkClick('#articles', e)} className="hover:text-white transition-colors">
+              Articles
+            </a>
+            <a href="#timeline" onClick={(e) => handleLinkClick('#timeline', e)} className="hover:text-white transition-colors">
               Timeline
             </a>
-            <a href="#architecture" className="hover:text-white transition-colors">
+            <a href="#architecture" onClick={(e) => handleLinkClick('#architecture', e)} className="hover:text-white transition-colors">
               Architecture
             </a>
-            <a href="#skills" className="hover:text-white transition-colors">
+            <a href="#skills" onClick={(e) => handleLinkClick('#skills', e)} className="hover:text-white transition-colors">
               Skills
             </a>
-            <a href="#contact" className="hover:text-white transition-colors">
+            <a href="#contact" onClick={(e) => handleLinkClick('#contact', e)} className="hover:text-white transition-colors">
               Contact
             </a>
           </div>

@@ -18,6 +18,37 @@ export interface ProjectItem {
   timeline: string;
   linkText?: string;
   architecturePoints?: string[];
+  demoUrl?: string;
+  repoUrl?: string;
+}
+
+export interface ArticleItem {
+  id: string;
+  slug: string;
+  title: string;
+  date: string;
+  readTime: string;
+  category: 'architecture' | 'operations' | 'powerplatform' | 'ai' | 'devops';
+  excerpt: string;
+  content: string;
+  tags: string[];
+  author?: {
+    name: string;
+    role: string;
+    avatar?: string;
+  };
+  featured?: boolean;
+  isCustom?: boolean;
+}
+
+export interface NewArticleInput {
+  title: string;
+  date: string;
+  category: 'architecture' | 'operations' | 'powerplatform' | 'ai' | 'devops';
+  excerpt: string;
+  content: string;
+  tags: string;
+  authorName?: string;
 }
 
 export interface TimelineItem {

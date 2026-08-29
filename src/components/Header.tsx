@@ -20,6 +20,7 @@ interface HeaderProps {
   onSelectMode: (mode: ProfileMode) => void;
   onOpenResumeModal: () => void;
   onOpenContactModal: () => void;
+  onNavigateHome?: (sectionId?: string) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -27,6 +28,7 @@ export const Header: React.FC<HeaderProps> = ({
   onSelectMode,
   onOpenResumeModal,
   onOpenContactModal,
+  onNavigateHome,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -42,12 +44,20 @@ export const Header: React.FC<HeaderProps> = ({
   const navLinks = [
     { label: 'Home', href: '#home' },
     { label: 'Projects', href: '#projects' },
+    { label: 'Articles', href: '#articles' },
     { label: 'Timeline', href: '#timeline' },
     { label: 'Architecture', href: '#architecture' },
     { label: 'Skills', href: '#skills' },
     { label: 'Certifications', href: '#certifications' },
     { label: 'Contact', href: '#contact' },
   ];
+
+  const handleLinkClick = (href: string, e: React.MouseEvent) => {
+    if (onNavigateHome) {
+      e.preventDefault();
+      onNavigateHome(href.replace('#', ''));
+    }
+  };
 
   return (
     <header
@@ -63,6 +73,7 @@ export const Header: React.FC<HeaderProps> = ({
         <a
           href="#home"
           id="logo-brand-link"
+          onClick={(e) => handleLinkClick('#home', e)}
           className="flex items-center gap-3 group focus:outline-none"
         >
           <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#009de0] to-[#005580] flex items-center justify-center font-bold text-white text-sm shadow-md shadow-[#009de0]/20 group-hover:scale-105 transition-transform">
@@ -79,11 +90,12 @@ export const Header: React.FC<HeaderProps> = ({
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-neutral-300">
+        <nav className="hidden md:flex items-center gap-5 text-sm font-medium text-neutral-300">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
+              onClick={(e) => handleLinkClick(link.href, e)}
               className="hover:text-white transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-[#009de0] after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-200"
             >
               {link.label}
@@ -233,7 +245,10 @@ export const Header: React.FC<HeaderProps> = ({
               <a
                 key={link.label}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => {
+                  handleLinkClick(link.href, e);
+                  setMobileMenuOpen(false);
+                }}
                 className="block py-2 text-sm text-neutral-300 hover:text-[#8aceff]"
               >
                 {link.label}

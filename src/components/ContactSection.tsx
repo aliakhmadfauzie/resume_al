@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { personalInfo } from '../data/resumeData';
+import { motion } from 'motion/react';
 import {
   Mail,
   Phone,
@@ -12,9 +13,7 @@ import {
   Copy,
   Check,
   MapPin,
-  Calendar,
   Clock,
-  Sparkles,
 } from 'lucide-react';
 
 interface ContactSectionProps {
@@ -54,11 +53,17 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 relative border-t border-white/10 bg-[#121215]">
-      <div className="max-w-[1140px] mx-auto">
+    <section id="contact" className="py-20 px-4 sm:px-6 relative border-t border-white/10 bg-[#121215] overflow-hidden">
+      <div className="max-w-[1140px] mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column: Direct Contact Details matching Image 5 & 6 */}
-          <div className="lg:col-span-5 space-y-6">
+          {/* Left Column: Direct Contact Details */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="lg:col-span-5 space-y-6"
+          >
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono-code text-[#8aceff] mb-3">
                 <Mail className="w-3.5 h-3.5" />
@@ -72,8 +77,8 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
               </p>
             </div>
 
-            {/* Contact Information List matching Image 5 & 6 */}
-            <div className="bg-[#18181d] border border-white/10 rounded-2xl p-6 space-y-3.5 font-mono-code text-xs">
+            {/* Contact Information List */}
+            <div className="bg-[#18181d] border border-white/10 rounded-2xl p-6 space-y-3.5 font-mono-code text-xs shadow-xl">
               <div className="flex items-center justify-between py-1 border-b border-white/5">
                 <span className="text-neutral-400">Email:</span>
                 <button
@@ -159,10 +164,16 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                 Current Location: <strong>Kuala Lumpur (MYT UTC+8)</strong> • Rapid response within 24 hours.
               </span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Direct Message Form */}
-          <div className="lg:col-span-7">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="lg:col-span-7"
+          >
             <div className="bg-[#18181d] border border-white/10 rounded-2xl p-6 sm:p-8 shadow-xl">
               <h3 className="text-xl font-bold text-white mb-1">
                 Send a Direct Message
@@ -265,7 +276,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                 </form>
               )}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

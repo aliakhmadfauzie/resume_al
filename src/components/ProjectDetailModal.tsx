@@ -71,9 +71,37 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 tracking-tight">
             {project.title}
           </h2>
-          <p className="text-sm font-mono-code text-[#8aceff]">
+          <p className="text-sm font-mono-code text-[#8aceff] mb-4">
             {project.subtitle}
           </p>
+
+          {/* Action Links: Live Demo & Repository */}
+          <div className="flex flex-wrap items-center gap-3 pt-1">
+            {project.demoUrl && (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noreferrer"
+                id={`modal-demo-btn-${project.id}`}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#009de0] hover:bg-[#0087c2] text-white text-xs font-semibold shadow-md shadow-[#009de0]/25 transition-all"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>Live Interactive Demo</span>
+              </a>
+            )}
+            {project.repoUrl && (
+              <a
+                href={project.repoUrl}
+                target="_blank"
+                rel="noreferrer"
+                id={`modal-repo-btn-${project.id}`}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white border border-white/15 text-xs font-semibold transition-all"
+              >
+                <Code2 className="w-3.5 h-3.5 text-[#8aceff]" />
+                <span>Source Code / Repo</span>
+              </a>
+            )}
+          </div>
         </div>
 
         {/* Modal Body */}

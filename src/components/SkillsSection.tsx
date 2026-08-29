@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { skillCategories, languagesData } from '../data/resumeData';
+import { motion, AnimatePresence } from 'motion/react';
 import {
   Cpu,
   Code2,
@@ -35,10 +36,16 @@ export const SkillsSection: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 relative">
-      <div className="max-w-[1140px] mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-12">
+    <section id="skills" className="py-20 px-4 sm:px-6 relative overflow-hidden">
+      <div className="max-w-[1140px] mx-auto relative z-10">
+        {/* Section Header with Motion Reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="text-center mb-12"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono-code text-[#8aceff] mb-3">
             <Zap className="w-3.5 h-3.5" />
             <span>Technical & Operational Stack</span>
@@ -61,11 +68,11 @@ export const SkillsSection: React.FC = () => {
               className="w-full bg-[#1a1a20] border border-white/10 rounded-xl pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#009de0] transition-colors"
             />
           </div>
-        </div>
+        </motion.div>
 
-        {/* Skill Category Cards Grid */}
+        {/* Skill Category Cards Grid with Hover Lift & Staggered Reveal */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {skillCategories.map((category) => {
+          {skillCategories.map((category, idx) => {
             const filteredSkills = category.skills.filter((s) =>
               s.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
               s.level.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -75,9 +82,19 @@ export const SkillsSection: React.FC = () => {
             if (searchQuery && filteredSkills.length === 0) return null;
 
             return (
-              <div
+              <motion.div
                 key={category.title}
-                className="bg-[#19191e]/90 border border-white/10 hover:border-white/20 rounded-2xl p-6 backdrop-blur-md shadow-xl flex flex-col justify-between transition-all"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.4, delay: idx * 0.05, ease: 'easeOut' }}
+                whileHover={{
+                  y: -5,
+                  boxShadow: '0 18px 30px -10px rgba(0, 157, 224, 0.15)',
+                  borderColor: 'rgba(255, 255, 255, 0.25)',
+                  transition: { duration: 0.2 },
+                }}
+                className="bg-[#19191e]/90 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-xl flex flex-col justify-between transition-colors duration-200"
               >
                 <div>
                   <div className="flex items-center gap-3 mb-3">
@@ -98,7 +115,7 @@ export const SkillsSection: React.FC = () => {
                     {filteredSkills.map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex items-center justify-between p-2 rounded-lg bg-black/20 border border-white/5 hover:border-white/10 transition-colors"
+                        className="flex items-center justify-between p-2 rounded-lg bg-black/20 border border-white/5 hover:border-white/15 hover:bg-black/30 transition-all"
                       >
                         <div className="flex items-center gap-2">
                           {skill.highlight ? (
@@ -132,13 +149,19 @@ export const SkillsSection: React.FC = () => {
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
         {/* Languages Strip */}
-        <div className="bg-[#19191e]/80 border border-white/10 rounded-2xl p-6 sm:p-7 backdrop-blur-md shadow-xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="bg-[#19191e]/80 border border-white/10 rounded-2xl p-6 sm:p-7 backdrop-blur-md shadow-xl"
+        >
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
             <div className="flex items-center gap-2.5">
               <Globe className="w-5 h-5 text-[#009de0]" />
@@ -153,9 +176,10 @@ export const SkillsSection: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {languagesData.map((lang) => (
-              <div
+              <motion.div
                 key={lang.language}
-                className="bg-black/30 rounded-xl p-4 border border-white/5 flex items-center justify-between"
+                whileHover={{ y: -3, transition: { duration: 0.18 } }}
+                className="bg-black/30 rounded-xl p-4 border border-white/5 hover:border-white/15 flex items-center justify-between transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">{lang.flag}</span>
@@ -169,10 +193,10 @@ export const SkillsSection: React.FC = () => {
                   </div>
                 </div>
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
