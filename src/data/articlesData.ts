@@ -25,7 +25,7 @@ export const initialArticlesData: ArticleItem[] = [
       name: "Ali Akhmad Fauzie",
       role: "Fullstack & Enterprise Solution Architect",
     },
-    content: `## The Legacy Domino Modernization Challenge
+    content: `![IOI IT service request dashboard](https://raw.githubusercontent.com/Altechsolution123/altechsolution_33/main/public/gallery/stitch_unified_it_ticketing_system/dashboard_overview.png)\n\n## The Legacy Domino Modernization Challenge
 
 In large manufacturing and plantation conglomerates like **IOI Corporation Berhad**, decades of critical operational business logic were locked inside **hundreds of legacy Lotus Domino forms and applications** across **36 department-sites** (22 Penang/Prai + 14 Johor/PanCen). These applications suffered from severe technical debt:
 
@@ -106,7 +106,7 @@ To guarantee enterprise compliance and audit readiness:
       name: "Ali Akhmad Fauzie",
       role: "ALM & AI Engineering Lead",
     },
-    content: `## Moving Beyond Generic AI Prompts
+    content: `![IOI IT ticketing dashboard](https://raw.githubusercontent.com/Altechsolution123/altechsolution_33/main/public/gallery/stitch_unified_it_ticketing_system/ticket_management.png)\n\n## Moving Beyond Generic AI Prompts
 
 Enterprise low-code development moves rapidly, but scaling without governance invites inconsistent quality and unverified work. Rather than ad-hoc prompting, we baked the migration playbook into **version-controlled Copilot agents, skills, and instruction files** that every agent must read before acting:
 
@@ -246,7 +246,7 @@ The toolkit treats documents as governed artifacts:
       name: "Ali Akhmad Fauzie",
       role: "ALM & AI Engineering Lead",
     },
-    content: `## The Problem
+    content: `![ResumeFlow auto job-apply pipeline](https://raw.githubusercontent.com/Ztrimus/job-llm/main/resources/auto_job_apply_workflow.jpg)\n\n## The Problem
 
 Job seekers rewrite their resume for every role, losing consistency and time. ResumeFlow automates the tailoring step with a language model while keeping a single master resume as the source of truth.
 
@@ -526,7 +526,7 @@ The project wires in the **Microsoft 365 Copilot Agent Evaluations CLI** (\`@mic
       name: "Ali Akhmad Fauzie",
       role: "Fullstack & Enterprise Solution Architect",
     },
-    content: `## The Design System
+    content: `![Lewi House Syariah gallery](https://raw.githubusercontent.com/gradiuzz2009/Lewi-House-Web/main/public/gallery/gallery-01.webp)\n\n## The Design System
 
 The product is built on **Modern Minimalism** with a touch of **Corporate Professionalism**, tuned for a Syariah hospitality brand that emphasizes trust, cleanliness, and value.
 
@@ -590,7 +590,7 @@ The app covers the full browsing and booking journey — room inventory, ameniti
       name: "Ali Akhmad Fauzie",
       role: "Fullstack & Enterprise Solution Architect",
     },
-    content: `## The Product
+    content: `![Al Resume hero screenshot](https://raw.githubusercontent.com/gradiuzz2009/Al-resume/main/ocr-shots/home-full.png)\n\n## The Product
 
 Beyond a static resume, this site is a **conversational showcase** of enterprise delivery:
 
