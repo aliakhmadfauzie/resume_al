@@ -1133,7 +1133,7 @@ export const projectsData: ProjectItem[] = [
     "timeline": "Jan 2025",
     "linkText": "EXPLORE PIPELINE",
     "demoUrl": "",
-    "repoUrl": "https://github.com/altechsolution123/ats-automation",
+    "repoUrl": "https://github.com/AlTechSolutions-AAF/ats-automation",
     "architecturePoints": [
       "AI Gateway abstracting Gemini and Groq model inferences for resilient token routing",
       "Dual-track PDF renderer generating Tech and Operations variants from a single master JSON profile",
@@ -1145,16 +1145,16 @@ export const projectsData: ProjectItem[] = [
     "id": "resumeflow-pipeline",
     "title": "ResumeFlow: LLM Resume & Cover Letter Pipeline",
     "subtitle": "Open-Source Python Package (zlm on PyPI) & ACM Digital Library Published Research",
-    "description": "Job seekers rewrite resumes manually for each role, losing consistency and time. Built an open-source LLM pipeline that turns a single master resume into a tailored resume and cover letter for any job URL — published as a Python package, a Streamlit web tool, and an ACM-indexed research paper.",
-    "fullOverview": "An open-source, LLM-facilitated pipeline that turns a single master resume into a tailored resume and cover letter for any job URL. Published as PyPI package 'zlm', interactive Streamlit web tool (resumeflow.streamlit.app), and published research paper in ACM Digital Library (doi: 10.1145/3626772.3657680) and arXiv (2402.06221).",
+    "description": "Job seekers rewrite resumes manually for each role, losing consistency and time. Leveraged the open-source ResumeFlow LLM pipeline (from the Ztrimus/job-llm project by ASU researchers) that turns a single master resume into a tailored resume and cover letter for any job URL — available as a Python package, a Streamlit web tool, and an ACM-indexed research paper.",
+    "fullOverview": "Integrated the open-source ResumeFlow LLM pipeline (Ztrimus/job-llm — published as PyPI package 'zlm', a Streamlit web tool at resumeflow.streamlit.app, and an ACM/arXiv paper) into the ATS automation workflow for JD-tailored resume and cover-letter generation.",
     "challenge": "Customizing resumes for specific job descriptions is time-intensive and prone to formatting regressions without automated LLM evaluation.",
-    "solution": "Developed the `resume_cv_pipeline()` engine supporting OpenAI and Gemini Pro models with PDF/JSON master resume ingestion and dual delivery modes.",
+    "solution": "Wired the `resume_cv_pipeline()` engine (OpenAI / Gemini Pro, PDF or JSON master-resume ingestion, dual delivery modes) into the deterministic ATS automation pipeline.",
     "results": [
       "Published as open-source Python package 'zlm' on PyPI.",
       "Academic paper indexed in ACM Digital Library & arXiv (2402.06221).",
       "Live interactive Streamlit application serving global job seekers.",
       "Multi-provider LLM abstraction layer supporting OpenAI and Gemini Pro.",
-      "Role: Creator & Lead Maintainer"
+      "Role: Adopted & integrated the third-party open-source ResumeFlow (Ztrimus/job-llm) project"
     ],
     "category": "ai",
     "cardColor": "#4338ca",
@@ -1202,7 +1202,7 @@ export const projectsData: ProjectItem[] = [
     "timeline": "Jan 2025",
     "linkText": "VIEW PACKAGE & PAPER",
     "demoUrl": "https://resumeflow.streamlit.app",
-    "repoUrl": "https://github.com/altechsolution123/job-llm",
+    "repoUrl": "https://github.com/Ztrimus/job-llm",
     "architecturePoints": [
       "Provider-agnostic LLM client abstracting prompt chaining and temperature controls",
       "Master resume ingestion supporting structured JSON profiles and parsed PDF inputs",
@@ -1476,7 +1476,7 @@ export const projectsData: ProjectItem[] = [
     "timeline": "Sep 2024",
     "linkText": "VIEW BOOKING PLATFORM",
     "demoUrl": "",
-    "repoUrl": "https://github.com/altechsolution123/lEWIHOUSEWEB",
+    "repoUrl": "https://github.com/gradiuzz2009/Lewi-House-Web",
     "architecturePoints": [
       "Design token architecture defined in CSS @theme with Montserrat and Inter typography",
       "Firebase Firestore database structure for real-time room availability and amenities",
