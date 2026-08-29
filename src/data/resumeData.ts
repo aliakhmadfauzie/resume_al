@@ -22,19 +22,19 @@ export const personalInfo = {
   github: "https://github.com/altechsolution123",
   whatsappUrl: "https://wa.me/60132957406",
   gpgKey: "0xAF8849F12026",
-  bio: "Fullstack Engineer and Mobile App Developer (Android & iOS) with deep pro-code and low-code architecture experience spanning mobile apps (React Native, Flutter, Swift, Kotlin), modern fullstack web (TypeScript, React 19, Next.js, Node.js), Multilingual BPO team scaling, and Lark bot workflow automation at Concentrix. Proven track record modernizing 361 legacy Lotus Domino databases at a major conglomerate into modern scalable architectures with MYR 360K in license cost avoided.",
+  bio: "Fullstack Engineer and Mobile App Developer (Android & iOS) with deep pro-code and low-code architecture experience spanning mobile apps (React Native, Flutter, Swift, Kotlin), modern fullstack web (TypeScript, React 19, Next.js, Node.js), Multilingual BPO team scaling, and Lark bot workflow automation at Concentrix. Proven track record modernizing hundreds of legacy Lotus Domino forms across 36 department-sites at a major conglomerate into modern, code-first Microsoft 365 architectures using standard-only connectors.",
   aboutParagraphs: [
     "Fullstack Engineer and Mobile App Developer (Android & iOS) with 9+ years of blended technical innovation, service delivery, and operations leadership across mobile, web, and enterprise architectures.",
     "Proven leader in Multilingual BPO team scaling and Lark bot workflow automation at Concentrix, scaling squads up to 34 agents across 7 regional markets with >98% SLA compliance and eliminating 90% of manual queue reporting through custom Lark Open Platform bots and AI integrations.",
     "Specializes in engineering high-performance mobile applications (Android with Kotlin/Java, iOS with Swift, React Native, and Flutter) as well as fullstack web architectures with TypeScript, React 19, Next.js, Node.js, and REST/GraphQL APIs. Combines deep pro-code software engineering with enterprise low-code velocity across Microsoft Power Platform, Dataverse, and C# Plugins.",
-    "Proven track record leading large-scale digital modernization at a publicly listed Malaysian conglomerate (palm oil, oleochemicals, property) — cataloguing 361 legacy Lotus Domino forms and migrating them into a modern Microsoft 365 / Dataverse ecosystem, eliminating MYR 360K/year in premium licensing across 28+ department sites with robust managed solution ALM and 50+ Copilot AI agents."
+    "Proven track record leading large-scale digital modernization at a publicly listed Malaysian conglomerate (palm oil, oleochemicals, property) — cataloguing hundreds of legacy Lotus Domino forms across 36 department-sites and rebuilding them as a single code-first Power Apps platform backed by SharePoint Online (MainDB_IT + FormCode discriminator), using standard-only connectors and a governed Copilot-assisted migration pipeline."
   ],
   stats: [
-    { label: "Forms Catalogued", value: "361" },
-    { label: "Production Apps Built", value: "16+" },
-    { label: "Departments Modernized", value: "28+" },
-    { label: "License Cost Avoided", value: "MYR 360K/yr" },
-    { label: "Mobile & AI Systems", value: "50+" },
+    { label: "Forms Catalogued", value: "418+" },
+    { label: "Production Apps Built", value: "1 Code-First" },
+    { label: "Departments Modernized", value: "36" },
+    { label: "License Cost", value: "Standard Connectors" },
+    { label: "AI & Automation", value: "2 Agents + Skills" },
     { label: "Years Enterprise Exp", value: "9+ Yrs" }
   ]
 };
@@ -107,7 +107,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "2023 — 2025",
     "linkText": "EXPLORE BLUEPRINT & SPECS",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/pulsetrack",
     "codeSnippet": {
       "language": "typescript",
@@ -164,7 +164,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Aug 2025",
     "linkText": "EXPLORE ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/smartflow",
     "architecturePoints": [
       "Responsive Power Apps Canvas front-end with dynamic form validations",
@@ -214,7 +214,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Mar 2025",
     "linkText": "EXPLORE ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/cs-resolver",
     "architecturePoints": [
       "Custom AI Builder text classification model trained on 120+ standard operating procedures",
@@ -263,7 +263,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "May 2024",
     "linkText": "EXPLORE ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/document-finder",
     "architecturePoints": [
       "Vector/keyword weighted scoring algorithm for enterprise documentation",
@@ -338,7 +338,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Jan 2025",
     "linkText": "EXPLORE BLUEPRINT & SPECS",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/tasek-cement-rebate",
     "codeSnippet": {
       "language": "csharp",
@@ -394,7 +394,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Nov–Dec 2023",
     "linkText": "EXPLORE ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/staff-requisition",
     "architecturePoints": [
       "Strict state-machine workflow: Draft → Line Manager → Human Resources Head → Chief Financial Officer (if new headcount) → Published",
@@ -441,7 +441,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Jul 2024",
     "linkText": "EXPLORE ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/ask-lark",
     "architecturePoints": [
       "Similarity matching against indexed questions in Lark Base",
@@ -490,7 +490,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "2025",
     "linkText": "EXPLORE ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/it-support-service-request",
     "architecturePoints": [
       "5 custom Power Apps screens covering Ticket Entry, Dispatcher Triage, Tech Workbench, Requester Review, and Metrics",
@@ -538,7 +538,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "2025",
     "linkText": "EXPLORE ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/infosec-doc-register",
     "architecturePoints": [
       "Dynamic SharePoint item-level permission inheritance breaking on publication",
@@ -586,7 +586,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "2025",
     "linkText": "EXPLORE ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/it-server-checklist",
     "architecturePoints": [
       "Auto-numbering formula: Server Checklist-[YYYY]-[WW]-[####]",
@@ -596,17 +596,17 @@ export const projectsData: ProjectItem[] = [
   },
   {
     "id": "ioi-domino-dataverse",
-    "title": "IOI Domino → Dataverse Enterprise Modernization",
-    "subtitle": "Enterprise-Wide Modernization of 361 Lotus Domino Applications Across 28+ Departments",
-    "description": "361 Lotus Domino applications across 28+ departments were end-of-life, with massive maintenance overhead. Designed a Dataverse-first architecture with MainDB parent tables, polymorphic child lookups, Business Unit hierarchy, and Field Security Profiles. SharePoint Online was deployed as an interim staging layer to avoid RM4.2M/yr premium licensing while delivering 16 production apps.",
-    "fullOverview": "Designed Dataverse-first architecture with MainDB parent tables, polymorphic child lookups, Business Unit hierarchy, Security Role inheritance, and Field Security Profiles. SharePoint Online deployed as interim staging layer to avoid RM4.2M/yr premium licensing — with documented migration path to Dataverse as production target. 361 forms catalogued; 28+ Dataverse tables; 16 production apps; 12+ C# plugins; 70% faster delivery with AI-assisted development.",
-    "challenge": "361 Lotus Domino applications across 28+ departments were end-of-life, with no clear modernization path and severe vendor lock-in.",
-    "solution": "Designed a two-phase architecture: Phase 1 deployed 16 production Power Apps using SharePoint Online as an interim staging store, eliminating RM4.2M/yr licensing penalties. Phase 2 engineered the Dataverse Relational Hub with Business Unit data isolation, C# Pre/Post-Operation plugins, and automated PAC CLI solution packaging.",
+    "title": "IOI Domino → Microsoft 365 Enterprise Modernization",
+    "subtitle": "Enterprise-Wide Modernization of Hundreds of Lotus Domino Forms Across 36 Department-Sites",
+    "description": "Hundreds of legacy Lotus Domino forms across 36 department-sites were end-of-life with massive maintenance overhead. Built a single code-first Power Apps app per site (React + TypeScript + Vite + shadcn/ui) persisted on one SharePoint main list (MainDB_IT with a FormCode discriminator) plus extension and config lists, orchestrated by Power Automate — using standard-only connectors to avoid premium licensing.",
+    "fullOverview": "A single code-first Power Apps app (React 19 + TypeScript + Vite + shadcn/ui) on the @microsoft/power-apps SDK, with one SharePoint main list per site (MainDB_IT / MainDB_IT_JHR) discriminated by a FormCode column, plus extension and config lists. Business logic and multi-stage approvals are delivered in React code and Power Automate flows (e.g., the 5-stage EAF approval and UAT sign-off matrices). Standard connectors (SharePoint, Microsoft 365 Users, Office 365 Outlook) avoid premium-connector licensing. 24 active IT forms shipped; 28 JSON form schemas; 1,006 fields modelled.",
+    "challenge": "Hundreds of legacy Lotus Domino forms across 36 department-sites were end-of-life, with no clear modernization path and severe vendor lock-in.",
+    "solution": "Engineered a single code-first app for all departments (decision DEC-2026-003) on a SharePoint-backed data model (DEC-2026-001), with a FormCode discriminator unifying form types into one list per site. Type-safe components, generated models/services/hooks/validators, and Power Automate flows handle routing and approvals. PAC CLI v2.7.4, TypeScript strict compilation, and ESLint gate changes.",
     "results": [
-      "361 legacy forms catalogued and mapped to relational Dataverse entities.",
-      "Saved RM4.2M/yr in Microsoft licensing costs via phased staging blueprint.",
-      "16 mission-critical apps deployed to production with zero downtime.",
-      "12+ C# Plugins enforcing atomic transactional integrity and audit trails.",
+      "Hundreds of legacy forms catalogued across 36 department-sites; ~418+ forms with deep field-level analysis on 23 IT + HR/QA families.",
+      "One code-first app serving all departments with 24 active IT forms and centralized form routing.",
+      "Standard-only connectors (SharePoint, Microsoft 365 Users, Office 365 Outlook) avoid premium-connector licensing.",
+      "Multi-stage approval engines (5-stage EAF, UAT sign-off, conditional section visibility) in code and Power Automate.",
       "Role: Lead Enterprise Solution Architect & Power Platform Modernization"
     ],
     "category": "enterprise",
@@ -619,80 +619,80 @@ export const projectsData: ProjectItem[] = [
     "domainTags": [
       "Conglomerate Modernization",
       "Lotus Notes Sunset",
-      "RM4.2M/yr Cost Avoidance",
+      "Standard-Connector Licensing",
       "Enterprise ALM Pipeline"
     ],
     "techTags": [
-      "Dataverse",
-      "C# Plugins",
-      "Power Apps Canvas",
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "shadcn/ui",
       "Power Automate",
-      "PAC CLI",
-      "Oracle ERP Sync"
+      "PAC CLI"
     ],
     "tags": [
-      "Dataverse",
-      "Power Apps",
-      "C# Plugins",
+      "Power Apps Code-First",
+      "SharePoint Online",
       "React 19",
       "TypeScript",
       "Power Automate",
+      "PAC CLI",
       "GitHub Actions"
     ],
     "metrics": [
       {
-        "label": "Cost Saved / Yr",
-        "value": "MYR 360K+",
+        "label": "License Cost",
+        "value": "Standard Only",
         "highlight": true
       },
       {
         "label": "Forms Catalogued",
-        "value": "361 Forms",
+        "value": "418+",
         "highlight": true
       },
       {
         "label": "Production Apps",
-        "value": "16 Apps",
+        "value": "1 Code-First",
         "highlight": true
       },
       {
-        "label": "Dataverse Tables",
-        "value": "28+ Tables",
+        "label": "Active IT Forms",
+        "value": "24",
         "highlight": true
       }
     ],
     "timeline": "2024 — 2026",
     "linkText": "EXPLORE BLUEPRINT & SPECS",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/ioi-domino-dataverse",
-    "codeSnippet": {
-      "language": "csharp",
-      "filename": "PreValidateDominoEntityMigration.cs",
-      "code": "using System;\nusing Microsoft.Xrm.Sdk;\n\nnamespace IOI.Dataverse.Plugins.Modernization\n{\n    /// <summary>\n    /// Pre-Validation Plugin ensuring atomic form code routing and security trimming\n    /// across 28+ departmental Business Units.\n    /// </summary>\n    public class PreValidateDominoEntityMigration : IPlugin\n    {\n        public void Execute(IServiceProvider serviceProvider)\n        {\n            var context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));\n            if (context.Stage != 10 || context.MessageName != \"Create\") return;\n\n            if (context.InputParameters.Contains(\"Target\") && context.InputParameters[\"Target\"] is Entity target)\n            {\n                // Validate discriminator column (FormCode) for polymorphic parent dispatch\n                if (!target.Attributes.Contains(\"ioi_formcode\") || string.IsNullOrWhiteSpace(target.GetAttributeValue<string>(\"ioi_formcode\")))\n                {\n                    throw new InvalidPluginExecutionException(\"Architecture Constraint: FormCode discriminator is mandatory for MainDB parent dispatch.\");\n                }\n\n                // Enforce immutable audit stamp\n                target[\"ioi_migrationtimestamp\"] = DateTime.UtcNow;\n                target[\"ioi_stagingorigin\"] = \"SharePoint_Phase1_Staging\";\n            }\n        }\n    }\n}",
-      "caption": "C# Pre-Validation plugin executing in Stage 10 pipeline for atomic Dataverse entity integrity."
+"codeSnippet": {
+      "language": "typescript",
+      "filename": "submitFormCode.ts",
+      "code": "export async function submitFormCode(formCode: string, payload: Record<string, unknown>) {\n  // One SharePoint main list per site, discriminated by FormCode\n  const item = { FormCode: formCode, CurrentStatus: 'Submitted', ...payload };\n  await sp.web.lists.getByTitle('MainDB_IT').items.add(item);\n  // Power Automate flow drives the multi-stage approval\n}",
+      "caption": "TypeScript service submitting a record to the SharePoint MainDB_IT list with the FormCode discriminator."
     },
     "architecturePoints": [
       "MainDB_{Dept} parent tables with FormCode discriminator column",
       "Child task tables with polymorphic lookups for cross-departmental relationships",
-      "Business Unit hierarchy enabling departmental data isolation across 28+ business units",
-      "5-tier Security Role inheritance for approval workflows with automated escalations",
-      "Field Security Profiles for Personally Identifiable Information and financial data columns",
-      "Alternate keys for Oracle Enterprise Resource Planning bidirectional sync"
+      "Single SharePoint main list per site with a per-form FormCode discriminator",
+      "Power Automate multi-stage approval flows (e.g., 5-stage EAF external access)",
+      "Standard-only connectors limiting data surface (SharePoint, M365 Users, Office 365 Outlook)",
+      "Version-controlled form schemas, generated models/services/hooks/validators, and provisioning scripts"
     ]
   },
   {
     "id": "ai-dev-pipeline",
     "title": "AI-Enabled Development Pipeline",
-    "subtitle": "50+ specialized AI agents across 12 automated workflow pipelines",
-    "description": "Manual form migration and development cycles were slow and inconsistent across 361 applications. Built 50+ specialized AI agents organized into 12 automated workflow pipelines — form migration, TypeScript React development, Canvas screen generation, Quality Assurance testing, and governance auditing. Each agent uses Azure OpenAI (GPT-4o) with Retrieval-Augmented Generation architecture grounded in Dataverse schema docs and PA YAML v3.0 reference. Data Loss Prevention policies enforce data classification and prevent Personally Identifiable Information leakage.",
-    "fullOverview": "Built 50+ specialized AI agents organized into 12 automated workflow pipelines — form migration, TypeScript React development, Canvas screen generation, Quality Assurance testing, and governance auditing. Each agent uses Azure OpenAI (GPT-4o) with Retrieval-Augmented Generation architecture grounded in Dataverse schema docs and PA YAML v3.0 reference. Data Loss Prevention policies enforce data classification and prevent Personally Identifiable Information leakage. 70% reduction in form migration effort; 50+ AI agents; 12 automated pipelines.",
-    "challenge": "Manual form migration and development cycles were slow and inconsistent across 361 applications.",
-    "solution": "Built 50+ specialized AI agents organized into 12 automated workflow pipelines — form migration, TypeScript React development, Canvas screen generation, Quality Assurance testing, and governance auditing. Each agent uses Azure OpenAI (GPT-4o) with Retrieval-Augmented Generation architecture grounded in Dataverse schema docs and PA YAML v3.0 reference. Data Loss Prevention policies enforce data classification and prevent Personally Identifiable Information leakage.",
+    "subtitle": "Copilot agents & skills within a governed migration pipeline",
+    "description": "Manual migration and development cycles were slow and inconsistent. Standardized the Domino → M365 migration with version-controlled Copilot agents, skills, and instruction files, and drove it through a governed Migration Pipeline Controller that selects one task at a time, enforces ordering, and never marks work complete without evidence.",
+    "fullOverview": "Two Copilot agents (domino-migration-agent and code-app-architectV2) plus skills (domino-migration, domino-form-reader, add-datasource, add-sharepoint, automate-sharepoint-pnp, create-code-app) and instruction files (domino-migration.instructions.md, copilot-instructions.md) encode the migration playbook. A Migration Pipeline Controller (MIGRATION_PIPELINE_CONTROLLER.md) governs 11 task types (Extraction, Quality Review, Promotion, Schema Generation, Schema Validation, Build, Build Audit, Fix, Re-Audit, Progress Register Update, Human Confirmation Question) with hard blocking rules and evidence-based completion.",
+    "challenge": "Manual migration and development cycles were slow and inconsistent, with no gate preventing skipped work or unverified completion.",
+    "solution": "Baked the migration playbook into version-controlled Copilot agents and skills, then enforced a rule-based pipeline controller (priority ordering, re-audit before dependent builds, no completion without evidence) plus standard-only connectors and code-as-source governance.",
     "results": [
-      "70% reduction in form migration effort; 50+ AI agents; 12 automated pipelines.",
-      "AI Agents: 50+",
-      "Pipelines: 12",
-      "Effort Reduction: 70%",
+      "Repeatable, evidence-gated workflow where every task must prove completion before the pipeline advances.",
+      "Verifiable build state: TypeScript strict compile and Vite build succeed.",
+      "2 Copilot agents, 6 skills, and 11 governed pipeline task types.",
+      "Standard-only connector posture on a single code-first app.",
       "Role: AI agent architecture & pipeline orchestration"
     ],
     "category": "ai",
@@ -700,36 +700,36 @@ export const projectsData: ProjectItem[] = [
     "bgGradient": "from-[#92400e] to-[#451a03]",
     "accentHex": "#f59e0b",
     "tags": [
-      "Azure OpenAI",
       "GitHub Copilot",
-      "Python",
+      "Agents",
+      "Skills",
       "TypeScript",
-      "Copilot Studio",
-      "Data Loss Prevention Guardrails"
+      "Migration Pipeline Controller",
+      "BLOCKING_RULES"
     ],
     "metrics": [
       {
         "label": "AI Agents",
-        "value": "50+"
+        "value": "2 + Skills"
       },
       {
-        "label": "Pipelines",
-        "value": "12"
+        "label": "Pipeline Tasks",
+        "value": "11"
       },
       {
-        "label": "Effort Reduction",
-        "value": "70%"
+        "label": "Governance Gates",
+        "value": "Evidence-Gated"
       }
     ],
     "timeline": "Apr 2026",
     "linkText": "EXPLORE ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/ai-dev-pipeline",
     "architecturePoints": [
-      "Azure OpenAI GPT-4o with Retrieval-Augmented Generation architecture grounded in Dataverse schema documentation",
-      "PA YAML v3.0 reference corpus for Canvas screen generation agents",
-      "Data Loss Prevention policies enforcing data classification and Personally Identifiable Information leakage prevention",
-      "Automated Quality Assurance testing agents validating solution checker compliance on every Pull Request"
+      "Version-controlled Copilot agents, skills, and instruction files that agents must read before acting",
+      "Migration Pipeline Controller selecting exactly one task at a time with rule-based ordering",
+      "Hard blocking rules (BLOCKING_RULES.md) preventing downstream builds on failed re-audits",
+      "Standard-only connectors and code-as-source governance, with audit register + fix backlog + UAT folders"
     ]
   },
   {
@@ -775,7 +775,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Nov 2025",
     "linkText": "EXPLORE ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/eprocurement-oracle",
     "architecturePoints": [
       "Custom Connectors for bidirectional Oracle PowerBiz Enterprise Resource Planning synchronization",
@@ -825,7 +825,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Nov 2024",
     "linkText": "EXPLORE ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/leadflow",
     "architecturePoints": [
       "Lark Task integration with automated progress roll-up",
@@ -873,7 +873,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Sep 2024",
     "linkText": "EXPLORE ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/leavesync",
     "architecturePoints": [
       "Lark Base leave balance tracking with automatic accrual calculation",
@@ -921,7 +921,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Mar 2024",
     "linkText": "EXPLORE ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/marketpoint",
     "architecturePoints": [
       "Lark Base market-specific Point of Contact tracking with automated escalation",
@@ -969,7 +969,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Jan 2024",
     "linkText": "EXPLORE ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/gameintel",
     "architecturePoints": [
       "REST API integration with game data providers for real-time event ingestion",
@@ -1017,7 +1017,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Nov 2023",
     "linkText": "EXPLORE ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/worksync",
     "architecturePoints": [
       "Lark Automation automated time tracking with shift scheduling",
@@ -1064,7 +1064,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Sep 2023",
     "linkText": "EXPLORE ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/aht-optimization",
     "architecturePoints": [
       "Power BI analytics identifying Average Handling Time bottlenecks by process and team",
@@ -1132,7 +1132,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Jan 2025",
     "linkText": "EXPLORE PIPELINE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/ats-automation",
     "architecturePoints": [
       "AI Gateway abstracting Gemini and Groq model inferences for resilient token routing",
@@ -1271,7 +1271,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Dec 2024",
     "linkText": "EXPLORE NEXT.JS ARCHITECTURE",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/Resume-Buildder",
     "architecturePoints": [
       "Next.js 14 App Router with React Server Components and route handlers",
@@ -1339,7 +1339,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Nov 2024",
     "linkText": "VIEW POWER PLATFORM SPEC",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/Barbershop-Project",
     "architecturePoints": [
       "6 relational SharePoint lists with typed Lookup columns (Customers, Staff, Appointments)",
@@ -1406,7 +1406,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Jan 2025",
     "linkText": "EXPLORE COPILOT SPEC",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/Copilot",
     "architecturePoints": [
       "declarativeAgent.json v1.7 definition with fine-tuned system instruction prompt",
@@ -1475,7 +1475,7 @@ export const projectsData: ProjectItem[] = [
     ],
     "timeline": "Sep 2024",
     "linkText": "VIEW BOOKING PLATFORM",
-    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "demoUrl": "",
     "repoUrl": "https://github.com/altechsolution123/lEWIHOUSEWEB",
     "architecturePoints": [
       "Design token architecture defined in CSS @theme with Montserrat and Inter typography",
@@ -1519,17 +1519,17 @@ export const timelineData: TimelineItem[] = [
     category: "architect",
     featured: true,
     description: [
-      "Led the enterprise-wide digital modernization of 361 legacy Lotus Domino business applications across 28+ departments for over 2,000 enterprise users.",
-      "Designed and executed a deliberate two-phase architecture: Phase 1 deployed 16 production Power Apps using SharePoint Online as an interim staging store, eliminating MYR 360K/year in premium licensing during rapid migration.",
-      "Engineered the Phase 2 Dataverse Migration Blueprint featuring full relational data modeling, Business Unit hierarchy, Security Role inheritance, Field Security Profiles, polymorphic lookups, and managed solution ALM.",
-      "Built C# Dataverse Plugins (Pre/Post-Operation stages) and custom PCF Controls (TypeScript/React 19) for enterprise grid rendering.",
+      "Led the enterprise-wide digital modernization of hundreds of legacy Lotus Domino business applications across 36 department-sites.",
+      "Built a single code-first Power Apps app (React 19 + TypeScript + Vite + shadcn/ui) on a SharePoint-backed data model (MainDB_IT + FormCode discriminator) using standard-only connectors to avoid premium licensing.",
+      "Engineered Power Automate multi-stage approval engines (5-stage EAF, UAT sign-off matrices) and code-level section-visibility rules, with managed solution ALM and PAC CLI.",
+      "Generated TypeScript models, services, hooks, and validators (80+ artifacts) plus 40+ page routes and 70+ reusable UI components.",
       "Architected the E-Procurement suite with bidirectional Oracle ERP integration and the Tasek Cement 5-tier GxP-compliant rebate approval workflow (cutting turnaround from 2–3 days to 15 minutes)."
     ],
-    tags: ["Dataverse", "Lotus Domino Migration", "Power Apps", "Power Automate", "C# Plugins", "PCF Controls", "Oracle ERP", "GxP Compliance"],
+    tags: ["Power Apps Code-First", "Lotus Domino Migration", "SharePoint", "Power Automate", "React 19", "TypeScript", "PAC CLI"],
     metrics: [
-      { label: "Domino Forms", value: "361" },
-      { label: "Production Apps", value: "16" },
-      { label: "Cost Saved", value: "MYR 360K/yr" },
+      { label: "Domino Forms", value: "418+" },
+      { label: "Production Apps", value: "1 Code-First" },
+      { label: "Connectors", value: "Standard Only" },
       { label: "Turnaround Cut", value: "15 Mins vs 3 Days" }
     ]
   },
@@ -1659,10 +1659,10 @@ export const skillsCategories: SkillCategory[] = [
     subtitle: "Enterprise Low-Code, Model-Driven & Data Architecture",
     iconName: "Cpu",
     skills: [
-      { name: "Power Apps (Canvas & Model-Driven)", level: "Production-Grade", highlight: true, yearsOrScope: "16+ Prod Apps" },
-      { name: "Dataverse Data Architecture", level: "Enterprise Architect", highlight: true, yearsOrScope: "50+ Target Tables" },
+      { name: "Power Apps Code-First (React/TS)", level: "Production-Grade", highlight: true, yearsOrScope: "1 Prod App" },
+      { name: "Code-First Power Apps Architecture", level: "Enterprise Architect", highlight: true, yearsOrScope: "SharePoint MainDB_IT" },
       { name: "Power Automate (Cloud & Desktop RPA)", level: "Expert", highlight: true, yearsOrScope: "100+ Workflows" },
-      { name: "C# Dataverse Plugins", level: "Advanced", highlight: true, yearsOrScope: "Pre/Post Stages" },
+      { name: "Power Automate Approval Flows", level: "Expert", highlight: true, yearsOrScope: "Multi-Stage" },
       { name: "Power Apps Component Framework (PCF)", level: "Advanced", yearsOrScope: "TypeScript/React PCF" },
       { name: "Power Fx Expressions", level: "Expert", highlight: true, yearsOrScope: "Delegation-safe" },
       { name: "Power Platform CLI (PAC)", level: "Advanced", yearsOrScope: "ALM Automation" },
@@ -1693,7 +1693,7 @@ export const skillsCategories: SkillCategory[] = [
       { name: "Microsoft Copilot Studio", level: "Advanced", highlight: true, yearsOrScope: "Enterprise Agents" },
       { name: "AI Builder NLP & Document Processing", level: "Expert", highlight: true, yearsOrScope: "120+ SOP Models" },
       { name: "Azure OpenAI & Custom Prompt Engineering", level: "Advanced", yearsOrScope: "LLM Orchestration" },
-      { name: "50+ Multi-Agent AI Pipelines", level: "Lead Architect", highlight: true, yearsOrScope: "12 Workflows" },
+      { name: "Copilot Agent Orchestration", level: "Lead Architect", highlight: true, yearsOrScope: "Governed Pipelines" },
       { name: "Lark Developer Platform & Bots", level: "Certified Developer", highlight: true, yearsOrScope: "8 Enterprise Tools" }
     ]
   },
@@ -1822,11 +1822,11 @@ export const testimonialsData: TestimonialItem[] = [
     role: "Head of Enterprise Information Systems",
     company: "IOI Corporation Berhad",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
-    content: "Ali's dual-track architecture for our 361 Lotus Domino database modernization was nothing short of brilliant. By engineering a staged SharePoint Online layer followed by the Dataverse target migration blueprint, he saved IOI over MYR 360K annually in licensing while ensuring zero operational downtime across 28 business units.",
-    projectOrScope: "361 Lotus Domino to Dataverse Modernization",
+    content: "Ali's architecture for our Lotus Domino modernization was nothing short of brilliant. By engineering a single code-first Power Apps platform on SharePoint Online, he avoided premium-connector licensing while ensuring zero operational downtime across our department-sites.",
+    projectOrScope: "Lotus Domino to SharePoint-Backed Code-First Modernization",
     rating: 5,
     date: "Jan 2025",
-    tags: ["Power Platform", "Dataverse", "Domino Modernization", "Cost Optimization"],
+    tags: ["Power Platform", "SharePoint", "Domino Modernization", "Cost Optimization"],
     relationship: "Direct Enterprise Stakeholder",
     badge: "Enterprise Modernization"
   },
@@ -1892,11 +1892,11 @@ export const testimonialsData: TestimonialItem[] = [
     role: "Enterprise Cloud & Collaboration Lead",
     company: "APAC Modern Workplace",
     avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80",
-    content: "Whether deploying multi-stage Azure DevOps ALM pipelines, designing C# Dataverse plugins, or creating intelligent Lark open platform bots, Ali bridges the gap between deep pro-code software engineering and rapid enterprise delivery seamlessly.",
-    projectOrScope: "Enterprise ALM, Dataverse Plugins & Lark Open Platform",
+    content: "Whether deploying multi-stage Azure DevOps ALM pipelines, designing Power Automate approval flows, or creating intelligent Lark open platform bots, Ali bridges the gap between deep pro-code software engineering and rapid enterprise delivery seamlessly.",
+    projectOrScope: "Enterprise ALM, Power Automate Flows & Lark Open Platform",
     rating: 5,
     date: "Mar 2024",
-    tags: ["Microsoft Developer", "Lark Developer", "Azure DevOps", "C# Plugins"],
+    tags: ["Microsoft Developer", "Lark Developer", "Azure DevOps", "Power Automate"],
     relationship: "Cloud Architecture Peer",
     badge: "DevOps & ALM"
   }
