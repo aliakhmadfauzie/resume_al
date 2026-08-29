@@ -73,6 +73,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
   const getActiveTitle = () => {
     switch (currentMode) {
+      case 'architecture':
       case 'architect':
         return personalInfo.titles.architect;
       case 'operations':
@@ -82,15 +83,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     }
   };
 
+  const getDynamicSubtitle = () => {
+    if (currentMode === 'architecture' || currentMode === 'architect') {
+      return "Enterprise Solution Architecture & Systems Engineering. Specializing in Power Platform, Dataverse relational modeling, C# plugin pipelines, and cross-platform mobile engineering across iOS & Android.";
+    }
+    if (currentMode === 'operations') {
+      return "Operations Leadership & BPO Scaling. Scaling 34-FTE multilingual teams across 7 APAC markets, enforcing >98% SLA benchmarks, and orchestrating intelligent Lark bot workflow automations.";
+    }
+    return "Architecting the digital shift. Specializing in enterprise-scale modernization, mobile engineering across iOS & Android, and high-impact Lark bot automations.";
+  };
+
   return (
-    <section id="home" className="relative pt-24 sm:pt-28 pb-0 border-b border-[#e0e0d8] overflow-hidden">
+    <section id="home" className="relative pt-24 sm:pt-28 pb-24 sm:pb-28 border-b border-[#e0e0d8] overflow-hidden">
       <div className="max-w-[1360px] mx-auto grid grid-cols-1 lg:grid-cols-12 border-x border-[#e0e0d8]">
         
         {/* Left Column: Hero & Key Statements */}
-        <div className="lg:col-span-7 xl:col-span-8 p-6 sm:p-12 xl:p-16 lg:border-r border-[#e0e0d8] flex flex-col justify-center bg-[#fdfdfc]">
+        <div className="lg:col-span-7 xl:col-span-8 p-6 sm:p-12 xl:p-16 pb-14 sm:pb-16 lg:border-r border-[#e0e0d8] flex flex-col justify-center bg-[#fdfdfc]">
           
           {/* Top Label & Perspective Filter Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-3">
             <span className="label-mono">
               Fullstack Engineer & Architect
             </span>
@@ -98,6 +109,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>Available for Enterprise Engagements</span>
             </div>
+          </div>
+
+          {/* Secondary Headline / Intro Greeting with exact spelling */}
+          <div className="pt-2">
+            <span className="inline-block font-mono-code text-[0.72rem] sm:text-xs uppercase tracking-[0.15em] text-[#121212] font-semibold bg-[#f7f7f0] px-2.5 py-1 border border-[#e0e0d8]">
+              HI I AM ALI AKHMAD FAUZIE
+            </span>
           </div>
 
           {/* Large Serif Headline */}
@@ -114,24 +132,38 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           {/* Subtitle / Focus */}
           <motion.p
+            key={`hero-sub-${currentMode}`}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
             className="text-base sm:text-lg md:text-xl font-light text-[#444440] leading-relaxed max-w-2xl mt-2 mb-6"
           >
-            Architecting the digital shift. Specializing in enterprise-scale modernization, mobile engineering across iOS & Android, and high-impact Lark bot automations.
+            {getDynamicSubtitle()}
           </motion.p>
 
-          {/* Concentrix BPO Highlight Banner */}
+          {/* Dynamic Highlight Banner Based on Active Track */}
           <motion.div
+            key={`hero-banner-${currentMode}`}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
+            transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
             className="mb-8 p-3.5 sm:p-4 rounded-none bg-[#f7f7f0] border border-[#e0e0d8] flex items-center gap-3 text-xs sm:text-sm text-[#121212]"
           >
             <Sparkles className="w-4 h-4 text-[#121212] flex-shrink-0" />
             <span className="font-mono-code text-xs uppercase tracking-wider text-[#444440]">
-              <strong className="text-[#121212]">Concentrix Milestone:</strong> Multilingual BPO team scaling across 7 markets and automated Lark bot workflows.
+              {currentMode === 'operations' ? (
+                <>
+                  <strong className="text-[#0f766e]">Operations Track:</strong> Scaled 34-FTE multilingual BPO squads across 7 APAC markets with &gt;98% SLA and custom Lark bot automations.
+                </>
+              ) : currentMode === 'architecture' || currentMode === 'architect' ? (
+                <>
+                  <strong className="text-[#1d4ed8]">Architecture Track:</strong> Modernized 361 legacy Lotus Domino DBs to Dataverse &amp; Power Apps saving MYR 360,000/yr in recurring licensing.
+                </>
+              ) : (
+                <>
+                  <strong className="text-[#121212]">Executive Overview:</strong> Enterprise Architecture, Power Platform &amp; Dataverse modernization paired with 34-FTE operational leadership.
+                </>
+              )}
             </span>
           </motion.div>
 
@@ -200,43 +232,75 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
 
-          {/* Experience Statistics Bar */}
-          <div className="grid grid-cols-3 gap-6 sm:gap-10 mb-10">
+          {/* Experience Statistics Bar - Hard Business ROI Figures */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mb-10 p-5 bg-[#f7f7f0] border border-[#e0e0d8]">
             <div className="stat-item">
-              <span className="label-mono block mb-1">Applications</span>
-              <h4 className="font-mono-code text-3xl sm:text-4xl text-[#121212] font-normal">16+</h4>
+              <span className="label-mono block mb-1 text-[#888880]">Licensing ROI</span>
+              <h4 className="font-serif-display italic text-2xl sm:text-3xl text-[#1d4ed8] font-normal leading-tight">
+                MYR 360K<span className="text-xs font-mono-code text-[#444440]">/yr</span>
+              </h4>
+              <span className="text-[0.62rem] font-mono-code uppercase tracking-wider text-[#444440] block mt-0.5">
+                Cost Avoided
+              </span>
             </div>
+
             <div className="stat-item">
-              <span className="label-mono block mb-1">SLA Rate</span>
-              <h4 className="font-mono-code text-3xl sm:text-4xl text-[#121212] font-normal">98%</h4>
+              <span className="label-mono block mb-1 text-[#888880]">Scale</span>
+              <h4 className="font-serif-display italic text-2xl sm:text-3xl text-[#1d4ed8] font-normal leading-tight">
+                361 Forms
+              </h4>
+              <span className="text-[0.62rem] font-mono-code uppercase tracking-wider text-[#444440] block mt-0.5">
+                Modernized DBs
+              </span>
             </div>
+
             <div className="stat-item">
-              <span className="label-mono block mb-1">Legacy Forms</span>
-              <h4 className="font-mono-code text-3xl sm:text-4xl text-[#121212] font-normal">361</h4>
+              <span className="label-mono block mb-1 text-[#888880]">Leadership</span>
+              <h4 className="font-serif-display italic text-2xl sm:text-3xl text-[#0f766e] font-normal leading-tight">
+                34 FTE
+              </h4>
+              <span className="text-[0.62rem] font-mono-code uppercase tracking-wider text-[#444440] block mt-0.5">
+                &gt;98% SLA Compliance
+              </span>
+            </div>
+
+            <div className="stat-item">
+              <span className="label-mono block mb-1 text-[#888880]">Delivered</span>
+              <h4 className="font-serif-display italic text-2xl sm:text-3xl text-[#121212] font-normal leading-tight">
+                16+ Apps
+              </h4>
+              <span className="text-[0.62rem] font-mono-code uppercase tracking-wider text-[#444440] block mt-0.5">
+                In Production
+              </span>
             </div>
           </div>
 
           {/* Featured Case Study Rows */}
           <div className="project-list">
-            <div className="label-mono mb-3">Featured Case Studies</div>
+            <div className="flex items-center justify-between mb-3">
+              <div className="label-mono">Featured Executive Case Studies</div>
+              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880]">
+                Technical Depth & Leadership Scale
+              </span>
+            </div>
             
             {/* Case 01 */}
             <a
               href="#projects"
               className="grid grid-cols-12 py-5 border-t border-[#e0e0d8] items-start group hover:bg-[#f7f7f0]/50 transition-colors"
             >
-              <div className="col-span-3 sm:col-span-2 label-mono pt-1 text-[#888880] group-hover:text-[#121212]">
+              <div className="col-span-3 sm:col-span-2 label-mono pt-1 text-[#1d4ed8] font-semibold group-hover:text-[#121212]">
                 CASE 01
               </div>
               <div className="col-span-6 sm:col-span-7 pr-4">
                 <h3 className="font-serif-display text-2xl sm:text-3xl font-light italic text-[#121212] group-hover:translate-x-1 transition-transform">
                   IOI Modernization
                 </h3>
-                <p className="text-xs sm:text-sm text-[#888880] mt-1 font-light leading-relaxed">
-                  Modernizing 361 legacy forms & apps for 2,000+ users via Dataverse & Power Platform.
+                <p className="text-xs sm:text-sm text-[#444440] mt-1 font-light leading-relaxed">
+                  Modernizing 361 legacy forms & apps for 2,000+ users via Dataverse & Power Platform. Saved <strong className="font-semibold text-[#1d4ed8]">MYR 360K/yr</strong>.
                 </p>
               </div>
-              <div className="col-span-3 text-right label-mono pt-1 text-[#121212]">
+              <div className="col-span-3 text-right label-mono pt-1 text-[#121212] font-semibold">
                 Solution Arch →
               </div>
             </a>
@@ -246,18 +310,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               href="#projects"
               className="grid grid-cols-12 py-5 border-t border-b border-[#e0e0d8] items-start group hover:bg-[#f7f7f0]/50 transition-colors"
             >
-              <div className="col-span-3 sm:col-span-2 label-mono pt-1 text-[#888880] group-hover:text-[#121212]">
+              <div className="col-span-3 sm:col-span-2 label-mono pt-1 text-[#0f766e] font-semibold group-hover:text-[#121212]">
                 CASE 02
               </div>
               <div className="col-span-6 sm:col-span-7 pr-4">
                 <h3 className="font-serif-display text-2xl sm:text-3xl font-light italic text-[#121212] group-hover:translate-x-1 transition-transform">
                   Concentrix Scaling
                 </h3>
-                <p className="text-xs sm:text-sm text-[#888880] mt-1 font-light leading-relaxed">
-                  Scaling multilingual BPO support across 7 regional markets via custom Lark bot automation.
+                <p className="text-xs sm:text-sm text-[#444440] mt-1 font-light leading-relaxed">
+                  Scaled 34-member multilingual BPO support across 7 regional markets via Lark bot automation with <strong className="font-semibold text-[#0f766e]">&gt;98% SLA</strong>.
                 </p>
               </div>
-              <div className="col-span-3 text-right label-mono pt-1 text-[#121212]">
+              <div className="col-span-3 text-right label-mono pt-1 text-[#121212] font-semibold">
                 BPO Strategy →
               </div>
             </a>
@@ -268,99 +332,172 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         {/* Right Column: Details & Interaction Hub */}
         <div className="lg:col-span-5 xl:col-span-4 grid grid-rows-2 bg-[#fdfdfc]">
           
-          {/* Detail Block 01: Expertise Hub */}
+          {/* Detail Block 01: Perspective Selector & Expertise Hub */}
           <div className="p-6 sm:p-10 border-b border-[#e0e0d8] flex flex-col justify-between">
             <div>
-              <span className="label-mono">01 — Expertise Hub</span>
-
-              <div className="mt-6 sm:mt-8">
-                <span className="label-mono block mb-3 text-[#121212]">
-                  Development Stack
+              <div className="flex items-center justify-between mb-4">
+                <span className="label-mono">01 — Candidate Perspective</span>
+                <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880]">
+                  Interactive View Filter
                 </span>
-                <div className="flex flex-wrap gap-2">
-                  {['Kotlin', 'Swift', 'React Native', 'TypeScript', 'C#', 'Python', 'Flutter'].map((tech) => (
+              </div>
+
+              {/* Clean Segmented Tab Controller */}
+              <div className="space-y-2 mb-6">
+                <button
+                  onClick={() => onSelectMode('full')}
+                  id="hero-perspective-full"
+                  className={`w-full p-3 text-left border font-mono-code text-xs transition-all flex items-center justify-between cursor-pointer ${
+                    currentMode === 'full' || currentMode === 'hybrid'
+                      ? 'bg-[#121212] text-[#fdfdfc] border-[#121212] shadow-sm'
+                      : 'bg-[#f7f7f0] text-[#444440] border-[#e0e0d8] hover:border-[#121212] hover:bg-[#ebebe2]'
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Compass className="w-4 h-4 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold uppercase tracking-wider text-[0.74rem]">Full Profile</div>
+                      <div className={`text-[0.62rem] normal-case font-light ${currentMode === 'full' || currentMode === 'hybrid' ? 'text-[#dcdccb]' : 'text-[#888880]'}`}>
+                        Comprehensive Pro-Code, Architecture &amp; Leadership Overview
+                      </div>
+                    </div>
+                  </div>
+                  <span className={`text-[0.6rem] font-mono-code uppercase tracking-wider px-2 py-0.5 border ${
+                    currentMode === 'full' || currentMode === 'hybrid' ? 'border-[#fdfdfc]/40 text-[#fdfdfc] font-semibold' : 'border-[#e0e0d8] text-[#888880]'
+                  }`}>
+                    {currentMode === 'full' || currentMode === 'hybrid' ? 'Active' : 'Select'}
+                  </span>
+                </button>
+
+                <button
+                  onClick={() => onSelectMode('architecture')}
+                  id="hero-perspective-arch"
+                  className={`w-full p-3 text-left border font-mono-code text-xs transition-all flex items-center justify-between cursor-pointer ${
+                    currentMode === 'architecture' || currentMode === 'architect'
+                      ? 'bg-[#1d4ed8] text-[#fdfdfc] border-[#1d4ed8] shadow-sm'
+                      : 'bg-[#f7f7f0] text-[#444440] border-[#e0e0d8] hover:border-[#1d4ed8] hover:bg-[#ebebe2]'
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Cpu className="w-4 h-4 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold uppercase tracking-wider text-[0.74rem]">Architecture &amp; Solution Engineering</div>
+                      <div className={`text-[0.62rem] normal-case font-light ${currentMode === 'architecture' || currentMode === 'architect' ? 'text-blue-100' : 'text-[#888880]'}`}>
+                        Dataverse, C# Plugins, Power Platform &amp; Mobile App Engineering
+                      </div>
+                    </div>
+                  </div>
+                  <span className={`text-[0.6rem] font-mono-code uppercase tracking-wider px-2 py-0.5 border ${
+                    currentMode === 'architecture' || currentMode === 'architect' ? 'border-[#fdfdfc]/40 text-[#fdfdfc] font-semibold' : 'border-[#e0e0d8] text-[#888880]'
+                  }`}>
+                    {currentMode === 'architecture' || currentMode === 'architect' ? 'Active' : 'Select'}
+                  </span>
+                </button>
+
+                <button
+                  onClick={() => onSelectMode('operations')}
+                  id="hero-perspective-ops"
+                  className={`w-full p-3 text-left border font-mono-code text-xs transition-all flex items-center justify-between cursor-pointer ${
+                    currentMode === 'operations'
+                      ? 'bg-[#0f766e] text-[#fdfdfc] border-[#0f766e] shadow-sm'
+                      : 'bg-[#f7f7f0] text-[#444440] border-[#e0e0d8] hover:border-[#0f766e] hover:bg-[#ebebe2]'
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Users className="w-4 h-4 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold uppercase tracking-wider text-[0.74rem]">Operations &amp; Leadership</div>
+                      <div className={`text-[0.62rem] normal-case font-light ${currentMode === 'operations' ? 'text-teal-100' : 'text-[#888880]'}`}>
+                        34-FTE Multilingual BPO, SLA &gt;98%, Lark Bot Automation
+                      </div>
+                    </div>
+                  </div>
+                  <span className={`text-[0.6rem] font-mono-code uppercase tracking-wider px-2 py-0.5 border ${
+                    currentMode === 'operations' ? 'border-[#fdfdfc]/40 text-[#fdfdfc] font-semibold' : 'border-[#e0e0d8] text-[#888880]'
+                  }`}>
+                    {currentMode === 'operations' ? 'Active' : 'Select'}
+                  </span>
+                </button>
+              </div>
+
+              <div>
+                <span className="label-mono block mb-2 text-[#121212]">
+                  Core Tech &amp; Platforms
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {['Power Platform', 'Dataverse', 'C# Plugins', 'TypeScript', 'React Native', 'Kotlin', 'Swift', 'Azure DevOps', 'Six Sigma'].map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 border border-[#e0e0d8] rounded-full text-xs font-mono-code text-[#444440] hover:border-[#121212] hover:text-[#121212] transition-colors"
+                      className="px-2.5 py-1 border border-[#e0e0d8] text-[0.68rem] font-mono-code text-[#444440] bg-[#f7f7f0]"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
               </div>
-
-              <div className="mt-6">
-                <span className="label-mono block mb-3 text-[#121212]">
-                  Platforms & Operations
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {['Power Platform', 'Dataverse', 'Azure DevOps', 'Six Sigma', 'Lark Open Platform', 'CI/CD'].map((plat) => (
-                    <span
-                      key={plat}
-                      className="px-3 py-1 border border-[#e0e0d8] rounded-full text-xs font-mono-code text-[#444440] hover:border-[#121212] hover:text-[#121212] transition-colors"
-                    >
-                      {plat}
-                    </span>
-                  ))}
-                </div>
-              </div>
             </div>
 
-            <div className="pt-6 mt-6 border-t border-[#e0e0d8] flex items-center justify-between text-xs font-mono-code text-[#888880]">
-              <span>PROFILE PERSPECTIVE</span>
-              <button
-                onClick={() => onSelectMode(currentMode === 'hybrid' ? 'architect' : currentMode === 'architect' ? 'operations' : 'hybrid')}
-                className="text-[#121212] font-semibold underline uppercase"
-              >
-                {currentMode.toUpperCase()} VIEW
-              </button>
+            <div className="pt-4 mt-4 border-t border-[#e0e0d8] text-[0.68rem] font-mono-code text-[#888880] flex items-center justify-between">
+              <span>Active Track:</span>
+              <strong className="text-[#121212] uppercase font-semibold">
+                {currentMode === 'architecture' || currentMode === 'architect'
+                  ? 'Architecture & Solution Engineering'
+                  : currentMode === 'operations'
+                  ? 'Operations & Leadership'
+                  : 'Full Profile'}
+              </strong>
             </div>
           </div>
 
-          {/* Detail Block 02: Interaction & Transmissions */}
-          <div className="p-6 sm:p-10 bg-[#f7f7f0] flex flex-col justify-between">
+          {/* Detail Block 02: Executive Direct Actions */}
+          <div className="p-6 sm:p-10 pb-20 sm:pb-24 lg:pb-10 bg-[#f7f7f0] flex flex-col justify-between">
             <div>
-              <span className="label-mono">02 — Interaction</span>
-              <p className="mt-4 text-xs sm:text-sm text-[#444440] leading-relaxed font-light">
-                Available for enterprise architecture, solution modernization, mobile application delivery, and high-impact digital workflows.
+              <div className="flex items-center justify-between">
+                <span className="label-mono">02 — Direct Engagement</span>
+                <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-emerald-700 font-medium">
+                  Open for Senior Roles
+                </span>
+              </div>
+              <p className="mt-3 text-xs sm:text-sm text-[#444440] leading-relaxed font-light">
+                Available for Enterprise Solution Architecture, Power Platform & M365 Modernization programs, and Operations/Delivery Leadership.
               </p>
 
-              {/* Solid Ink Action Button */}
-              <div className="mt-6 flex flex-wrap gap-3">
+              {/* High-Contrast Action Buttons for Hiring Managers */}
+              <div className="mt-5 flex flex-col sm:flex-row gap-2.5">
                 <a
                   href="#contact"
-                  id="hero-cta-transmission"
-                  className="inline-flex items-center gap-2 bg-[#121212] text-[#fdfdfc] px-6 py-3.5 font-mono-code text-xs uppercase tracking-[0.15em] hover:bg-[#333333] transition-colors shadow-sm"
+                  id="hero-cta-get-in-touch"
+                  className="inline-flex items-center justify-center gap-2 bg-[#121212] text-[#fdfdfc] px-5 py-3.5 font-mono-code text-xs uppercase tracking-[0.12em] font-semibold hover:bg-[#2c2c2c] transition-colors shadow-sm"
                 >
-                  <span>Send Transmission</span>
+                  <span>Get in Touch</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
 
                 <button
                   onClick={onOpenResumeModal}
                   id="hero-cta-cv-direct"
-                  className="inline-flex items-center gap-2 bg-[#fdfdfc] text-[#121212] border border-[#e0e0d8] px-5 py-3.5 font-mono-code text-xs uppercase tracking-[0.15em] hover:border-[#121212] transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-[#fdfdfc] text-[#121212] border-2 border-[#121212] px-5 py-3.5 font-mono-code text-xs uppercase tracking-[0.12em] font-bold hover:bg-[#121212] hover:text-[#fdfdfc] transition-all cursor-pointer shadow-xs"
                 >
                   <Download className="w-3.5 h-3.5" />
-                  <span>CV</span>
+                  <span>Download Executive CV</span>
                 </button>
               </div>
 
               {/* Direct Channels Bar */}
-              <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-mono-code text-[#444440]">
+              <div className="mt-5 flex flex-wrap items-center gap-4 text-xs font-mono-code text-[#444440] pt-4 border-t border-[#e0e0d8]">
                 <a
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#121212] underline"
+                  className="hover:text-[#121212] underline font-medium"
                 >
-                  LinkedIn
+                  LinkedIn Profile
                 </a>
                 <button
                   onClick={handleCopyEmail}
-                  className="hover:text-[#121212] underline"
+                  className="hover:text-[#121212] underline cursor-pointer"
                 >
-                  {copiedEmail ? 'Email Copied' : 'Email'}
+                  {copiedEmail ? '✓ Copied' : 'Copy Email'}
                 </button>
                 <a
                   href={personalInfo.whatsappUrl}
@@ -379,19 +516,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
             </div>
 
-            {/* Recent Insight / Article Preview */}
-            <div className="mt-8 pt-6 border-t border-[#e0e0d8]">
-              <span className="label-mono">Recent Insight</span>
-              <p className="font-serif-display text-lg sm:text-xl italic text-[#121212] my-1 font-light">
-                "Migrating 361 legacy applications to Dataverse"
-              </p>
-              <a
-                href="#articles"
-                className="label-mono text-[#121212] hover:text-[#888880] inline-flex items-center gap-1 mt-1"
-              >
-                <span>Read insight</span>
-                <span>→</span>
-              </a>
+            {/* Quick Executive Reference */}
+            <div className="mt-4 pt-4 border-t border-[#e0e0d8] flex items-center justify-between text-[0.68rem] font-mono-code text-[#888880]">
+              <span>Location: KL, Malaysia (Open to Remote / Relo)</span>
+              <span className="text-[#121212] font-semibold">Verified Track Record</span>
             </div>
 
           </div>

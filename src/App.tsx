@@ -16,6 +16,7 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ProjectDetailModal } from './components/ProjectDetailModal';
 import { ResumeModal } from './components/ResumeModal';
+import { StickyQuickDock } from './components/StickyQuickDock';
 import { ProjectItem, ArticleItem, ProfileMode } from './types';
 import { initialArticlesData } from './data/articlesData';
 import { motion, AnimatePresence } from 'motion/react';
@@ -23,7 +24,7 @@ import { motion, AnimatePresence } from 'motion/react';
 const STORAGE_KEY_ARTICLES = 'ali_resume_custom_articles_v1';
 
 export default function App() {
-  const [currentMode, setCurrentMode] = useState<ProfileMode>('hybrid');
+  const [currentMode, setCurrentMode] = useState<ProfileMode>('full');
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [resumeModalOpen, setResumeModalOpen] = useState<boolean>(false);
   const [createArticleModalOpen, setCreateArticleModalOpen] = useState<boolean>(false);
@@ -111,7 +112,7 @@ export default function App() {
         />
 
         {/* Main Content Sections or Individual Article Page with Smooth View Transition */}
-        <main className="flex-grow pt-16 sm:pt-20">
+        <main className="flex-grow pt-16 sm:pt-20 pb-20 sm:pb-24">
           <AnimatePresence mode="wait">
             {selectedArticle ? (
               /* Dedicated Individual Article Page with Smooth Entrance */
@@ -175,7 +176,7 @@ export default function App() {
                 <ArchitectureDiagram />
 
                 {/* Skills & Competencies Breakdown */}
-                <SkillsSection />
+                <SkillsSection currentMode={currentMode} />
 
                 {/* Certifications & Education */}
                 <CertificationsSection />
@@ -190,6 +191,13 @@ export default function App() {
         {/* Minimalist Footer */}
         <Footer onNavigateHome={handleNavigateHome} />
       </div>
+
+      {/* Sticky Recruiter Quick Action Dock */}
+      <StickyQuickDock
+        currentMode={currentMode}
+        onOpenResumeModal={() => setResumeModalOpen(true)}
+        onOpenContactModal={handleOpenContactModal}
+      />
 
       {/* Case Study & Deep Dive Modal */}
       <ProjectDetailModal

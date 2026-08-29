@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { skillCategories, languagesData } from '../data/resumeData';
+import { ProfileMode } from '../types';
 import {
   Cpu,
   Code2,
@@ -12,8 +13,15 @@ import {
   Star,
 } from 'lucide-react';
 
-export const SkillsSection: React.FC = () => {
+interface SkillsSectionProps {
+  currentMode?: ProfileMode;
+}
+
+export const SkillsSection: React.FC<SkillsSectionProps> = ({ currentMode = 'full' }) => {
   const [searchQuery, setSearchQuery] = useState('');
+
+  const isArch = currentMode === 'architecture' || currentMode === 'architect';
+  const isOps = currentMode === 'operations';
 
   const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
@@ -73,24 +81,43 @@ export const SkillsSection: React.FC = () => {
 
             if (searchQuery && filteredSkills.length === 0) return null;
 
+            const isTrackPrimary =
+              (isArch && (category.iconName === 'Cpu' || category.iconName === 'Code2' || category.iconName === 'Terminal')) ||
+              (isOps && (category.iconName === 'Users' || category.iconName === 'Sparkles'));
+
             return (
               <div
                 key={category.title}
-                className="bg-[#fdfdfc] border border-[#e0e0d8] p-6 hover:border-[#121212] transition-colors flex flex-col justify-between"
+                className={`bg-[#fdfdfc] border p-6 transition-all flex flex-col justify-between ${
+                  isTrackPrimary
+                    ? isArch
+                      ? 'border-[#1d4ed8] shadow-[0_2px_12px_rgba(29,78,216,0.06)]'
+                      : 'border-[#0f766e] shadow-[0_2px_12px_rgba(15,118,110,0.06)]'
+                    : 'border-[#e0e0d8] hover:border-[#121212]'
+                }`}
               >
                 <div>
-                  <div className="flex items-center gap-3 pb-4 mb-4 border-b border-[#e0e0d8]">
-                    <div className="p-2 bg-[#f7f7f0] border border-[#e0e0d8]">
-                      {getCategoryIcon(category.iconName)}
+                  <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#e0e0d8]">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-[#f7f7f0] border border-[#e0e0d8]">
+                        {getCategoryIcon(category.iconName)}
+                      </div>
+                      <div>
+                        <h3 className="font-serif-display italic text-2xl font-light text-[#121212]">
+                          {category.title}
+                        </h3>
+                        <p className="label-mono text-[#888880]">
+                          {category.subtitle}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-serif-display italic text-2xl font-light text-[#121212]">
-                        {category.title}
-                      </h3>
-                      <p className="label-mono text-[#888880]">
-                        {category.subtitle}
-                      </p>
-                    </div>
+                    {isTrackPrimary && (
+                      <span className={`text-[0.6rem] font-mono-code uppercase px-2 py-0.5 font-semibold shrink-0 ${
+                        isArch ? 'bg-blue-100 text-[#1d4ed8]' : 'bg-teal-100 text-[#0f766e]'
+                      }`}>
+                        Track Focus
+                      </span>
+                    )}
                   </div>
 
                   <div className="space-y-2">

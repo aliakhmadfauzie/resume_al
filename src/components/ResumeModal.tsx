@@ -39,9 +39,11 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
   };
 
   const handleCopyPlainText = () => {
+    const isArch = selectedFocus === 'architecture' || selectedFocus === 'architect';
+    const isOps = selectedFocus === 'operations';
     const plainText = `
 ALI AKHMAD FAUZIE
-${selectedFocus === 'architect' ? personalInfo.titles.architect : selectedFocus === 'operations' ? personalInfo.titles.operations : personalInfo.titles.hybrid}
+${isArch ? personalInfo.titles.architect : isOps ? personalInfo.titles.operations : personalInfo.titles.hybrid}
 Location: ${personalInfo.location}
 Email: ${personalInfo.email} | Phone: ${personalInfo.phoneMY} / ${personalInfo.phoneID}
 LinkedIn: ${personalInfo.linkedin} | Portfolio: ${personalInfo.portfolioUrl}
@@ -88,12 +90,13 @@ ${languagesData.map((l) => `• ${l.language}: ${l.proficiency}`).join('\n')}
   };
 
   const handleDownloadVCard = () => {
+    const isArch = selectedFocus === 'architecture' || selectedFocus === 'architect';
     const vCardData = `BEGIN:VCARD
 VERSION:3.0
 N:Fauzie;Ali;Akhmad;;
 FN:Ali Akhmad Fauzie
 ORG:Enterprise Architecture & Operations
-TITLE:${selectedFocus === 'architect' ? personalInfo.titles.architect : personalInfo.titles.operations}
+TITLE:${isArch ? personalInfo.titles.architect : personalInfo.titles.operations}
 TEL;TYPE=CELL,VOICE:${personalInfo.phoneMY}
 TEL;TYPE=CELL,VOICE:${personalInfo.phoneID}
 EMAIL;TYPE=INTERNET,PREF:${personalInfo.email}
@@ -141,34 +144,34 @@ END:VCARD`;
           {/* Profile Focus Filter Pills */}
           <div className="flex items-center bg-[#fdfdfc] p-1 border border-[#e0e0d8] text-xs">
             <button
-              onClick={() => setSelectedFocus('hybrid')}
-              className={`px-3 py-1 transition-all text-[0.7rem] uppercase tracking-wider ${
-                selectedFocus === 'hybrid'
-                  ? 'bg-[#121212] text-[#fdfdfc] font-medium'
+              onClick={() => setSelectedFocus('full')}
+              className={`px-3 py-1 transition-all text-[0.7rem] uppercase tracking-wider cursor-pointer ${
+                selectedFocus === 'full' || selectedFocus === 'hybrid'
+                  ? 'bg-[#121212] text-[#fdfdfc] font-semibold'
                   : 'text-[#444440] hover:text-[#121212]'
               }`}
             >
-              Complete
+              Full Profile
             </button>
             <button
-              onClick={() => setSelectedFocus('architect')}
-              className={`px-3 py-1 transition-all text-[0.7rem] uppercase tracking-wider ${
-                selectedFocus === 'architect'
-                  ? 'bg-[#121212] text-[#fdfdfc] font-medium'
+              onClick={() => setSelectedFocus('architecture')}
+              className={`px-3 py-1 transition-all text-[0.7rem] uppercase tracking-wider cursor-pointer ${
+                selectedFocus === 'architecture' || selectedFocus === 'architect'
+                  ? 'bg-[#1d4ed8] text-[#fdfdfc] font-semibold'
                   : 'text-[#444440] hover:text-[#121212]'
               }`}
             >
-              Architect
+              Architecture &amp; Solution Engineering
             </button>
             <button
               onClick={() => setSelectedFocus('operations')}
-              className={`px-3 py-1 transition-all text-[0.7rem] uppercase tracking-wider ${
+              className={`px-3 py-1 transition-all text-[0.7rem] uppercase tracking-wider cursor-pointer ${
                 selectedFocus === 'operations'
-                  ? 'bg-[#121212] text-[#fdfdfc] font-medium'
+                  ? 'bg-[#0f766e] text-[#fdfdfc] font-semibold'
                   : 'text-[#444440] hover:text-[#121212]'
               }`}
             >
-              Operations
+              Operations &amp; Leadership
             </button>
           </div>
 
@@ -177,31 +180,31 @@ END:VCARD`;
             <button
               onClick={handlePrint}
               id="cv-print-btn"
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs bg-[#121212] hover:bg-[#222222] text-[#fdfdfc] uppercase tracking-wider transition-colors cursor-pointer"
-              title="Print directly or save as PDF"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs bg-[#121212] hover:bg-[#2c2c2c] text-[#fdfdfc] font-semibold uppercase tracking-wider transition-colors cursor-pointer shadow-xs"
+              title="Print directly or save as clean PDF"
             >
               <Printer className="w-3.5 h-3.5" />
-              <span>Print / PDF</span>
+              <span>Download PDF / Print</span>
             </button>
 
             <button
               onClick={handleCopyPlainText}
               id="cv-copy-plain-btn"
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs bg-[#fdfdfc] hover:bg-[#e0e0d8] text-[#121212] border border-[#e0e0d8] uppercase tracking-wider transition-colors cursor-pointer"
-              title="Copy plain-text version"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs bg-[#fdfdfc] hover:bg-[#e0e0d8] text-[#121212] border border-[#121212] uppercase tracking-wider font-medium transition-colors cursor-pointer"
+              title="Copy plain-text version for ATS application forms"
             >
               {copiedText ? (
-                <Check className="w-3.5 h-3.5 text-[#121212]" />
+                <Check className="w-3.5 h-3.5 text-emerald-600" />
               ) : (
-                <Copy className="w-3.5 h-3.5 text-[#888880]" />
+                <Copy className="w-3.5 h-3.5 text-[#444440]" />
               )}
-              <span>{copiedText ? 'Copied' : 'Copy'}</span>
+              <span>{copiedText ? 'Copied ATS Text' : 'Copy Plain Text (ATS)'}</span>
             </button>
 
             <button
               onClick={handleDownloadVCard}
               id="cv-vcard-btn"
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs bg-[#fdfdfc] hover:bg-[#e0e0d8] text-[#121212] border border-[#e0e0d8] uppercase tracking-wider transition-colors cursor-pointer"
+              className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 text-xs bg-[#fdfdfc] hover:bg-[#e0e0d8] text-[#121212] border border-[#e0e0d8] uppercase tracking-wider transition-colors cursor-pointer"
               title="Download Contact vCard"
             >
               <Download className="w-3.5 h-3.5 text-[#121212]" />
@@ -231,7 +234,7 @@ END:VCARD`;
                 {personalInfo.name}
               </h1>
               <p className="text-base sm:text-lg font-bold text-[#006491] mb-3">
-                {selectedFocus === 'architect'
+                {selectedFocus === 'architecture' || selectedFocus === 'architect'
                   ? personalInfo.titles.architect
                   : selectedFocus === 'operations'
                   ? personalInfo.titles.operations

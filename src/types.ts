@@ -1,4 +1,11 @@
-export type ProfileMode = 'hybrid' | 'architect' | 'operations';
+export type ProfileMode = 'full' | 'architecture' | 'operations' | 'hybrid' | 'architect';
+
+export interface TrackMetadata {
+  id: ProfileMode;
+  label: string;
+  shortLabel: string;
+  description: string;
+}
 
 export interface ProjectItem {
   id: string;
@@ -9,17 +16,28 @@ export interface ProjectItem {
   challenge?: string;
   solution?: string;
   results?: string[];
-  category: 'enterprise' | 'analytics' | 'ai' | 'workflow' | 'devops';
+  category: 'enterprise' | 'analytics' | 'ai' | 'workflow' | 'devops' | 'operations';
   cardColor: string; // e.g. '#1e3a8a' | '#dc2626' | '#4338ca' | '#0f766e' | '#b45309' | '#0284c7'
   bgGradient: string;
   accentHex: string;
   tags: string[];
-  metrics: { label: string; value: string }[];
+  domainTags?: string[]; // Business / operational domains (e.g. "Conglomerate Modernization", "GxP Compliance", "BPO Scaling")
+  techTags?: string[]; // Technical stack badges (e.g. "Dataverse", "C# Plugins", "Power Apps", "Lark Open Platform")
+  metrics: { label: string; value: string; highlight?: boolean }[];
   timeline: string;
   linkText?: string;
   architecturePoints?: string[];
   demoUrl?: string;
   repoUrl?: string;
+  isFlagship?: boolean;
+  flagshipOrder?: number;
+  diagramType?: 'dataverse-relational' | 'lark-bot-pipeline' | 'plugin-audit-security' | 'generic-pipeline';
+  codeSnippet?: {
+    language: string;
+    filename: string;
+    code: string;
+    caption?: string;
+  };
 }
 
 export interface ArticleItem {

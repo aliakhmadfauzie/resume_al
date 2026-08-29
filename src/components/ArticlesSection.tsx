@@ -137,23 +137,23 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = ({
             />
           </div>
 
-          {/* Category Filter Pills */}
+          {/* Category Filter Pills with Dynamic Counts */}
           <div className="flex flex-wrap items-center justify-center gap-1.5 w-full md:w-auto">
             {[
-              { id: 'all', label: 'All Articles' },
-              { id: 'powerplatform', label: 'Power Platform' },
-              { id: 'architecture', label: 'Architecture' },
-              { id: 'operations', label: 'Operations' },
-              { id: 'ai', label: 'AI & Automations' },
-              { id: 'devops', label: 'DevOps & ALM' },
+              { id: 'all', label: `All (${articles.length})` },
+              { id: 'architecture', label: `Architecture (${articles.filter((a) => a.category === 'architecture').length})` },
+              { id: 'ai', label: `AI & Automation (${articles.filter((a) => a.category === 'ai').length})` },
+              { id: 'powerplatform', label: `Power Platform (${articles.filter((a) => a.category === 'powerplatform').length})` },
+              { id: 'devops', label: `DevOps & ALM (${articles.filter((a) => a.category === 'devops').length})` },
+              { id: 'operations', label: `Operations (${articles.filter((a) => a.category === 'operations').length})` },
             ].map((cat) => (
               <button
                 key={cat.id}
                 id={`article-filter-${cat.id}`}
                 onClick={() => setFilterCategory(cat.id)}
-                className={`px-3 py-1.5 text-[0.7rem] font-mono-code uppercase tracking-wider transition-all ${
+                className={`min-h-[36px] px-3 py-1.5 text-[0.7rem] font-mono-code uppercase tracking-wider transition-all cursor-pointer ${
                   filterCategory === cat.id
-                    ? 'bg-[#121212] text-[#fdfdfc] font-medium'
+                    ? 'bg-[#121212] text-[#fdfdfc] font-medium shadow-xs'
                     : 'bg-[#fdfdfc] text-[#444440] hover:text-[#121212] border border-[#e0e0d8]'
                 }`}
               >

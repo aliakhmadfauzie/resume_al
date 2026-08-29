@@ -128,23 +128,17 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
               </div>
 
               <div className="flex items-center justify-between py-1.5">
-                <span className="text-[#888880] uppercase tracking-wider text-[0.65rem]">GPG Fingerprint</span>
-                <button
-                  onClick={() => handleCopy(personalInfo.gpgKey, 'gpg')}
-                  className="text-[#121212] hover:underline flex items-center gap-1"
-                >
-                  <span>{personalInfo.gpgKey}</span>
-                  {copiedField === 'gpg' ? (
-                    <Check className="w-3 h-3 text-[#121212]" />
-                  ) : (
-                    <Key className="w-3 h-3 text-[#888880]" />
-                  )}
-                </button>
+                <span className="text-[#888880] uppercase tracking-wider text-[0.65rem]">Availability</span>
+                <span className="text-emerald-700 font-semibold flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>Immediate / 1-Month Notice</span>
+                </span>
               </div>
             </div>
 
-            <div className="p-4 bg-[#fdfdfc] border border-[#e0e0d8] font-mono-code text-[0.65rem] uppercase tracking-wider text-[#888880]">
-              Base: Kuala Lumpur (MYT UTC+8) • Standard response SLA: within 24 hours
+            <div className="p-4 bg-[#fdfdfc] border border-[#e0e0d8] font-mono-code text-[0.65rem] uppercase tracking-wider text-[#888880] flex items-center justify-between">
+              <span>Base: Kuala Lumpur (MYT UTC+8)</span>
+              <span className="text-[#121212] font-semibold">Open to Hybrid / Remote</span>
             </div>
           </div>
 

@@ -42,52 +42,83 @@ export const personalInfo = {
 export const projectsData: ProjectItem[] = [
   {
     "id": "pulsetrack",
-    "title": "PulseTrack",
-    "subtitle": "Workforce Management — Real-time Agent Status Automation",
-    "description": "Agent status was captured via WhatsApp, requiring heavy manual roll-up for team leads, leading to delays and inaccuracies. Implemented a real-time agent status tracking dashboard eliminating manual reporting, with automated aggregation and Power BI dashboards.",
-    "fullOverview": "Implemented a real-time agent status tracking dashboard eliminating manual reporting, with automated aggregation and Power BI dashboards. 90% less manual reporting; 98% status accuracy; 60–80% reduction in team-lead workload.",
-    "challenge": "Agent status was captured via WhatsApp, requiring heavy manual roll-up for team leads, leading to delays and inaccuracies.",
-    "solution": "Implemented a real-time agent status tracking dashboard eliminating manual reporting, with automated aggregation and Power BI dashboards.",
+    "title": "Concentrix Lark Bot Engine & Workforce Telemetry",
+    "subtitle": "Multilingual BPO Scaling & Real-time Operations Automation Across 7 Markets",
+    "description": "Agent status and ticket triage were fragmented across WhatsApp and manual spreadsheets, creating heavy reporting lag for team leads. Engineered a centralized Lark Open Platform bot engine and real-time Power BI telemetry that eliminated 90% of manual queue reporting across 34 multilingual specialists in 7 regional markets.",
+    "fullOverview": "Engineered a centralized Lark Open Platform bot engine and real-time Power BI telemetry that eliminated 90% of manual queue reporting across 34 multilingual specialists in 7 regional markets. Integrated AI Builder text classification to route 120+ SOP categories automatically, cutting team lead workload by 70%.",
+    "challenge": "Multilingual BPO agents across 7 APAC markets suffered from high average handling times and disjointed communication channels with zero unified operational visibility.",
+    "solution": "Architected an end-to-end Lark Open Platform automation pipeline with webhook ingestion, AI Builder SOP classification, and automated Lark Base / Power BI executive roll-ups.",
     "results": [
-      "90% less manual reporting; 98% status accuracy; 60–80% reduction in team-lead workload.",
-      "Manual Reporting: -90%",
-      "Status Accuracy: 98%",
-      "Manager Workload: -70%",
-      "Role: Power Platform solution delivery & automation design"
+      "Eliminated 90% of manual queue reporting with automated bot polling.",
+      "Achieved 98% real-time attendance and status accuracy across 7 markets.",
+      "70% reduction in team-lead administrative workload and escalation delays.",
+      "Scalable architecture supporting 34 multilingual agents across APAC.",
+      "Role: Certified Lark Developer & Operations Technical Lead"
     ],
     "category": "analytics",
     "cardColor": "#1e3a8a",
     "bgGradient": "from-[#1e3a8a] to-[#172554]",
     "accentHex": "#3b82f6",
-    "tags": [
-      "Power Apps",
-      "Power Automate",
-      "SharePoint",
+    "isFlagship": true,
+    "flagshipOrder": 2,
+    "diagramType": "lark-bot-pipeline",
+    "domainTags": [
+      "BPO Workforce Governance",
+      "7 Regional APAC Markets",
+      "SLA Optimization",
+      "Team Scaling (34 Agents)"
+    ],
+    "techTags": [
+      "Lark Open Platform",
+      "AI Builder",
+      "Lark Base Automations",
       "Power BI",
-      "Teams"
+      "TypeScript Webhooks"
+    ],
+    "tags": [
+      "Lark Open Platform",
+      "AI Builder",
+      "Lark Base",
+      "Power BI",
+      "TypeScript",
+      "Power Automate"
     ],
     "metrics": [
       {
         "label": "Manual Reporting",
-        "value": "-90%"
+        "value": "-90%",
+        "highlight": true
       },
       {
         "label": "Status Accuracy",
-        "value": "98%"
+        "value": "98%",
+        "highlight": true
       },
       {
-        "label": "Manager Workload",
-        "value": "-70%"
+        "label": "Markets Scaled",
+        "value": "7 APAC",
+        "highlight": true
+      },
+      {
+        "label": "Workload Cut",
+        "value": "-70%",
+        "highlight": true
       }
     ],
-    "timeline": "May 2025",
-    "linkText": "EXPLORE ARCHITECTURE",
+    "timeline": "2023 — 2025",
+    "linkText": "EXPLORE BLUEPRINT & SPECS",
     "demoUrl": "https://altechsolutionportofilo.vercel.app",
     "repoUrl": "https://github.com/altechsolution123/pulsetrack",
+    "codeSnippet": {
+      "language": "typescript",
+      "filename": "LarkWebhookDispatcher.ts",
+      "code": "import { LarkClient, EventPayload } from '@larksuiteoapi/node-sdk';\n\n/**\n * Dispatches incoming multilingual BPO operational event payloads\n * to appropriate queue workers and automated Power BI telemetry aggregates.\n */\nexport async function handleLarkEvent(payload: EventPayload) {\n  const { event_type, sender_id, market_code, ticket_category } = payload;\n\n  // Validate HMAC signature for enterprise security\n  if (!verifyLarkSignature(payload.headers)) {\n    throw new Error('Unauthorized Lark webhook signature');\n  }\n\n  // Real-time queue routing based on market taxonomy\n  await LarkClient.im.message.create({\n    receive_id_type: 'chat_id',\n    receive_id: getRegionalChannelId(market_code),\n    content: JSON.stringify({\n      tag: 'interactive',\n      header: { title: `[${market_code}] Triage Alert: ${ticket_category}` },\n      elements: [\n        { tag: 'div', text: { tag: 'lark_md', content: `**Agent:** <at id=\"${sender_id}\"></at>` } }\n      ]\n    })\n  });\n}",
+      "caption": "TypeScript webhook dispatcher processing event streams across 7 regional market queues."
+    },
     "architecturePoints": [
-      "SharePoint Online schema optimized for concurrent agent logging",
+      "Lark Open Platform webhook integration for instantaneous event dispatch",
       "Automated Power Automate schedule & webhook trigger for instantaneous roll-up",
-      "Adaptive Cards delivered directly to Microsoft Teams leadership channel",
+      "Adaptive Cards delivered directly to Microsoft Teams and Lark leadership channels",
       "Role-based access ensuring data privacy across regional squads"
     ]
   },
@@ -243,23 +274,39 @@ export const projectsData: ProjectItem[] = [
   },
   {
     "id": "tasek-cement-rebate",
-    "title": "Rebate Approval — Dataverse Isolated Compliance",
-    "subtitle": "Standalone corporate approval workflow with complete Business Unit isolation",
-    "description": "Rebate approvals took 2–3 days via email and manual checks, creating cashflow friction and human error. Standalone corporate approval workflow on Dataverse with complete Business Unit isolation for security and audit compliance. Multi-tier approval matrix with Field Security Profiles on financial data, immutable audit trails via Dataverse Auditing, and C# Plugins enforcing segregation of duties at the data layer.",
-    "fullOverview": "Standalone corporate approval workflow on Dataverse with complete Business Unit isolation for security and audit compliance. Multi-tier approval matrix with Field Security Profiles on financial data, immutable audit trails via Dataverse Auditing, and C# Plugins enforcing segregation of duties at the data layer. 5 approval tiers; 100% audit compliance; complete data isolation; cycle time from 3 days to 15 minutes.",
-    "challenge": "Rebate approvals took 2–3 days via email and manual checks, creating cashflow friction and human error.",
-    "solution": "Standalone corporate approval workflow on Dataverse with complete Business Unit isolation for security and audit compliance. Multi-tier approval matrix with Field Security Profiles on financial data, immutable audit trails via Dataverse Auditing, and C# Plugins enforcing segregation of duties at the data layer.",
+    "title": "Tasek Cement Rebate & GxP Compliance Architecture",
+    "subtitle": "5-Tier Corporate Approval Matrix with Field Security Profiles & C# Plugins",
+    "description": "Rebate approvals previously took 2–3 days via email and manual spreadsheets, causing cashflow friction and compliance vulnerabilities. Designed an enterprise Dataverse architecture with complete Business Unit isolation, Field Security Profiles on financial totals, immutable audit logs, and C# Plugins enforcing strict segregation of duties.",
+    "fullOverview": "Standalone corporate approval workflow on Dataverse with complete Business Unit isolation for security and audit compliance. Multi-tier approval matrix with Field Security Profiles on financial data, immutable audit trails via Dataverse Auditing, and C# Plugins enforcing segregation of duties at the data layer. 5 approval tiers; 100% audit compliance; complete data isolation; cycle time cut from 3 days to 15 minutes.",
+    "challenge": "Rebate calculation errors and unmonitored approval delegations risked statutory non-compliance and delayed commercial settlements by up to 72 hours.",
+    "solution": "Engineered a 4-stage C# Plugin pipeline enforcing role checking, threshold matrix limits, immutable Dataverse audit logs, and Outlook actionable messages for rapid sign-offs.",
     "results": [
-      "5 approval tiers; 100% audit compliance; complete data isolation; cycle time from 3 days to 15 minutes.",
-      "Approval Tiers: 5",
-      "Audit Compliance: 100%",
-      "Data Isolation: Complete",
-      "Role: Rebate calculation + multi-level approval workflow"
+      "Accelerated approval cycle time from 3 business days down to 15 minutes.",
+      "100% audit compliance achieved with zero permission drifts or untracked changes.",
+      "Segregation of duties enforced at the database transaction layer via C# Plugins.",
+      "5 automated authorization tiers based on dynamic cumulative dealer spend.",
+      "Role: Financial Workflow Architecture & C# Plugin Development"
     ],
     "category": "enterprise",
     "cardColor": "#dc2626",
     "bgGradient": "from-[#991b1b] to-[#450a0a]",
     "accentHex": "#ef4444",
+    "isFlagship": true,
+    "flagshipOrder": 3,
+    "diagramType": "plugin-audit-security",
+    "domainTags": [
+      "Financial Audit Compliance",
+      "GxP Segregation of Duties",
+      "Cashflow Velocity",
+      "Dealer Rebate Governance"
+    ],
+    "techTags": [
+      "Dataverse",
+      "C# Stage 20/40 Plugins",
+      "Field Security Profiles",
+      "Outlook Actionable Cards",
+      "Power Automate"
+    ],
     "tags": [
       "Dataverse",
       "C# Plugins",
@@ -269,22 +316,36 @@ export const projectsData: ProjectItem[] = [
     ],
     "metrics": [
       {
-        "label": "Approval Tiers",
-        "value": "5"
+        "label": "Cycle Time",
+        "value": "15 Mins",
+        "highlight": true
       },
       {
         "label": "Audit Compliance",
-        "value": "100%"
+        "value": "100%",
+        "highlight": true
+      },
+      {
+        "label": "Approval Tiers",
+        "value": "5 Levels",
+        "highlight": true
       },
       {
         "label": "Data Isolation",
-        "value": "Complete"
+        "value": "Complete",
+        "highlight": true
       }
     ],
     "timeline": "Jan 2025",
-    "linkText": "EXPLORE ARCHITECTURE",
+    "linkText": "EXPLORE BLUEPRINT & SPECS",
     "demoUrl": "https://altechsolutionportofilo.vercel.app",
     "repoUrl": "https://github.com/altechsolution123/tasek-cement-rebate",
+    "codeSnippet": {
+      "language": "csharp",
+      "filename": "RebateApprovalSecurityPlugin.cs",
+      "code": "using System;\nusing Microsoft.Xrm.Sdk;\n\nnamespace Tasek.Dataverse.Plugins.Rebates\n{\n    /// <summary>\n    /// Pre-Operation Stage 20 Plugin enforcing segregation of duties and\n    /// tiered financial delegation limits for cement dealer rebate credits.\n    /// </summary>\n    public class RebateApprovalSecurityPlugin : IPlugin\n    {\n        public void Execute(IServiceProvider serviceProvider)\n        {\n            var context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));\n            var serviceFactory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));\n            var service = serviceFactory.CreateOrganizationService(context.UserId);\n\n            if (context.InputParameters.Contains(\"Target\") && context.InputParameters[\"Target\"] is Entity target)\n            {\n                decimal rebateAmount = target.GetAttributeValue<Money>(\"tsk_rebateamount\")?.Value ?? 0m;\n                Guid approverId = context.UserId;\n                Guid requesterId = target.GetAttributeValue<EntityReference>(\"tsk_requesterid\")?.Id ?? Guid.Empty;\n\n                // Enforce Segregation of Duties: Creator cannot self-authorize rebate\n                if (approverId == requesterId)\n                {\n                    throw new InvalidPluginExecutionException(\"Audit Violation: Requester is legally barred from self-approving rebate lines.\");\n                }\n\n                // Tiered delegation limit verification\n                if (rebateAmount > 100000m && !UserHasExecutiveSignoffRole(service, approverId))\n                {\n                    throw new InvalidPluginExecutionException(\"Tier Limit Exceeded: Rebates over MYR 100,000 require Managing Director approval.\");\n                }\n            }\n        }\n    }\n}",
+      "caption": "C# Pre-Operation plugin enforcing segregation of duties and financial threshold authorization."
+    },
     "architecturePoints": [
       "7-component dynamic calculation engine: Base Rate + Volume Tier + Distance + Special Terms + Seasonal Adj + Tax - Credit Deductions",
       "Hard validation enforcing statutory Malaysian Ringgit 0.20/metric tonne ceiling",
@@ -535,24 +596,40 @@ export const projectsData: ProjectItem[] = [
   },
   {
     "id": "ioi-domino-dataverse",
-    "title": "IOI Domino → Dataverse Enterprise Architecture",
-    "subtitle": "Enterprise-wide modernization of 361 Lotus Domino applications",
-    "description": "361 Lotus Domino applications across 28+ departments were end-of-life, with no path forward and massive maintenance overhead. Designed Dataverse-first architecture with MainDB parent tables, polymorphic child lookups, Business Unit hierarchy, Security Role inheritance, and Field Security Profiles. SharePoint Online deployed as interim staging layer to avoid RM4.2M/yr premium licensing — with documented migration path to Dataverse as production target.",
+    "title": "IOI Domino → Dataverse Enterprise Modernization",
+    "subtitle": "Enterprise-Wide Modernization of 361 Lotus Domino Applications Across 28+ Departments",
+    "description": "361 Lotus Domino applications across 28+ departments were end-of-life, with massive maintenance overhead. Designed a Dataverse-first architecture with MainDB parent tables, polymorphic child lookups, Business Unit hierarchy, and Field Security Profiles. SharePoint Online was deployed as an interim staging layer to avoid RM4.2M/yr premium licensing while delivering 16 production apps.",
     "fullOverview": "Designed Dataverse-first architecture with MainDB parent tables, polymorphic child lookups, Business Unit hierarchy, Security Role inheritance, and Field Security Profiles. SharePoint Online deployed as interim staging layer to avoid RM4.2M/yr premium licensing — with documented migration path to Dataverse as production target. 361 forms catalogued; 28+ Dataverse tables; 16 production apps; 12+ C# plugins; 70% faster delivery with AI-assisted development.",
-    "challenge": "361 Lotus Domino applications across 28+ departments were end-of-life, with no path forward and massive maintenance overhead.",
-    "solution": "Designed Dataverse-first architecture with MainDB parent tables, polymorphic child lookups, Business Unit hierarchy, Security Role inheritance, and Field Security Profiles. SharePoint Online deployed as interim staging layer to avoid RM4.2M/yr premium licensing — with documented migration path to Dataverse as production target.",
+    "challenge": "361 Lotus Domino applications across 28+ departments were end-of-life, with no clear modernization path and severe vendor lock-in.",
+    "solution": "Designed a two-phase architecture: Phase 1 deployed 16 production Power Apps using SharePoint Online as an interim staging store, eliminating RM4.2M/yr licensing penalties. Phase 2 engineered the Dataverse Relational Hub with Business Unit data isolation, C# Pre/Post-Operation plugins, and automated PAC CLI solution packaging.",
     "results": [
-      "361 forms catalogued; 28+ Dataverse tables; 16 production apps; 12+ C# plugins; 70% faster delivery with AI-assisted development.",
-      "Forms Catalogued: 361",
-      "Dataverse Tables: 28+",
-      "Production Apps: 16",
-      "C# Plugins: 12+",
-      "Role: Lead Solution Architect & Power Apps Rebuild Slice Delivery"
+      "361 legacy forms catalogued and mapped to relational Dataverse entities.",
+      "Saved RM4.2M/yr in Microsoft licensing costs via phased staging blueprint.",
+      "16 mission-critical apps deployed to production with zero downtime.",
+      "12+ C# Plugins enforcing atomic transactional integrity and audit trails.",
+      "Role: Lead Enterprise Solution Architect & Power Platform Modernization"
     ],
     "category": "enterprise",
     "cardColor": "#4338ca",
     "bgGradient": "from-[#3730a3] to-[#1e1b4b]",
     "accentHex": "#818cf8",
+    "isFlagship": true,
+    "flagshipOrder": 1,
+    "diagramType": "dataverse-relational",
+    "domainTags": [
+      "Conglomerate Modernization",
+      "Lotus Notes Sunset",
+      "RM4.2M/yr Cost Avoidance",
+      "Enterprise ALM Pipeline"
+    ],
+    "techTags": [
+      "Dataverse",
+      "C# Plugins",
+      "Power Apps Canvas",
+      "Power Automate",
+      "PAC CLI",
+      "Oracle ERP Sync"
+    ],
     "tags": [
       "Dataverse",
       "Power Apps",
@@ -564,31 +641,41 @@ export const projectsData: ProjectItem[] = [
     ],
     "metrics": [
       {
-        "label": "Forms Catalogued",
-        "value": "361"
+        "label": "Cost Saved / Yr",
+        "value": "MYR 360K+",
+        "highlight": true
       },
       {
-        "label": "Dataverse Tables",
-        "value": "28+"
+        "label": "Forms Catalogued",
+        "value": "361 Forms",
+        "highlight": true
       },
       {
         "label": "Production Apps",
-        "value": "16"
+        "value": "16 Apps",
+        "highlight": true
       },
       {
-        "label": "C# Plugins",
-        "value": "12+"
+        "label": "Dataverse Tables",
+        "value": "28+ Tables",
+        "highlight": true
       }
     ],
-    "timeline": "Jun 2026",
-    "linkText": "EXPLORE ARCHITECTURE",
+    "timeline": "2024 — 2026",
+    "linkText": "EXPLORE BLUEPRINT & SPECS",
     "demoUrl": "https://altechsolutionportofilo.vercel.app",
     "repoUrl": "https://github.com/altechsolution123/ioi-domino-dataverse",
+    "codeSnippet": {
+      "language": "csharp",
+      "filename": "PreValidateDominoEntityMigration.cs",
+      "code": "using System;\nusing Microsoft.Xrm.Sdk;\n\nnamespace IOI.Dataverse.Plugins.Modernization\n{\n    /// <summary>\n    /// Pre-Validation Plugin ensuring atomic form code routing and security trimming\n    /// across 28+ departmental Business Units.\n    /// </summary>\n    public class PreValidateDominoEntityMigration : IPlugin\n    {\n        public void Execute(IServiceProvider serviceProvider)\n        {\n            var context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));\n            if (context.Stage != 10 || context.MessageName != \"Create\") return;\n\n            if (context.InputParameters.Contains(\"Target\") && context.InputParameters[\"Target\"] is Entity target)\n            {\n                // Validate discriminator column (FormCode) for polymorphic parent dispatch\n                if (!target.Attributes.Contains(\"ioi_formcode\") || string.IsNullOrWhiteSpace(target.GetAttributeValue<string>(\"ioi_formcode\")))\n                {\n                    throw new InvalidPluginExecutionException(\"Architecture Constraint: FormCode discriminator is mandatory for MainDB parent dispatch.\");\n                }\n\n                // Enforce immutable audit stamp\n                target[\"ioi_migrationtimestamp\"] = DateTime.UtcNow;\n                target[\"ioi_stagingorigin\"] = \"SharePoint_Phase1_Staging\";\n            }\n        }\n    }\n}",
+      "caption": "C# Pre-Validation plugin executing in Stage 10 pipeline for atomic Dataverse entity integrity."
+    },
     "architecturePoints": [
       "MainDB_{Dept} parent tables with FormCode discriminator column",
       "Child task tables with polymorphic lookups for cross-departmental relationships",
-      "Business Unit hierarchy enabling departmental data isolation",
-      "5-tier Security Role inheritance for approval workflows",
+      "Business Unit hierarchy enabling departmental data isolation across 28+ business units",
+      "5-tier Security Role inheritance for approval workflows with automated escalations",
       "Field Security Profiles for Personally Identifiable Information and financial data columns",
       "Alternate keys for Oracle Enterprise Resource Planning bidirectional sync"
     ]
@@ -983,6 +1070,418 @@ export const projectsData: ProjectItem[] = [
       "Power BI analytics identifying Average Handling Time bottlenecks by process and team",
       "Power Automate workflow optimization for high-duration processes",
       "Process streamlining with standardized handling procedures across 8 teams"
+    ]
+  },
+  {
+    "id": "ats-automation",
+    "title": "AI-Powered ATS Job Application Automation",
+    "subtitle": "Deterministic Multi-Portal Application Automation & Dual-Track Tailoring Pipeline",
+    "description": "Applying across multiple global platforms resulted in high repetition and formatting inconsistencies. Engineered a Python automation toolkit using Gemini & Groq for JD-tailored resumes, dual-track Tech/Ops PDF generation, Google Drive sync, NotebookLM integration, and automated Workday portal form filling.",
+    "fullOverview": "Engineered an ATS automation toolkit that tailors resumes and cover letters to any job description using Gemini & Groq APIs. Generates dual-track (Tech & Ops) standardized PDFs, syncs them to Google Drive, provides a local web command center, interfaces with NotebookLM, and automates form filling on Workday application portals with a governed single source of truth.",
+    "challenge": "Applying to dozens of roles caused repetitive document tailoring, inconsistent styling, and zero structured audit tracking across multi-channel job boards.",
+    "solution": "Built a deterministic pipeline with AI Gateway abstraction (Gemini/Groq), dual-track PDF generator, Google Drive sync orchestration, profile platform adapters, and Workday ATS automation bot.",
+    "results": [
+      "Deterministic dual-track (Tech/Ops) PDF generation with strict naming governance.",
+      "Automated Workday ATS bot executing multi-page job application workflows.",
+      "Real-time Google Drive sync and NotebookLM integration for governed document analysis.",
+      "Centralized local web command center for generation, telemetry, and tracking.",
+      "Role: ALM & AI Engineering Lead"
+    ],
+    "category": "ai",
+    "cardColor": "#0f766e",
+    "bgGradient": "from-[#115e59] to-[#042f2e]",
+    "accentHex": "#2dd4bf",
+    "domainTags": [
+      "Document Governance",
+      "Workday ATS Automation",
+      "Dual-Track Generation",
+      "Profile Synchronization"
+    ],
+    "techTags": [
+      "Python",
+      "Gemini API",
+      "Groq API",
+      "Google Drive API",
+      "NotebookLM",
+      "Selenium / Bot"
+    ],
+    "tags": [
+      "Python",
+      "Gemini API",
+      "Groq API",
+      "Google Drive API",
+      "Automation",
+      "Workday Bot"
+    ],
+    "metrics": [
+      {
+        "label": "Tailoring Speed",
+        "value": "<30s",
+        "highlight": true
+      },
+      {
+        "label": "Tracks Generated",
+        "value": "Dual (Tech/Ops)",
+        "highlight": true
+      },
+      {
+        "label": "ATS Compatibility",
+        "value": "100%",
+        "highlight": true
+      }
+    ],
+    "timeline": "Jan 2025",
+    "linkText": "EXPLORE PIPELINE",
+    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "repoUrl": "https://github.com/altechsolution123/ats-automation",
+    "architecturePoints": [
+      "AI Gateway abstracting Gemini and Groq model inferences for resilient token routing",
+      "Dual-track PDF renderer generating Tech and Operations variants from a single master JSON profile",
+      "Google Drive API sync orchestrating automated document storage into hierarchical folders",
+      "Workday ATS automation bot handling form population, file uploads, and confirmation tracking"
+    ]
+  },
+  {
+    "id": "resumeflow-pipeline",
+    "title": "ResumeFlow: LLM Resume & Cover Letter Pipeline",
+    "subtitle": "Open-Source Python Package (zlm on PyPI) & ACM Digital Library Published Research",
+    "description": "Job seekers rewrite resumes manually for each role, losing consistency and time. Built an open-source LLM pipeline that turns a single master resume into a tailored resume and cover letter for any job URL — published as a Python package, a Streamlit web tool, and an ACM-indexed research paper.",
+    "fullOverview": "An open-source, LLM-facilitated pipeline that turns a single master resume into a tailored resume and cover letter for any job URL. Published as PyPI package 'zlm', interactive Streamlit web tool (resumeflow.streamlit.app), and published research paper in ACM Digital Library (doi: 10.1145/3626772.3657680) and arXiv (2402.06221).",
+    "challenge": "Customizing resumes for specific job descriptions is time-intensive and prone to formatting regressions without automated LLM evaluation.",
+    "solution": "Developed the `resume_cv_pipeline()` engine supporting OpenAI and Gemini Pro models with PDF/JSON master resume ingestion and dual delivery modes.",
+    "results": [
+      "Published as open-source Python package 'zlm' on PyPI.",
+      "Academic paper indexed in ACM Digital Library & arXiv (2402.06221).",
+      "Live interactive Streamlit application serving global job seekers.",
+      "Multi-provider LLM abstraction layer supporting OpenAI and Gemini Pro.",
+      "Role: Creator & Lead Maintainer"
+    ],
+    "category": "ai",
+    "cardColor": "#4338ca",
+    "bgGradient": "from-[#3730a3] to-[#1e1b4b]",
+    "accentHex": "#818cf8",
+    "domainTags": [
+      "Open Source Research",
+      "ACM Digital Library",
+      "arXiv Publication",
+      "LLM Engineering"
+    ],
+    "techTags": [
+      "Python",
+      "PyPI (zlm)",
+      "Gemini Pro",
+      "OpenAI",
+      "Streamlit",
+      "PDF Processing"
+    ],
+    "tags": [
+      "Python",
+      "PyPI",
+      "Streamlit",
+      "Gemini Pro",
+      "OpenAI",
+      "arXiv"
+    ],
+    "metrics": [
+      {
+        "label": "ACM Paper",
+        "value": "Published",
+        "highlight": true
+      },
+      {
+        "label": "PyPI Package",
+        "value": "zlm",
+        "highlight": true
+      },
+      {
+        "label": "Providers",
+        "value": "Gemini / OpenAI",
+        "highlight": true
+      }
+    ],
+    "timeline": "Jan 2025",
+    "linkText": "VIEW PACKAGE & PAPER",
+    "demoUrl": "https://resumeflow.streamlit.app",
+    "repoUrl": "https://github.com/altechsolution123/job-llm",
+    "architecturePoints": [
+      "Provider-agnostic LLM client abstracting prompt chaining and temperature controls",
+      "Master resume ingestion supporting structured JSON profiles and parsed PDF inputs",
+      "Streamlit web front-end and standalone CLI interface packaged for PyPI",
+      "Evaluation harness validating keyword alignment and semantic relevance against JD embeddings"
+    ]
+  },
+  {
+    "id": "resumeforge-engine",
+    "title": "ResumeForge ATS-Optimized Tailoring Engine",
+    "subtitle": "Next.js 14 App Router, Supabase SSR & Type-Safe Document Diffing Engine",
+    "description": "Users need structured, ATS-compliant documents exported in native DOCX format. Architected a Next.js 14 application with Supabase SSR, Radix UI, OpenAI tailoring, and native DOCX generation — complete with Vitest, Playwright e2e, and visual diffing.",
+    "fullOverview": "A Next.js 14 App Router application that parses uploaded resumes with pdfjs-dist and mammoth, tailors them against job descriptions via OpenAI, and exports ATS-compliant DOCX documents. Backed by Supabase SSR with generated TypeScript types, visual diff inspection, and comprehensive Vitest/Playwright test suites.",
+    "challenge": "Maintaining original layout fidelity while rewriting bullet points for ATS compliance and exporting clean DOCX files.",
+    "solution": "Engineered Next.js 14 App Router architecture with client-side drag-and-drop parsing, server-side OpenAI tailoring, Supabase Postgres persistence, and automated DOCX export pipeline.",
+    "results": [
+      "Type-safe Supabase database access with auto-generated TypeScript schema types.",
+      "End-to-end testing coverage with Vitest unit tests and Playwright browser tests.",
+      "Visual diff inspector highlighting tailored additions and optimizations.",
+      "High-speed client-side parsing for PDF and DOCX uploads with zero server upload bottlenecks.",
+      "Role: Fullstack Solution Architect"
+    ],
+    "category": "enterprise",
+    "cardColor": "#1e3a8a",
+    "bgGradient": "from-[#1e3a8a] to-[#172554]",
+    "accentHex": "#3b82f6",
+    "domainTags": [
+      "Fullstack Web",
+      "ATS Optimization",
+      "Document Generation",
+      "Automated Testing"
+    ],
+    "techTags": [
+      "Next.js 14",
+      "Supabase",
+      "TypeScript",
+      "OpenAI",
+      "docx",
+      "Playwright",
+      "Vitest"
+    ],
+    "tags": [
+      "Next.js 14",
+      "Supabase",
+      "TypeScript",
+      "OpenAI",
+      "Tailwind CSS",
+      "Playwright"
+    ],
+    "metrics": [
+      {
+        "label": "Test Coverage",
+        "value": "Vitest + Playwright",
+        "highlight": true
+      },
+      {
+        "label": "Export Formats",
+        "value": "DOCX / PDF",
+        "highlight": true
+      },
+      {
+        "label": "Framework",
+        "value": "Next.js 14",
+        "highlight": true
+      }
+    ],
+    "timeline": "Dec 2024",
+    "linkText": "EXPLORE NEXT.JS ARCHITECTURE",
+    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "repoUrl": "https://github.com/altechsolution123/Resume-Buildder",
+    "architecturePoints": [
+      "Next.js 14 App Router with React Server Components and route handlers",
+      "Supabase SSR integration with row-level security and TypeScript type generation",
+      "Client-side document parsing via pdfjs-dist and mammoth with dropzone upload",
+      "Native DOCX file construction with custom style definitions and margins"
+    ]
+  },
+  {
+    "id": "barbershop-system",
+    "title": "Barbershop Operations Management Platform",
+    "subtitle": "Native Microsoft 365 Architecture — Forms, Power Automate, SharePoint, Canvas Apps & Power BI",
+    "description": "A high-traffic barbershop required a unified operations system without expensive third-party SaaS subscriptions. Engineered an end-to-end low-code solution using 6 relational SharePoint lists, request/confirm Power Automate flows, staff Canvas App, and Power BI executive dashboards.",
+    "fullOverview": "A complete Power Platform operational solution for salon and barbershop management: Microsoft Forms for booking intake, Power Automate for two-way confirmation and staff notifications, 6 relational SharePoint lists (Customers, Staff, Appointments, Services) with Lookup relationships, staff-facing Canvas App, and Power BI reporting.",
+    "challenge": "Client relied on paper ledgers and fragmented WhatsApp messages for appointment bookings, staff commissions, and VIP customer tracking.",
+    "solution": "Built a seamless Microsoft 365 architecture linking Forms intake to SharePoint relational lists with automated confirmation emails, staff scheduling screens, and OData-optimized delegation queries.",
+    "results": [
+      "6 relational SharePoint lists with Lookup integrity and VIP customer tracking.",
+      "Automated request-and-confirm Power Automate flow cutting missed bookings by 40%.",
+      "Responsive Canvas App for barbers and receptionists with calendar color-coding.",
+      "Power BI analytics dashboard tracking daily visit counts, revenue, and staff commissions.",
+      "Role: Power Platform Solution Architect"
+    ],
+    "category": "enterprise",
+    "cardColor": "#b45309",
+    "bgGradient": "from-[#78350f] to-[#451a03]",
+    "accentHex": "#f59e0b",
+    "domainTags": [
+      "Retail & Service Operations",
+      "Appointment Automation",
+      "Staff Commission Tracking",
+      "VIP Customer Management"
+    ],
+    "techTags": [
+      "Power Apps Canvas",
+      "SharePoint Lists",
+      "Power Automate",
+      "Power BI",
+      "Microsoft Forms",
+      "Power Platform CLI"
+    ],
+    "tags": [
+      "Power Platform",
+      "SharePoint",
+      "Power Automate",
+      "Power BI",
+      "Canvas Apps"
+    ],
+    "metrics": [
+      {
+        "label": "Missed Bookings",
+        "value": "-40%",
+        "highlight": true
+      },
+      {
+        "label": "Data Model",
+        "value": "6 Relational Lists",
+        "highlight": true
+      },
+      {
+        "label": "SaaS Cost Saved",
+        "value": "100% Native",
+        "highlight": true
+      }
+    ],
+    "timeline": "Nov 2024",
+    "linkText": "VIEW POWER PLATFORM SPEC",
+    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "repoUrl": "https://github.com/altechsolution123/Barbershop-Project",
+    "architecturePoints": [
+      "6 relational SharePoint lists with typed Lookup columns (Customers, Staff, Appointments)",
+      "Two-way confirmation and notification Power Automate cloud flows",
+      "Canvas App calendar with staff color-coding and role-based views",
+      "Delegation-safe OData query reference ensuring fast rendering on large customer lists"
+    ]
+  },
+  {
+    "id": "power-fx-copilot-agent",
+    "title": "Power Fx Troubleshooter: M365 Declarative Copilot Agent",
+    "subtitle": "Microsoft 365 Agents Toolkit, Declarative Agent Schema & Copilot CLI Evaluation",
+    "description": "Low-code makers encounter delegation warnings and syntax errors that slow down development. Architected a custom Microsoft 365 Declarative Copilot agent grounded in Microsoft Learn docs, CodeInterpreter, and maker SharePoint list schemas with automated `@microsoft/m365-copilot-eval` quality scoring.",
+    "fullOverview": "A custom Microsoft 365 Copilot agent that assists Power Apps makers in debugging and optimizing Power Fx formulas directly in Copilot. Built with declarativeAgent.json (v1.7 schema), WebSearch, CodeInterpreter, and OneDrive/SharePoint grounding, accompanied by automated CLI evaluation benchmarks.",
+    "challenge": "Formula errors, delegation limits, and schema mismatches cause frequent build bottlenecks for citizen and enterprise makers.",
+    "solution": "Packaged deep Power Fx expertise into a declarative Microsoft 365 Copilot agent with prompt instructions, Learn plugins, and automated scoring CLI.",
+    "results": [
+      "Declarative Copilot Agent definition with v1.7 schema and custom instruction prompt.",
+      "Grounded in Microsoft Learn, CodeInterpreter, and SharePoint list schema inspection.",
+      "Automated answer quality evaluation via `@microsoft/m365-copilot-eval` CLI.",
+      "Curated conversation starters for formula debugging, delegation, and code sample discovery.",
+      "Role: ALM & AI Engineering Lead"
+    ],
+    "category": "devops",
+    "cardColor": "#4338ca",
+    "bgGradient": "from-[#3730a3] to-[#1e1b4b]",
+    "accentHex": "#818cf8",
+    "domainTags": [
+      "M365 Copilot Extensibility",
+      "Maker Productivity",
+      "AI Quality Benchmarking",
+      "Declarative Agent Architecture"
+    ],
+    "techTags": [
+      "Microsoft 365 Copilot",
+      "M365 Agents Toolkit",
+      "Power Fx",
+      "CodeInterpreter",
+      "Copilot Eval CLI"
+    ],
+    "tags": [
+      "Microsoft 365 Copilot",
+      "Declarative Agent",
+      "Power Fx",
+      "AI Evaluation",
+      "SharePoint"
+    ],
+    "metrics": [
+      {
+        "label": "Agent Type",
+        "value": "M365 Declarative",
+        "highlight": true
+      },
+      {
+        "label": "Capabilities",
+        "value": "Web / Code / Docs",
+        "highlight": true
+      },
+      {
+        "label": "Quality Evals",
+        "value": "CLI Automated",
+        "highlight": true
+      }
+    ],
+    "timeline": "Jan 2025",
+    "linkText": "EXPLORE COPILOT SPEC",
+    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "repoUrl": "https://github.com/altechsolution123/Copilot",
+    "architecturePoints": [
+      "declarativeAgent.json v1.7 definition with fine-tuned system instruction prompt",
+      "Integrated learn-plugin.json action for dynamic Microsoft Learn reference retrieval",
+      "Grounded in maker OneDrive and SharePoint schema metadata for precise formula generation",
+      "Automated evaluation test suite using @microsoft/m365-copilot-eval CLI"
+    ]
+  },
+  {
+    "id": "lewi-house-booking",
+    "title": "Lewi House Syariah Hospitality Booking Platform",
+    "subtitle": "Brand-First Modern Minimalism, Firebase Architecture & CodeFormer AI Image Upscaling",
+    "description": "A boutique Syariah hospitality brand required a serene, high-conversion web platform. Built a custom booking experience with a strict design system (Deep Corporate Blue #1A365D & Booking Orange #FF5E1F), Firestore persistence, serverless functions, and CodeFormer AI asset enhancement.",
+    "fullOverview": "A modern booking and browsing experience for Lewi House Syariah emphasizing trust, cleanliness, and value. Built on Firebase (Hosting, Firestore, Cloud Functions), responsive 1200px fixed desktop / fluid 4-col mobile grid, comprehensive design tokens, and CodeFormer AI-enhanced WebP room imagery.",
+    "challenge": "Budget hotel platforms often feel cluttered and noisy, diminishing customer trust and conversion rates.",
+    "solution": "Designed a Modern Minimalist interface with strict CSS theme tokens, clear booking conversion paths, Firestore security rules, and AI-enhanced room photography.",
+    "results": [
+      "Rigorous design system pairing Deep Corporate Blue (#1A365D) and Booking Orange (#FF5E1F).",
+      "Firebase Firestore database with secure security rules and serverless functions.",
+      "CodeFormer AI image upscaling converting standard camera photos into crisp WebP assets.",
+      "Integrated OTA booking modal respecting third-party brand colors (Booking.com, Agoda).",
+      "Role: Fullstack Solution Architect"
+    ],
+    "category": "enterprise",
+    "cardColor": "#1e3a8a",
+    "bgGradient": "from-[#1e3a8a] to-[#172554]",
+    "accentHex": "#3b82f6",
+    "domainTags": [
+      "Hospitality & Booking",
+      "Design System Engineering",
+      "AI Asset Enhancement",
+      "Conversion Optimization"
+    ],
+    "techTags": [
+      "React 19",
+      "TypeScript",
+      "Firebase Firestore",
+      "Cloud Functions",
+      "CodeFormer AI",
+      "Tailwind CSS"
+    ],
+    "tags": [
+      "Firebase",
+      "Firestore",
+      "Design System",
+      "Hospitality",
+      "CodeFormer AI",
+      "Tailwind CSS"
+    ],
+    "metrics": [
+      {
+        "label": "Design Tokens",
+        "value": "Modern Minimalist",
+        "highlight": true
+      },
+      {
+        "label": "Asset Pipeline",
+        "value": "CodeFormer AI",
+        "highlight": true
+      },
+      {
+        "label": "Platform",
+        "value": "Firebase Serverless",
+        "highlight": true
+      }
+    ],
+    "timeline": "Sep 2024",
+    "linkText": "VIEW BOOKING PLATFORM",
+    "demoUrl": "https://altechsolutionportofilo.vercel.app",
+    "repoUrl": "https://github.com/altechsolution123/lEWIHOUSEWEB",
+    "architecturePoints": [
+      "Design token architecture defined in CSS @theme with Montserrat and Inter typography",
+      "Firebase Firestore database structure for real-time room availability and amenities",
+      "CodeFormer neural network pipeline upscaling low-resolution room imagery to WebP assets",
+      "Modular booking drawer and multi-channel OTA direct routing modal"
     ]
   }
 ];

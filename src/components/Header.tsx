@@ -94,74 +94,78 @@ export const Header: React.FC<HeaderProps> = ({
           ))}
         </nav>
 
-        {/* Action Controls & Location Stamp */}
-        <div className="hidden lg:flex items-center gap-4">
-          {/* Perspective Switcher */}
-          <div className="flex items-center bg-[#f7f7f0] p-0.5 rounded-full border border-[#e0e0d8] text-[0.65rem] font-mono-code uppercase tracking-[0.1em]">
-            <button
-              id="mode-hybrid-btn"
-              onClick={() => onSelectMode('hybrid')}
-              className={`px-3 py-1 rounded-full transition-all flex items-center gap-1 ${
-                currentMode === 'hybrid'
-                  ? 'bg-[#121212] text-[#fdfdfc] font-medium'
-                  : 'text-[#888880] hover:text-[#121212]'
-              }`}
-              title="All-around hybrid profile"
+        {/* Action Controls & Audience Persona Switcher */}
+        <div className="hidden lg:flex items-center gap-2.5 xl:gap-4">
+          {/* Audience Perspective Segmented Tab Controller */}
+          <div className="flex items-center gap-1.5">
+            <span className="hidden 2xl:inline text-[0.6rem] font-mono-code uppercase tracking-wider text-[#888880]">
+              Track:
+            </span>
+            <div
+              className="flex items-center bg-[#f7f7f0] p-1 border border-[#e0e0d8] text-[0.65rem] xl:text-[0.68rem] font-mono-code uppercase tracking-[0.04em]"
+              title="Tailor portfolio highlights for Full Profile, Architecture & Solution Engineering, or Operations & Leadership"
             >
-              <Compass className="w-2.5 h-2.5" />
-              <span>Full</span>
-            </button>
-            <button
-              id="mode-architect-btn"
-              onClick={() => onSelectMode('architect')}
-              className={`px-3 py-1 rounded-full transition-all flex items-center gap-1 ${
-                currentMode === 'architect'
-                  ? 'bg-[#121212] text-[#fdfdfc] font-medium'
-                  : 'text-[#888880] hover:text-[#121212]'
-              }`}
-              title="Filter by Enterprise Architecture & Power Platform"
-            >
-              <Cpu className="w-2.5 h-2.5" />
-              <span>Arch</span>
-            </button>
-            <button
-              id="mode-ops-btn"
-              onClick={() => onSelectMode('operations')}
-              className={`px-3 py-1 rounded-full transition-all flex items-center gap-1 ${
-                currentMode === 'operations'
-                  ? 'bg-[#121212] text-[#fdfdfc] font-medium'
-                  : 'text-[#888880] hover:text-[#121212]'
-              }`}
-              title="Filter by Operations Leadership & Customer Delivery"
-            >
-              <Users className="w-2.5 h-2.5" />
-              <span>Ops</span>
-            </button>
+              <button
+                id="mode-hybrid-btn"
+                onClick={() => onSelectMode('full')}
+                className={`px-2.5 xl:px-3 py-1 transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+                  currentMode === 'full' || currentMode === 'hybrid'
+                    ? 'bg-[#121212] text-[#fdfdfc] font-semibold shadow-xs'
+                    : 'text-[#444440] hover:text-[#121212]'
+                }`}
+                title="Full comprehensive portfolio view"
+              >
+                <Compass className="w-3 h-3 flex-shrink-0" />
+                <span>Full Profile</span>
+              </button>
+              <button
+                id="mode-architect-btn"
+                onClick={() => onSelectMode('architecture')}
+                className={`px-2.5 xl:px-3 py-1 transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+                  currentMode === 'architecture' || currentMode === 'architect'
+                    ? 'bg-[#1d4ed8] text-[#fdfdfc] font-semibold shadow-xs'
+                    : 'text-[#444440] hover:text-[#121212]'
+                }`}
+                title="Focus on Architecture, Solution Engineering, Dataverse & Power Platform"
+              >
+                <Cpu className="w-3 h-3 flex-shrink-0" />
+                <span>Architecture &amp; Solution Engineering</span>
+              </button>
+              <button
+                id="mode-ops-btn"
+                onClick={() => onSelectMode('operations')}
+                className={`px-2.5 xl:px-3 py-1 transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+                  currentMode === 'operations'
+                    ? 'bg-[#0f766e] text-[#fdfdfc] font-semibold shadow-xs'
+                    : 'text-[#444440] hover:text-[#121212]'
+                }`}
+                title="Focus on Operations Leadership, BPO Scaling & Lark Automations"
+              >
+                <Users className="w-3 h-3 flex-shrink-0" />
+                <span>Operations &amp; Leadership</span>
+              </button>
+            </div>
           </div>
 
-          {/* Location Badge */}
-          <div className="font-mono-code text-[0.65rem] uppercase tracking-[0.2em] text-[#888880] px-2 py-1">
-            Kuala Lumpur, MY
-          </div>
-
-          {/* CV Button */}
+          {/* CV Button - Prominent High-Contrast Button for Hiring Managers */}
           <button
             id="view-cv-nav-btn"
             onClick={onOpenResumeModal}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 font-mono-code text-[0.7rem] uppercase tracking-[0.1em] text-[#121212] bg-[#f7f7f0] hover:bg-[#ebebe2] border border-[#e0e0d8] rounded transition-all"
+            className="flex items-center gap-1.5 px-3 xl:px-3.5 py-1.5 font-mono-code text-[0.72rem] uppercase tracking-[0.08em] font-semibold text-[#121212] bg-[#f7f7f0] hover:bg-[#121212] hover:text-[#fdfdfc] border border-[#121212] transition-all cursor-pointer shadow-xs whitespace-nowrap"
+            title="Open ATS & Executive Format CV"
           >
-            <FileText className="w-3 h-3 text-[#121212]" />
-            <span>CV</span>
+            <FileText className="w-3.5 h-3.5 flex-shrink-0" />
+            <span>Download CV</span>
           </button>
 
           {/* Contact CTA */}
           <button
             id="nav-contact-btn"
             onClick={onOpenContactModal}
-            className="flex items-center gap-1.5 px-4 py-1.5 font-mono-code text-[0.7rem] uppercase tracking-[0.15em] text-[#fdfdfc] bg-[#121212] hover:bg-[#333333] transition-all"
+            className="flex items-center gap-1.5 px-3 xl:px-3.5 py-1.5 font-mono-code text-[0.72rem] uppercase tracking-[0.1em] font-medium text-[#fdfdfc] bg-[#121212] hover:bg-[#2e2e2e] transition-all cursor-pointer whitespace-nowrap"
           >
-            <Mail className="w-3 h-3" />
-            <span>Transmit</span>
+            <Mail className="w-3 h-3 flex-shrink-0" />
+            <span>Get in Touch</span>
           </button>
         </div>
 
@@ -191,47 +195,59 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="md:hidden bg-[#fdfdfc] border-b border-[#e0e0d8] px-6 py-6 space-y-5 animate-in slide-in-from-top duration-200">
           <div className="space-y-2">
             <span className="label-mono">
-              Profile Perspective
+              Profile Track
             </span>
-            <div className="grid grid-cols-3 gap-2 pt-1 font-mono-code text-xs">
+            <div className="flex flex-col gap-1.5 pt-1 font-mono-code text-xs">
               <button
                 onClick={() => {
-                  onSelectMode('hybrid');
+                  onSelectMode('full');
                   setMobileMenuOpen(false);
                 }}
-                className={`py-2 text-[0.7rem] uppercase tracking-wider rounded text-center border ${
-                  currentMode === 'hybrid'
-                    ? 'bg-[#121212] text-[#fdfdfc] border-[#121212]'
+                className={`py-2 px-3 text-[0.72rem] uppercase tracking-wider text-left border flex items-center justify-between cursor-pointer transition-colors ${
+                  currentMode === 'full' || currentMode === 'hybrid'
+                    ? 'bg-[#121212] text-[#fdfdfc] border-[#121212] font-semibold'
                     : 'bg-[#f7f7f0] text-[#121212] border-[#e0e0d8]'
                 }`}
               >
-                Full
+                <span className="flex items-center gap-2">
+                  <Compass className="w-3.5 h-3.5" />
+                  <span>Full Profile</span>
+                </span>
+                {(currentMode === 'full' || currentMode === 'hybrid') && <span className="text-[0.62rem] opacity-75">Active</span>}
               </button>
               <button
                 onClick={() => {
-                  onSelectMode('architect');
+                  onSelectMode('architecture');
                   setMobileMenuOpen(false);
                 }}
-                className={`py-2 text-[0.7rem] uppercase tracking-wider rounded text-center border ${
-                  currentMode === 'architect'
-                    ? 'bg-[#121212] text-[#fdfdfc] border-[#121212]'
+                className={`py-2 px-3 text-[0.72rem] uppercase tracking-wider text-left border flex items-center justify-between cursor-pointer transition-colors ${
+                  currentMode === 'architecture' || currentMode === 'architect'
+                    ? 'bg-[#1d4ed8] text-[#fdfdfc] border-[#1d4ed8] font-semibold'
                     : 'bg-[#f7f7f0] text-[#121212] border-[#e0e0d8]'
                 }`}
               >
-                Arch
+                <span className="flex items-center gap-2">
+                  <Cpu className="w-3.5 h-3.5" />
+                  <span>Architecture &amp; Solution Engineering</span>
+                </span>
+                {(currentMode === 'architecture' || currentMode === 'architect') && <span className="text-[0.62rem] opacity-75">Active</span>}
               </button>
               <button
                 onClick={() => {
                   onSelectMode('operations');
                   setMobileMenuOpen(false);
                 }}
-                className={`py-2 text-[0.7rem] uppercase tracking-wider rounded text-center border ${
+                className={`py-2 px-3 text-[0.72rem] uppercase tracking-wider text-left border flex items-center justify-between cursor-pointer transition-colors ${
                   currentMode === 'operations'
-                    ? 'bg-[#121212] text-[#fdfdfc] border-[#121212]'
+                    ? 'bg-[#0f766e] text-[#fdfdfc] border-[#0f766e] font-semibold'
                     : 'bg-[#f7f7f0] text-[#121212] border-[#e0e0d8]'
                 }`}
               >
-                Ops
+                <span className="flex items-center gap-2">
+                  <Users className="w-3.5 h-3.5" />
+                  <span>Operations &amp; Leadership</span>
+                </span>
+                {currentMode === 'operations' && <span className="text-[0.62rem] opacity-75">Active</span>}
               </button>
             </div>
           </div>
@@ -258,20 +274,20 @@ export const Header: React.FC<HeaderProps> = ({
                 onOpenResumeModal();
                 setMobileMenuOpen(false);
               }}
-              className="w-full py-2.5 font-mono-code text-xs uppercase tracking-[0.15em] text-center bg-[#f7f7f0] border border-[#e0e0d8] text-[#121212] flex items-center justify-center gap-2"
+              className="w-full py-2.5 font-mono-code text-xs uppercase tracking-[0.15em] text-center bg-[#f7f7f0] border border-[#121212] text-[#121212] font-semibold flex items-center justify-center gap-2"
             >
               <FileText className="w-3.5 h-3.5" />
-              <span>Executive CV</span>
+              <span>Download Executive CV</span>
             </button>
             <button
               onClick={() => {
                 onOpenContactModal();
                 setMobileMenuOpen(false);
               }}
-              className="w-full py-2.5 font-mono-code text-xs uppercase tracking-[0.15em] text-center bg-[#121212] text-[#fdfdfc] flex items-center justify-center gap-2"
+              className="w-full py-2.5 font-mono-code text-xs uppercase tracking-[0.15em] text-center bg-[#121212] text-[#fdfdfc] font-medium flex items-center justify-center gap-2"
             >
               <Mail className="w-3.5 h-3.5" />
-              <span>Send Transmission</span>
+              <span>Get in Touch / Schedule Call</span>
             </button>
           </div>
         </div>

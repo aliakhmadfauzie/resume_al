@@ -128,8 +128,97 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
       </header>
 
       {/* Article Markdown Body */}
-      <div className="prose prose-neutral max-w-none text-[#222220] font-light text-sm sm:text-base leading-relaxed space-y-5 bg-[#fdfdfc] p-6 sm:p-10 border border-[#e0e0d8]">
-        <ReactMarkdown>{article.content}</ReactMarkdown>
+      <div className="text-[#222220] font-light text-sm sm:text-base leading-relaxed bg-[#fdfdfc] p-6 sm:p-10 border border-[#e0e0d8] space-y-6">
+        <ReactMarkdown
+          components={{
+            h1: ({ children }) => (
+              <h1 className="font-serif-display italic text-2xl sm:text-3xl font-light text-[#121212] pt-4 pb-2 border-b border-[#e0e0d8] mt-6 first:mt-0">
+                {children}
+              </h1>
+            ),
+            h2: ({ children }) => (
+              <h2 className="font-serif-display italic text-xl sm:text-2xl font-light text-[#121212] pt-4 pb-2 border-b border-[#e0e0d8] mt-8">
+                {children}
+              </h2>
+            ),
+            h3: ({ children }) => (
+              <h3 className="font-serif-display italic text-lg sm:text-xl font-normal text-[#121212] pt-3 mt-6">
+                {children}
+              </h3>
+            ),
+            p: ({ children }) => (
+              <p className="text-sm sm:text-base text-[#333330] leading-relaxed my-3 font-light">
+                {children}
+              </p>
+            ),
+            ul: ({ children }) => (
+              <ul className="list-disc list-outside ml-5 space-y-2 text-sm sm:text-base text-[#333330] my-3">
+                {children}
+              </ul>
+            ),
+            ol: ({ children }) => (
+              <ol className="list-decimal list-outside ml-5 space-y-2 text-sm sm:text-base text-[#333330] my-3">
+                {children}
+              </ol>
+            ),
+            li: ({ children }) => (
+              <li className="pl-1 leading-relaxed">{children}</li>
+            ),
+            blockquote: ({ children }) => (
+              <blockquote className="border-l-2 border-[#121212] bg-[#f7f7f0] px-5 py-3.5 my-4 italic text-[#444440] text-sm sm:text-base font-serif-display">
+                {children}
+              </blockquote>
+            ),
+            table: ({ children }) => (
+              <div className="overflow-x-auto my-6 border border-[#e0e0d8]">
+                <table className="w-full text-left text-xs sm:text-sm font-light border-collapse">
+                  {children}
+                </table>
+              </div>
+            ),
+            thead: ({ children }) => (
+              <thead className="bg-[#f7f7f0] border-b border-[#e0e0d8] font-mono-code text-xs uppercase tracking-wider text-[#121212]">
+                {children}
+              </thead>
+            ),
+            th: ({ children }) => (
+              <th className="py-2.5 px-4 font-semibold border-r border-[#e0e0d8] last:border-r-0">
+                {children}
+              </th>
+            ),
+            td: ({ children }) => (
+              <td className="py-2.5 px-4 border-b border-r border-[#e0e0d8] last:border-r-0 text-[#333330]">
+                {children}
+              </td>
+            ),
+            code: ({ children, className }) => {
+              const isBlock = Boolean(className);
+              return isBlock ? (
+                <div className="my-4 overflow-x-auto bg-[#121212] p-4 text-[#fdfdfc] font-mono-code text-xs rounded-none border border-[#2a2a2a]">
+                  <code>{children}</code>
+                </div>
+              ) : (
+                <code className="px-1.5 py-0.5 bg-[#f0f0e8] text-[#121212] font-mono-code text-xs border border-[#e0e0d8]">
+                  {children}
+                </code>
+              );
+            },
+            pre: ({ children }) => <pre className="my-3 overflow-x-auto">{children}</pre>,
+            hr: () => <hr className="my-8 border-t border-[#e0e0d8]" />,
+            a: ({ href, children }) => (
+              <a
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[#1d4ed8] underline hover:text-[#121212] font-medium transition-colors"
+              >
+                {children}
+              </a>
+            ),
+          }}
+        >
+          {article.content}
+        </ReactMarkdown>
       </div>
 
       {/* Tags Section */}

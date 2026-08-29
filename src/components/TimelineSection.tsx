@@ -123,16 +123,20 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({ currentMode })
                 {/* Metrics strip */}
                 {item.metrics && item.metrics.length > 0 && (
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6 p-3 bg-[#f7f7f0] border border-[#e0e0d8]">
-                    {item.metrics.map((metric, idx) => (
-                      <div key={idx}>
-                        <span className="block font-mono-code text-base font-normal text-[#121212]">
-                          {metric.value}
-                        </span>
-                        <span className="block font-mono-code text-[10px] uppercase tracking-wider text-[#888880]">
-                          {metric.label}
-                        </span>
-                      </div>
-                    ))}
+                    {item.metrics.map((metric, idx) => {
+                      const text = `${metric.label} ${metric.value}`.toLowerCase();
+                      const isTeal = text.includes('fte') || text.includes('sla') || text.includes('agent') || text.includes('attrition') || text.includes('csat') || text.includes('scale');
+                      return (
+                        <div key={idx}>
+                          <span className={`block font-mono-code text-base font-semibold ${isTeal ? 'text-[var(--accent-teal)]' : 'text-[var(--accent-exec)]'}`}>
+                            {metric.value}
+                          </span>
+                          <span className="block font-mono-code text-[10px] uppercase tracking-wider text-[#444440] font-medium">
+                            {metric.label}
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
 
