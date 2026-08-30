@@ -10,7 +10,7 @@ export const CertificationsSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <span className="label-mono mb-4 block">
-              07 — Verified Credentials
+              08 — Verified Credentials
             </span>
             <h2 className="font-serif-display italic text-4xl sm:text-5xl md:text-6xl font-light text-[#121212] tracking-tight">
               Certifications & Executive Education

@@ -88,7 +88,7 @@ Deployment Status: 100% Succeeded on Production (APAC-Dataverse).`,
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <span className="label-mono mb-4 block">
-              05 — ALM & DevOps Framework
+              06 — ALM & DevOps Framework
             </span>
             <h2 className="font-serif-display italic text-4xl sm:text-5xl md:text-6xl font-light text-[#121212] tracking-tight">
               Enterprise CI/CD & Architecture
