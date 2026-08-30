@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { personalInfo } from '../data/resumeData';
 import { ProfileMode } from '../types';
 import { motion } from 'motion/react';
+import { MatrixRain } from './MatrixRain';
 import {
   Linkedin,
   Mail,
@@ -95,10 +96,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <section id="home" className="relative pt-10 sm:pt-14 pb-24 sm:pb-28 border-b border-[#e0e0d8] overflow-hidden">
-      <div className="max-w-[1360px] mx-auto grid grid-cols-1 lg:grid-cols-12 border-x border-[#e0e0d8]">
+      <MatrixRain className="absolute inset-0 z-0" opacity={0.12} />
+      <div className="relative z-10 max-w-[1360px] mx-auto grid grid-cols-1 lg:grid-cols-12 border-x border-[#e0e0d8]">
         
         {/* Left Column: Hero & Key Statements */}
-        <div className="lg:col-span-7 xl:col-span-8 p-6 sm:p-12 xl:p-16 pb-14 sm:pb-16 lg:border-r border-[#e0e0d8] flex flex-col justify-center bg-[#fdfdfc]">
+        <div className="lg:col-span-7 xl:col-span-8 p-6 sm:p-12 xl:p-16 pb-14 sm:pb-16 lg:border-r border-[#e0e0d8] flex flex-col justify-center">
           
           {/* Top Label & Perspective Filter Bar */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-3">
