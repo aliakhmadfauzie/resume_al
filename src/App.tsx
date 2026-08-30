@@ -1,25 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { ShaderBackground } from './components/ShaderBackground';
 import { ScrollProgress } from './components/ScrollProgress';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ArticlesSection } from './components/ArticlesSection';
-import { ArticleDetailView } from './components/ArticleDetailView';
-import { CreateArticleModal } from './components/CreateArticleModal';
-import { ArchitectureDiagram } from './components/ArchitectureDiagram';
-import { TimelineSection } from './components/TimelineSection';
-import { TestimonialsSection } from './components/TestimonialsSection';
-import { SkillsSection } from './components/SkillsSection';
-import { CertificationsSection } from './components/CertificationsSection';
-import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { ProjectDetailModal } from './components/ProjectDetailModal';
-import { ResumeModal } from './components/ResumeModal';
 import { StickyQuickDock } from './components/StickyQuickDock';
 import { ProjectItem, ArticleItem, ProfileMode } from './types';
 import { initialArticlesData } from './data/articlesData';
 import { motion, AnimatePresence } from 'motion/react';
+
+// Code-split below-the-fold sections and interaction-driven modals so they don't
+// block the initial render (improves LCP) nor inflate the main bundle.
+const ArticleDetailView = lazy(() =>
+  import('./components/ArticleDetailView').then((m) => ({ default: m.ArticleDetailView }))
+);
+const CreateArticleModal = lazy(() =>
+  import('./components/CreateArticleModal').then((m) => ({ default: m.CreateArticleModal }))
+);
+const ArchitectureDiagram = lazy(() =>
+  import('./components/ArchitectureDiagram').then((m) => ({ default: m.ArchitectureDiagram }))
+);
+const TimelineSection = lazy(() =>
+  import('./components/TimelineSection').then((m) => ({ default: m.TimelineSection }))
+);
+const TestimonialsSection = lazy(() =>
+  import('./components/TestimonialsSection').then((m) => ({ default: m.TestimonialsSection }))
+);
+const SkillsSection = lazy(() =>
+  import('./components/SkillsSection').then((m) => ({ default: m.SkillsSection }))
+);
+const CertificationsSection = lazy(() =>
+  import('./components/CertificationsSection').then((m) => ({ default: m.CertificationsSection }))
+);
+const ContactSection = lazy(() =>
+  import('./components/ContactSection').then((m) => ({ default: m.ContactSection }))
+);
+const ProjectDetailModal = lazy(() =>
+  import('./components/ProjectDetailModal').then((m) => ({ default: m.ProjectDetailModal }))
+);
+const ResumeModal = lazy(() =>
+  import('./components/ResumeModal').then((m) => ({ default: m.ResumeModal }))
+);
 
 const STORAGE_KEY_ARTICLES = 'ali_resume_custom_articles_v1';
 
@@ -123,15 +146,17 @@ export default function App() {
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.35, ease: 'easeOut' }}
               >
-                <ArticleDetailView
-                  article={selectedArticle}
-                  allArticles={articles}
-                  onBack={() => handleNavigateHome('articles')}
-                  onSelectArticle={(art) => {
-                    setSelectedArticle(art);
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                />
+                <Suspense fallback={null}>
+                  <ArticleDetailView
+                    article={selectedArticle}
+                    allArticles={articles}
+                    onBack={() => handleNavigateHome('articles')}
+                    onSelectArticle={(art) => {
+                      setSelectedArticle(art);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                  />
+                </Suspense>
               </motion.div>
             ) : (
               /* Portfolio Index & Sections with Smooth Page Load */
@@ -166,23 +191,25 @@ export default function App() {
                   onOpenCreateModal={() => setCreateArticleModalOpen(true)}
                 />
 
-                {/* Chronological Timeline */}
-                <TimelineSection currentMode={currentMode} />
+                <Suspense fallback={null}>
+                  {/* Chronological Timeline */}
+                  <TimelineSection currentMode={currentMode} />
 
-                {/* Professional Testimonials & Client Feedback Carousel */}
-                <TestimonialsSection />
+                  {/* Professional Testimonials & Client Feedback Carousel */}
+                  <TestimonialsSection />
 
-                {/* Enterprise CI/CD & Solution Architecture Pipeline */}
-                <ArchitectureDiagram />
+                  {/* Enterprise CI/CD & Solution Architecture Pipeline */}
+                  <ArchitectureDiagram />
 
-                {/* Skills & Competencies Breakdown */}
-                <SkillsSection currentMode={currentMode} />
+                  {/* Skills & Competencies Breakdown */}
+                  <SkillsSection currentMode={currentMode} />
 
-                {/* Certifications & Education */}
-                <CertificationsSection />
+                  {/* Certifications & Education */}
+                  <CertificationsSection />
 
-                {/* Direct Contact & Outreach */}
-                <ContactSection />
+                  {/* Direct Contact & Outreach */}
+                  <ContactSection />
+                </Suspense>
               </motion.div>
             )}
           </AnimatePresence>
@@ -199,25 +226,27 @@ export default function App() {
         onOpenContactModal={handleOpenContactModal}
       />
 
-      {/* Case Study & Deep Dive Modal */}
-      <ProjectDetailModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+      <Suspense fallback={null}>
+        {/* Case Study & Deep Dive Modal */}
+        <ProjectDetailModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
 
-      {/* Interactive & Print-Ready ATS / Executive Resume Modal */}
-      <ResumeModal
-        isOpen={resumeModalOpen}
-        onClose={() => setResumeModalOpen(false)}
-        initialMode={currentMode}
-      />
+        {/* Interactive & Print-Ready ATS / Executive Resume Modal */}
+        <ResumeModal
+          isOpen={resumeModalOpen}
+          onClose={() => setResumeModalOpen(false)}
+          initialMode={currentMode}
+        />
 
-      {/* Create New Article Dialog Modal */}
-      <CreateArticleModal
-        isOpen={createArticleModalOpen}
-        onClose={() => setCreateArticleModalOpen(false)}
-        onCreateArticle={handleCreateArticle}
-      />
+        {/* Create New Article Dialog Modal */}
+        <CreateArticleModal
+          isOpen={createArticleModalOpen}
+          onClose={() => setCreateArticleModalOpen(false)}
+          onCreateArticle={handleCreateArticle}
+        />
+      </Suspense>
     </div>
   );
 }
