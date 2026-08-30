@@ -135,7 +135,7 @@ END:VCARD`;
               <h2 className="font-serif-display italic text-lg font-light text-[#121212] leading-tight">
                 Curriculum Vitae & Verified Credentials
               </h2>
-              <p className="text-[0.65rem] text-[#888880] uppercase tracking-wider">
+              <p className="text-[0.65rem] text-[#6b6b63] uppercase tracking-wider">
                 Print-ready document • Formatted for ATS & Executive Review
               </p>
             </div>

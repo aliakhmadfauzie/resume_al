@@ -23,7 +23,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
   };
 
   return (
-    <footer className="py-16 bg-[#fdfdfc] text-xs font-mono-code text-[#888880] no-print">
+    <footer className="py-16 bg-[#fdfdfc] text-xs font-mono-code text-[#6b6b63] no-print">
       <div className="max-w-[1360px] mx-auto px-6 sm:px-10 border-x border-[#e0e0d8]">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 border-b border-[#e0e0d8]">
           {/* Copyright & Identity */}
@@ -32,7 +32,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
               © 2017–2026 {personalInfo.name}
             </span>
             <span className="hidden sm:inline text-[#e0e0d8]">•</span>
-            <span className="text-[#888880] uppercase tracking-wider text-[0.7rem]">
+            <span className="text-[#6b6b63] uppercase tracking-wider text-[0.7rem]">
               Enterprise Solution Architecture & Operations
             </span>
           </div>
@@ -73,7 +73,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
           </button>
         </div>
 
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[0.65rem] uppercase tracking-wider text-[#888880]">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[0.65rem] uppercase tracking-wider text-[#6b6b63]">
           <div>
             Built with React 19, TypeScript & Tailwind CSS • Editorial Grid
           </div>

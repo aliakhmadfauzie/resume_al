@@ -46,7 +46,7 @@ export const CertificationsSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="mt-6 pt-3 border-t border-[#e0e0d8] flex items-center justify-between text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880]">
+              <div className="mt-6 pt-3 border-t border-[#e0e0d8] flex items-center justify-between text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63]">
                 <span>{cert.year}</span>
                 <span className="text-[#121212]">Verified</span>
               </div>

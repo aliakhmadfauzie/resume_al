@@ -137,7 +137,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
             <span className="label-mono">
               02 — Selected Works & Engineering Blueprint
             </span>
-            <span className="font-mono-code text-[0.65rem] uppercase tracking-wider text-[#888880]">
+            <span className="font-mono-code text-[0.65rem] uppercase tracking-wider text-[#6b6b63]">
               Enterprise Scale • 19 Verified Projects
             </span>
           </div>
@@ -167,10 +167,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                 Comprehensive Project Repository
               </h3>
               <div className="flex items-center gap-2 mt-1">
-                <span className="text-xs font-mono-code uppercase tracking-wider text-[#888880]">
+                <span className="text-xs font-mono-code uppercase tracking-wider text-[#6b6b63]">
                   Showing {filteredProjects.length} Projects
                 </span>
-                <span className="text-[#888880]">•</span>
+                <span className="text-[#6b6b63]">•</span>
                 <span className={`text-[0.68rem] font-mono-code uppercase tracking-wider px-2 py-0.5 border ${
                   isArchMode
                     ? 'border-[#1d4ed8]/30 bg-blue-50/50 text-[#1d4ed8] font-medium'
@@ -187,14 +187,14 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
             <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
               {/* Search Input */}
               <div className="relative w-full sm:w-64">
-                <Search className="w-3.5 h-3.5 text-[#888880] absolute left-3 top-1/2 -translate-y-1/2" />
+                <Search className="w-3.5 h-3.5 text-[#6b6b63] absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   id="search-projects-input"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search stack, tags, keywords..."
-                  className="w-full bg-[#f7f7f0] text-[#121212] text-xs font-mono-code pl-9 pr-3 py-2 border border-[#e0e0d8] focus:outline-none focus:border-[#121212] placeholder-[#888880] transition-colors"
+                  className="w-full bg-[#f7f7f0] text-[#121212] text-xs font-mono-code pl-9 pr-3 py-2 border border-[#e0e0d8] focus:outline-none focus:border-[#121212] placeholder-[#6b6b63] transition-colors"
                 />
               </div>
 
@@ -206,7 +206,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                   className={`p-1.5 transition-all cursor-pointer ${
                     viewMode === 'grid'
                       ? 'bg-[#121212] text-[#fdfdfc]'
-                      : 'text-[#888880] hover:text-[#121212]'
+                      : 'text-[#6b6b63] hover:text-[#121212]'
                   }`}
                   title="Grid layout"
                   aria-label="Grid layout"
@@ -219,7 +219,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                   className={`p-1.5 transition-all cursor-pointer ${
                     viewMode === 'list'
                       ? 'bg-[#121212] text-[#fdfdfc]'
-                      : 'text-[#888880] hover:text-[#121212]'
+                      : 'text-[#6b6b63] hover:text-[#121212]'
                   }`}
                   title="List layout"
                   aria-label="List layout"
@@ -282,7 +282,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                   <div>
                     <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#e0e0d8]">
                       <div className="flex items-center gap-2">
-                        <span className="label-mono text-[#888880]">
+                        <span className="label-mono text-[#6b6b63]">
                           {project.category}
                         </span>
                         {project.isFlagship && (
@@ -291,7 +291,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                           </span>
                         )}
                       </div>
-                      <span className="font-mono-code text-[0.65rem] uppercase tracking-wider text-[#888880]">
+                      <span className="font-mono-code text-[0.65rem] uppercase tracking-wider text-[#6b6b63]">
                         {project.timeline}
                       </span>
                     </div>
@@ -401,7 +401,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                 >
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="label-mono text-[#888880]">
+                      <span className="label-mono text-[#6b6b63]">
                         {project.category}
                       </span>
                       {project.isFlagship && (
@@ -409,8 +409,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                           Flagship Case
                         </span>
                       )}
-                      <span className="text-[#888880] text-xs">•</span>
-                      <span className="font-mono-code text-[0.65rem] uppercase tracking-wider text-[#888880]">
+                      <span className="text-[#6b6b63] text-xs">•</span>
+                      <span className="font-mono-code text-[0.65rem] uppercase tracking-wider text-[#6b6b63]">
                         {project.timeline}
                       </span>
                     </div>

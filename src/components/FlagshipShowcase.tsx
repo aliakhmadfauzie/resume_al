@@ -43,7 +43,7 @@ export const FlagshipShowcase: React.FC<FlagshipShowcaseProps> = ({
             {getSectionTitle()}
           </span>
         </div>
-        <span className="font-mono-code text-[0.65rem] uppercase tracking-wider text-[#888880]">
+        <span className="font-mono-code text-[0.65rem] uppercase tracking-wider text-[#6b6b63]">
           {projects.length} Deep-Dive {projects.length === 1 ? 'Engagement' : 'Engagements'}
         </span>
       </div>
@@ -63,7 +63,7 @@ export const FlagshipShowcase: React.FC<FlagshipShowcaseProps> = ({
               <span className="bg-[#f7f7f0] border border-[#e0e0d8] text-[#121212] text-[0.65rem] font-mono-code uppercase px-2 py-0.5 tracking-wider">
                 {project.category}
               </span>
-              <span className="text-xs font-mono-code text-[#888880]">
+              <span className="text-xs font-mono-code text-[#6b6b63]">
                 {project.timeline}
               </span>
             </div>
@@ -117,7 +117,7 @@ export const FlagshipShowcase: React.FC<FlagshipShowcaseProps> = ({
               <div className="space-y-3 pt-2">
                 {project.domainTags && project.domainTags.length > 0 && (
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] w-20 shrink-0">
+                    <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63] w-20 shrink-0">
                       Domain:
                     </span>
                     <div className="flex flex-wrap gap-1.5">
@@ -134,7 +134,7 @@ export const FlagshipShowcase: React.FC<FlagshipShowcaseProps> = ({
                 )}
 
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] w-20 shrink-0">
+                  <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63] w-20 shrink-0">
                     Tech Stack:
                   </span>
                   <div className="flex flex-wrap gap-1.5">

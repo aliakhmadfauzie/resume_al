@@ -59,13 +59,13 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ currentMode = 'ful
 
           {/* Search bar */}
           <div className="w-full md:w-80 relative font-mono-code">
-            <Search className="w-3.5 h-3.5 text-[#888880] absolute left-3 top-1/2 -translate-y-1/2" />
+            <Search className="w-3.5 h-3.5 text-[#6b6b63] absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Filter skills..."
-              className="w-full bg-[#f7f7f0] border border-[#e0e0d8] pl-9 pr-3 py-2 text-xs text-[#121212] placeholder-[#888880] focus:outline-none focus:border-[#121212]"
+              className="w-full bg-[#f7f7f0] border border-[#e0e0d8] pl-9 pr-3 py-2 text-xs text-[#121212] placeholder-[#6b6b63] focus:outline-none focus:border-[#121212]"
             />
           </div>
         </div>
@@ -106,7 +106,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ currentMode = 'ful
                         <h3 className="font-serif-display italic text-2xl font-light text-[#121212]">
                           {category.title}
                         </h3>
-                        <p className="label-mono text-[#888880]">
+                        <p className="label-mono text-[#6b6b63]">
                           {category.subtitle}
                         </p>
                       </div>
@@ -130,7 +130,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ currentMode = 'ful
                           {skill.highlight ? (
                             <Star className="w-3 h-3 text-[#121212] fill-[#121212] shrink-0" />
                           ) : (
-                            <Check className="w-3 h-3 text-[#888880] shrink-0" />
+                            <Check className="w-3 h-3 text-[#6b6b63] shrink-0" />
                           )}
                           <span className="font-normal text-[#121212]">
                             {skill.name}
@@ -138,7 +138,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ currentMode = 'ful
                         </div>
                         <div className="flex items-center gap-1.5 shrink-0 font-mono-code text-[0.65rem] uppercase tracking-wider">
                           {skill.yearsOrScope && (
-                            <span className="px-1.5 py-0.5 bg-[#fdfdfc] text-[#888880] border border-[#e0e0d8]">
+                            <span className="px-1.5 py-0.5 bg-[#fdfdfc] text-[#6b6b63] border border-[#e0e0d8]">
                               {skill.yearsOrScope}
                             </span>
                           )}
@@ -164,7 +164,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ currentMode = 'ful
                 Multilingual Operations & Global Communication
               </h3>
             </div>
-            <span className="label-mono text-[#888880]">
+            <span className="label-mono text-[#6b6b63]">
               7 Regional Markets Covered
             </span>
           </div>
@@ -181,7 +181,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ currentMode = 'ful
                     <span className="block text-sm font-medium text-[#121212]">
                       {lang.language}
                     </span>
-                    <span className="block font-mono-code text-[0.65rem] uppercase tracking-wider text-[#888880]">
+                    <span className="block font-mono-code text-[0.65rem] uppercase tracking-wider text-[#6b6b63]">
                       {lang.proficiency}
                     </span>
                   </div>

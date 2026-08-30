@@ -133,10 +133,10 @@ Deployment Status: 100% Succeeded on Production (APAC-Dataverse).`,
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-[#e0e0d8] flex items-center justify-between text-xs font-mono-code uppercase tracking-wider">
-                  <span className={isSelected ? 'text-[#121212] font-semibold' : 'text-[#888880]'}>
+                  <span className={isSelected ? 'text-[#121212] font-semibold' : 'text-[#6b6b63]'}>
                     {isSelected ? '● Selected' : 'Inspect'}
                   </span>
-                  <ArrowRight className={`w-3.5 h-3.5 ${isSelected ? 'text-[#121212] translate-x-0.5' : 'text-[#888880]'}`} />
+                  <ArrowRight className={`w-3.5 h-3.5 ${isSelected ? 'text-[#121212] translate-x-0.5' : 'text-[#6b6b63]'}`} />
                 </div>
               </button>
             );
@@ -175,12 +175,12 @@ Deployment Status: 100% Succeeded on Production (APAC-Dataverse).`,
               <div className="bg-[#121212] border border-[#121212] text-[#fdfdfc] p-4">
                 <div className="pb-3 mb-3 border-b border-[#333333] flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#888880] inline-block" />
-                    <span className="text-[11px] font-mono-code text-[#888880]">
+                    <span className="w-2 h-2 rounded-full bg-[#6b6b63] inline-block" />
+                    <span className="text-[11px] font-mono-code text-[#6b6b63]">
                       pipeline-execution.sh
                     </span>
                   </div>
-                  <div className="flex items-center gap-1 text-[11px] font-mono-code text-[#888880]">
+                  <div className="flex items-center gap-1 text-[11px] font-mono-code text-[#6b6b63]">
                     <Terminal className="w-3 h-3" />
                     <span>PAC CLI 1.34</span>
                   </div>

@@ -91,12 +91,12 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
           <span className="label-mono bg-[#121212] text-[#fdfdfc] px-2 py-0.5">
             {article.category}
           </span>
-          <span className="text-[#888880] flex items-center gap-1">
+          <span className="text-[#6b6b63] flex items-center gap-1">
             <Calendar className="w-3 h-3" />
             <span>{article.date}</span>
           </span>
           <span className="text-[#e0e0d8]">•</span>
-          <span className="text-[#888880] flex items-center gap-1">
+          <span className="text-[#6b6b63] flex items-center gap-1">
             <Clock className="w-3 h-3" />
             <span>{article.readTime}</span>
           </span>
@@ -120,7 +120,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
             <div className="font-serif-display italic text-base font-normal text-[#121212]">
               {article.author?.name || 'Ali Akhmad Fauzie'}
             </div>
-            <div className="label-mono text-[#888880]">
+            <div className="label-mono text-[#6b6b63]">
               {article.author?.role || 'Power Platform Developer & Operations Leader'}
             </div>
           </div>
@@ -224,7 +224,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
       {/* Tags Section */}
       <div className="mt-8 pt-6 border-t border-[#e0e0d8]">
         <div className="label-mono mb-3 flex items-center gap-1.5">
-          <Tag className="w-3 h-3 text-[#888880]" />
+          <Tag className="w-3 h-3 text-[#6b6b63]" />
           <span>Keywords</span>
         </div>
         <div className="flex flex-wrap gap-1.5">
@@ -262,7 +262,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
                 className="bg-[#fdfdfc] hover:bg-[#f7f7f0] border border-[#e0e0d8] hover:border-[#121212] p-5 cursor-pointer transition-colors flex flex-col justify-between"
               >
                 <div>
-                  <div className="label-mono text-[#888880] mb-2">
+                  <div className="label-mono text-[#6b6b63] mb-2">
                     {rel.category} • {rel.readTime}
                   </div>
                   <h4 className="font-serif-display italic text-lg font-light text-[#121212] mb-2 line-clamp-2">

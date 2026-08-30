@@ -107,7 +107,7 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
               <h2 className="font-serif-display italic text-2xl font-light text-[#121212] tracking-tight">
                 Publish Technical Writing
               </h2>
-              <p className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880]">
+              <p className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63]">
                 Add article, architecture review, or leadership playbook
               </p>
             </div>
@@ -151,7 +151,7 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
               <span>Preview</span>
             </button>
           </div>
-          <span className="text-[0.65rem] uppercase tracking-wider text-[#888880]">
+          <span className="text-[0.65rem] uppercase tracking-wider text-[#6b6b63]">
             Markdown Supported
           </span>
         </div>
@@ -169,7 +169,7 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
             <>
               {/* Title */}
               <div>
-                <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
+                <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63] mb-1.5">
                   Article Title *
                 </label>
                 <input
@@ -189,7 +189,7 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
               {/* Grid: Category, Date, Author */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
-                  <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
+                  <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63] mb-1.5">
                     Category
                   </label>
                   <select
@@ -212,8 +212,8 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5 flex items-center gap-1">
-                    <Calendar className="w-3 h-3 text-[#888880]" />
+                  <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63] mb-1.5 flex items-center gap-1">
+                    <Calendar className="w-3 h-3 text-[#6b6b63]" />
                     <span>Publish Date</span>
                   </label>
                   <input
@@ -226,7 +226,7 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
+                  <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63] mb-1.5">
                     Author
                   </label>
                   <input
@@ -243,8 +243,8 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
 
               {/* Tags */}
               <div>
-                <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5 flex items-center gap-1">
-                  <Tag className="w-3 h-3 text-[#888880]" />
+                <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63] mb-1.5 flex items-center gap-1">
+                  <Tag className="w-3 h-3 text-[#6b6b63]" />
                   <span>Tags (Comma-separated)</span>
                 </label>
                 <input
@@ -259,7 +259,7 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
 
               {/* Excerpt / Summary */}
               <div>
-                <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
+                <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63] mb-1.5">
                   Brief Summary / Excerpt *
                 </label>
                 <textarea
@@ -278,7 +278,7 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
 
               {/* Content in Markdown */}
               <div>
-                <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
+                <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63] mb-1.5">
                   Article Body (Markdown Supported) *
                 </label>
                 <textarea
@@ -305,7 +305,7 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
                 <h1 className="font-serif-display italic text-2xl font-light text-[#121212] mt-2">
                   {formData.title || 'Untitled Article'}
                 </h1>
-                <p className="text-xs font-mono-code text-[#888880] mt-1">
+                <p className="text-xs font-mono-code text-[#6b6b63] mt-1">
                   {formData.date} • {calculateReadTime(formData.content || '')} • By{' '}
                   {formData.authorName}
                 </p>
@@ -315,7 +315,7 @@ export const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
                 {formData.content ? (
                   <ReactMarkdown>{formData.content}</ReactMarkdown>
                 ) : (
-                  <p className="text-[#888880] italic">No content typed yet.</p>
+                  <p className="text-[#6b6b63] italic">No content typed yet.</p>
                 )}
               </div>
             </div>

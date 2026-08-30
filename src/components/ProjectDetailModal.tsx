@@ -61,7 +61,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                 Flagship Case Study
               </span>
             )}
-            <span className="text-xs font-mono-code text-[#888880] flex items-center gap-1">
+            <span className="text-xs font-mono-code text-[#6b6b63] flex items-center gap-1">
               <Calendar className="w-3 h-3" />
               <span>{project.timeline}</span>
             </span>
@@ -182,7 +182,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             {project.challenge && (
               <div className="bg-[#f7f7f0] border border-[#e0e0d8] p-5">
                 <div className="flex items-center gap-2 text-[#121212] font-medium text-xs font-mono-code uppercase tracking-wider mb-2">
-                  <AlertCircle className="w-4 h-4 text-[#888880]" />
+                  <AlertCircle className="w-4 h-4 text-[#6b6b63]" />
                   <span>The Challenge</span>
                 </div>
                 <p className="text-xs sm:text-sm font-light text-[#444440] leading-relaxed">
@@ -261,7 +261,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           <div className="space-y-3 pt-2 border-t border-[#e0e0d8]">
             {project.domainTags && project.domainTags.length > 0 && (
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] w-24 shrink-0">
+                <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63] w-24 shrink-0">
                   Domain Tags:
                 </span>
                 <div className="flex flex-wrap gap-1.5">
@@ -278,7 +278,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             )}
 
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] w-24 shrink-0">
+              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63] w-24 shrink-0">
                 Tech Stack:
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -297,7 +297,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 
         {/* Modal Footer */}
         <div className="p-4 sm:p-6 bg-[#f7f7f0] border-t border-[#e0e0d8] flex items-center justify-between font-mono-code text-xs shrink-0">
-          <span className="text-[0.65rem] uppercase tracking-wider text-[#888880]">
+          <span className="text-[0.65rem] uppercase tracking-wider text-[#6b6b63]">
             System Ref: {project.id}
           </span>
           <button

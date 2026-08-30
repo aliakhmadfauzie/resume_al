@@ -71,11 +71,11 @@ export const Header: React.FC<HeaderProps> = ({
           onClick={(e) => handleLinkClick('#home', e)}
           className="flex items-center gap-3 group focus:outline-none"
         >
-          <span className="font-mono-code font-bold text-xs uppercase tracking-[0.2em] text-[#121212] group-hover:text-[#888880] transition-colors">
+          <span className="font-mono-code font-bold text-xs uppercase tracking-[0.2em] text-[#121212] group-hover:text-[#6b6b63] transition-colors">
             Ali Fauzie
           </span>
           <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-[#121212]" />
-          <span className="hidden sm:inline-block font-mono-code text-[0.65rem] uppercase tracking-[0.15em] text-[#888880]">
+          <span className="hidden sm:inline-block font-mono-code text-[0.65rem] uppercase tracking-[0.15em] text-[#6b6b63]">
             Solution Arch
           </span>
         </a>
@@ -87,7 +87,7 @@ export const Header: React.FC<HeaderProps> = ({
               key={link.label}
               href={link.href}
               onClick={(e) => handleLinkClick(link.href, e)}
-              className="text-[#121212] hover:text-[#888880] transition-colors py-1 relative hover:after:w-full after:w-0 after:h-[1px] after:bg-[#121212] after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-200"
+              className="text-[#121212] hover:text-[#6b6b63] transition-colors py-1 relative hover:after:w-full after:w-0 after:h-[1px] after:bg-[#121212] after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-200"
             >
               {link.label}
             </a>
@@ -98,7 +98,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="hidden lg:flex items-center gap-2.5 xl:gap-4">
           {/* Audience Perspective Segmented Tab Controller */}
           <div className="flex items-center gap-1.5">
-            <span className="hidden 2xl:inline text-[0.6rem] font-mono-code uppercase tracking-wider text-[#888880]">
+            <span className="hidden 2xl:inline text-[0.6rem] font-mono-code uppercase tracking-wider text-[#6b6b63]">
               Track:
             </span>
             <div
@@ -261,7 +261,7 @@ export const Header: React.FC<HeaderProps> = ({
                   handleLinkClick(link.href, e);
                   setMobileMenuOpen(false);
                 }}
-                className="block py-1 text-[#121212] hover:text-[#888880]"
+                className="block py-1 text-[#121212] hover:text-[#6b6b63]"
               >
                 {link.label}
               </a>

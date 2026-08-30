@@ -66,7 +66,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
             {/* Contact Information List */}
             <div className="bg-[#f7f7f0] border border-[#e0e0d8] p-6 space-y-3 font-mono-code text-xs">
               <div className="flex items-center justify-between py-1.5 border-b border-[#e0e0d8]">
-                <span className="text-[#888880] uppercase tracking-wider text-[0.65rem]">Email</span>
+                <span className="text-[#6b6b63] uppercase tracking-wider text-[0.65rem]">Email</span>
                 <button
                   onClick={() => handleCopy(personalInfo.email, 'email')}
                   className="text-[#121212] hover:underline flex items-center gap-1.5"
@@ -76,13 +76,13 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                   {copiedField === 'email' ? (
                     <Check className="w-3 h-3 text-[#121212]" />
                   ) : (
-                    <Copy className="w-3 h-3 text-[#888880]" />
+                    <Copy className="w-3 h-3 text-[#6b6b63]" />
                   )}
                 </button>
               </div>
 
               <div className="flex items-center justify-between py-1.5 border-b border-[#e0e0d8]">
-                <span className="text-[#888880] uppercase tracking-wider text-[0.65rem]">WhatsApp (MY)</span>
+                <span className="text-[#6b6b63] uppercase tracking-wider text-[0.65rem]">WhatsApp (MY)</span>
                 <a
                   href={personalInfo.whatsappUrl}
                   target="_blank"
@@ -94,7 +94,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
               </div>
 
               <div className="flex items-center justify-between py-1.5 border-b border-[#e0e0d8]">
-                <span className="text-[#888880] uppercase tracking-wider text-[0.65rem]">Phone (ID)</span>
+                <span className="text-[#6b6b63] uppercase tracking-wider text-[0.65rem]">Phone (ID)</span>
                 <a
                   href={`tel:${personalInfo.phoneID.replace(/\s+/g, '')}`}
                   className="text-[#121212] hover:underline"
@@ -104,7 +104,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
               </div>
 
               <div className="flex items-center justify-between py-1.5 border-b border-[#e0e0d8]">
-                <span className="text-[#888880] uppercase tracking-wider text-[0.65rem]">LinkedIn</span>
+                <span className="text-[#6b6b63] uppercase tracking-wider text-[0.65rem]">LinkedIn</span>
                 <a
                   href={personalInfo.linkedin}
                   target="_blank"
@@ -116,7 +116,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
               </div>
 
               <div className="flex items-center justify-between py-1.5 border-b border-[#e0e0d8]">
-                <span className="text-[#888880] uppercase tracking-wider text-[0.65rem]">Portfolio</span>
+                <span className="text-[#6b6b63] uppercase tracking-wider text-[0.65rem]">Portfolio</span>
                 <a
                   href={personalInfo.portfolioUrl}
                   target="_blank"
@@ -128,7 +128,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
               </div>
 
               <div className="flex items-center justify-between py-1.5">
-                <span className="text-[#888880] uppercase tracking-wider text-[0.65rem]">Availability</span>
+                <span className="text-[#6b6b63] uppercase tracking-wider text-[0.65rem]">Availability</span>
                 <span className="text-emerald-700 font-semibold flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                   <span>Immediate / 1-Month Notice</span>
@@ -136,7 +136,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
               </div>
             </div>
 
-            <div className="p-4 bg-[#fdfdfc] border border-[#e0e0d8] font-mono-code text-[0.65rem] uppercase tracking-wider text-[#888880] flex items-center justify-between">
+            <div className="p-4 bg-[#fdfdfc] border border-[#e0e0d8] font-mono-code text-[0.65rem] uppercase tracking-wider text-[#6b6b63] flex items-center justify-between">
               <span>Base: Kuala Lumpur (MYT UTC+8)</span>
               <span className="text-[#121212] font-semibold">Open to Hybrid / Remote</span>
             </div>
@@ -148,7 +148,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
               <h3 className="font-serif-display italic text-2xl sm:text-3xl font-light text-[#121212] mb-1">
                 Send a Direct Message
               </h3>
-              <p className="text-xs text-[#888880] font-mono-code uppercase tracking-wider mb-6">
+              <p className="text-xs text-[#6b6b63] font-mono-code uppercase tracking-wider mb-6">
                 Consultation • Migration Advisory • Leadership Inquiries
               </p>
 
@@ -176,7 +176,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
+                      <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63] mb-1.5">
                         Your Name *
                       </label>
                       <input
@@ -185,12 +185,12 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="John Doe"
-                        className="w-full bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-2 text-xs text-[#121212] placeholder-[#888880] focus:outline-none focus:border-[#121212]"
+                        className="w-full bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-2 text-xs text-[#121212] placeholder-[#6b6b63] focus:outline-none focus:border-[#121212]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
+                      <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63] mb-1.5">
                         Email Address *
                       </label>
                       <input
@@ -199,13 +199,13 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="name@company.com"
-                        className="w-full bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-2 text-xs text-[#121212] placeholder-[#888880] focus:outline-none focus:border-[#121212]"
+                        className="w-full bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-2 text-xs text-[#121212] placeholder-[#6b6b63] focus:outline-none focus:border-[#121212]"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
+                    <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63] mb-1.5">
                       Subject / Engagement Scope
                     </label>
                     <select
@@ -222,7 +222,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                   </div>
 
                   <div>
-                    <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880] mb-1.5">
+                    <label className="block text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63] mb-1.5">
                       Project Details or Message *
                     </label>
                     <textarea
@@ -231,7 +231,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Describe your architecture requirements, team goals, or timeline..."
-                      className="w-full bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-2 text-xs text-[#121212] placeholder-[#888880] focus:outline-none focus:border-[#121212] resize-none"
+                      className="w-full bg-[#f7f7f0] border border-[#e0e0d8] px-3 py-2 text-xs text-[#121212] placeholder-[#6b6b63] focus:outline-none focus:border-[#121212] resize-none"
                     />
                   </div>
 

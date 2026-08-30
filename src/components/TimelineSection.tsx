@@ -100,11 +100,11 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({ currentMode })
                       <div className="w-6 h-6 bg-[#f7f7f0] border border-[#e0e0d8] flex items-center justify-center">
                         {getNodeIcon(item.type, item.category)}
                       </div>
-                      <span className="label-mono text-[#888880]">
+                      <span className="label-mono text-[#6b6b63]">
                         {item.company}
                       </span>
-                      <span className="text-[#888880] text-xs">•</span>
-                      <span className="flex items-center gap-1 font-mono-code text-[0.65rem] text-[#888880] uppercase tracking-wider">
+                      <span className="text-[#6b6b63] text-xs">•</span>
+                      <span className="flex items-center gap-1 font-mono-code text-[0.65rem] text-[#6b6b63] uppercase tracking-wider">
                         <MapPin className="w-3 h-3" />
                         <span>{item.location}</span>
                       </span>
@@ -145,7 +145,7 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({ currentMode })
                   {(isExpanded ? item.description : item.description.slice(0, 2)).map(
                     (bullet, idx) => (
                       <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm font-light text-[#444440] leading-relaxed">
-                        <span className="font-mono-code text-[#888880] select-none mt-0.5">—</span>
+                        <span className="font-mono-code text-[#6b6b63] select-none mt-0.5">—</span>
                         <span>{bullet}</span>
                       </div>
                     )
@@ -179,7 +179,7 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({ currentMode })
         </div>
 
         {/* Footer Note */}
-        <div className="text-center mt-12 text-xs font-mono-code text-[#888880] uppercase tracking-wider">
+        <div className="text-center mt-12 text-xs font-mono-code text-[#6b6b63] uppercase tracking-wider">
           Complete professional timeline • verified with references & project documentation
         </div>
       </div>

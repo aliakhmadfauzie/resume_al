@@ -38,7 +38,7 @@ export const ArchitectureArtifact: React.FC<ArchitectureArtifactProps> = ({
               {title || 'Modernization Blueprint: Domino → Staging → Dataverse'}
             </span>
           </div>
-          <span className="font-mono-code text-[0.6rem] uppercase tracking-widest text-[#888880]">
+          <span className="font-mono-code text-[0.6rem] uppercase tracking-widest text-[#6b6b63]">
             Topology Ref: IOI-ENT-361
           </span>
         </div>
@@ -56,10 +56,10 @@ export const ArchitectureArtifact: React.FC<ArchitectureArtifactProps> = ({
             }`}
           >
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880]">
+              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63]">
                 Phase 1 • Interim
               </span>
-              <Database className="w-3.5 h-3.5 text-[#888880]" />
+              <Database className="w-3.5 h-3.5 text-[#6b6b63]" />
             </div>
             <div className="font-serif-display italic text-lg text-[#121212] font-normal mb-1">
               SharePoint Staging Store
@@ -88,7 +88,7 @@ export const ArchitectureArtifact: React.FC<ArchitectureArtifactProps> = ({
             }`}
           >
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880]">
+              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63]">
                 ALM & Logic Pipeline
               </span>
               <Cpu className="w-3.5 h-3.5 text-[#121212]" />
@@ -120,7 +120,7 @@ export const ArchitectureArtifact: React.FC<ArchitectureArtifactProps> = ({
             }`}
           >
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880]">
+              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63]">
                 Phase 2 • Target Architecture
               </span>
               <ShieldCheck className="w-3.5 h-3.5 text-[#121212]" />
@@ -148,7 +148,7 @@ export const ArchitectureArtifact: React.FC<ArchitectureArtifactProps> = ({
             <CheckCircle2 className="w-3 h-3 text-[#121212]" />
             <span>Dual-phase staging blueprint eliminated RM4.2M/yr in licensing penalties</span>
           </span>
-          <span className="text-[#888880]">IOI Corporation Berhad</span>
+          <span className="text-[#6b6b63]">IOI Corporation Berhad</span>
         </div>
       </div>
     );
@@ -164,7 +164,7 @@ export const ArchitectureArtifact: React.FC<ArchitectureArtifactProps> = ({
               {title || 'Concentrix Lark Bot Engine & Realtime Telemetry Architecture'}
             </span>
           </div>
-          <span className="font-mono-code text-[0.6rem] uppercase tracking-widest text-[#888880]">
+          <span className="font-mono-code text-[0.6rem] uppercase tracking-widest text-[#6b6b63]">
             Orchestration: CNX-OPS-V4
           </span>
         </div>
@@ -173,7 +173,7 @@ export const ArchitectureArtifact: React.FC<ArchitectureArtifactProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 my-2">
           <div className="p-4 bg-[#fdfdfc] border border-[#e0e0d8]">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880]">
+              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63]">
                 Ingestion Layer
               </span>
               <Bot className="w-3.5 h-3.5 text-[#121212]" />
@@ -191,7 +191,7 @@ export const ArchitectureArtifact: React.FC<ArchitectureArtifactProps> = ({
 
           <div className="p-4 bg-[#fdfdfc] border border-[#e0e0d8]">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880]">
+              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63]">
                 Intelligence Core
               </span>
               <Zap className="w-3.5 h-3.5 text-[#121212]" />
@@ -209,7 +209,7 @@ export const ArchitectureArtifact: React.FC<ArchitectureArtifactProps> = ({
 
           <div className="p-4 bg-[#fdfdfc] border border-[#e0e0d8]">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880]">
+              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63]">
                 Executive Telemetry
               </span>
               <Server className="w-3.5 h-3.5 text-[#121212]" />
@@ -231,7 +231,7 @@ export const ArchitectureArtifact: React.FC<ArchitectureArtifactProps> = ({
             <CheckCircle2 className="w-3 h-3 text-[#121212]" />
             <span>Certified Lark Developer architecture scaling operations across 34 multilingual specialists</span>
           </span>
-          <span className="text-[#888880]">Concentrix Operations</span>
+          <span className="text-[#6b6b63]">Concentrix Operations</span>
         </div>
       </div>
     );
@@ -247,7 +247,7 @@ export const ArchitectureArtifact: React.FC<ArchitectureArtifactProps> = ({
               {title || 'Tasek Cement GxP Approval Pipeline & Plugin Stage Gateways'}
             </span>
           </div>
-          <span className="font-mono-code text-[0.6rem] uppercase tracking-widest text-[#888880]">
+          <span className="font-mono-code text-[0.6rem] uppercase tracking-widest text-[#6b6b63]">
             Audit Spec: TSK-RB-2025
           </span>
         </div>
@@ -255,7 +255,7 @@ export const ArchitectureArtifact: React.FC<ArchitectureArtifactProps> = ({
         {/* 4 Pipeline Stages */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 my-2">
           <div className="p-3 bg-[#fdfdfc] border border-[#e0e0d8]">
-            <div className="text-[0.6rem] font-mono-code text-[#888880] mb-1">Stage 10 • Pre-Validation</div>
+            <div className="text-[0.6rem] font-mono-code text-[#6b6b63] mb-1">Stage 10 • Pre-Validation</div>
             <div className="font-serif-display italic text-base text-[#121212] mb-1">C# Role Check</div>
             <p className="text-[0.7rem] text-[#444440] leading-snug">
               Ensures requester cannot approve self-submitted rebates; throws InvalidPluginExecutionException on breach.
@@ -263,7 +263,7 @@ export const ArchitectureArtifact: React.FC<ArchitectureArtifactProps> = ({
           </div>
 
           <div className="p-3 bg-[#fdfdfc] border border-[#e0e0d8]">
-            <div className="text-[0.6rem] font-mono-code text-[#888880] mb-1">Stage 20 • Pre-Operation</div>
+            <div className="text-[0.6rem] font-mono-code text-[#6b6b63] mb-1">Stage 20 • Pre-Operation</div>
             <div className="font-serif-display italic text-base text-[#121212] mb-1">Threshold Matrix</div>
             <p className="text-[0.7rem] text-[#444440] leading-snug">
               Calculates cumulative tier rebates, enforces 5-tier signing limits, and validates SAP ledger codes.
@@ -271,7 +271,7 @@ export const ArchitectureArtifact: React.FC<ArchitectureArtifactProps> = ({
           </div>
 
           <div className="p-3 bg-[#fdfdfc] border border-[#e0e0d8]">
-            <div className="text-[0.6rem] font-mono-code text-[#888880] mb-1">Stage 30 • Core Operation</div>
+            <div className="text-[0.6rem] font-mono-code text-[#6b6b63] mb-1">Stage 30 • Core Operation</div>
             <div className="font-serif-display italic text-base text-[#121212] mb-1">Dataverse Transaction</div>
             <p className="text-[0.7rem] text-[#444440] leading-snug">
               Atomic database commit with immutable audit logging and Field Security Profile encryption.
@@ -279,7 +279,7 @@ export const ArchitectureArtifact: React.FC<ArchitectureArtifactProps> = ({
           </div>
 
           <div className="p-3 bg-[#fdfdfc] border border-[#e0e0d8]">
-            <div className="text-[0.6rem] font-mono-code text-[#888880] mb-1">Stage 40 • Post-Operation</div>
+            <div className="text-[0.6rem] font-mono-code text-[#6b6b63] mb-1">Stage 40 • Post-Operation</div>
             <div className="font-serif-display italic text-base text-[#121212] mb-1">Actionable Approvals</div>
             <p className="text-[0.7rem] text-[#444440] leading-snug">
               Dispatches Outlook actionable cards for instant 1-click approvals, cutting cycle from 3 days to 15 mins.
@@ -292,7 +292,7 @@ export const ArchitectureArtifact: React.FC<ArchitectureArtifactProps> = ({
             <CheckCircle2 className="w-3 h-3 text-[#121212]" />
             <span>Zero-drift statutory compliance with 100% audit trail adherence</span>
           </span>
-          <span className="text-[#888880]">Tasek Cement / IOI Building Materials</span>
+          <span className="text-[#6b6b63]">Tasek Cement / IOI Building Materials</span>
         </div>
       </div>
     );
@@ -327,15 +327,15 @@ export const CodeSnippetViewer: React.FC<CodeSnippetViewerProps> = ({
       {/* Header bar */}
       <div className="flex items-center justify-between px-4 py-2.5 bg-[#1e1e1e] border-b border-[#2e2e2e]">
         <div className="flex items-center gap-2">
-          <Code2 className="w-3.5 h-3.5 text-[#888880]" />
+          <Code2 className="w-3.5 h-3.5 text-[#6b6b63]" />
           <span className="font-mono-code text-xs text-[#e0e0d8]">{filename}</span>
-          <span className="text-[0.6rem] font-mono-code uppercase px-1.5 py-0.2 bg-[#2e2e2e] text-[#888880]">
+          <span className="text-[0.6rem] font-mono-code uppercase px-1.5 py-0.2 bg-[#2e2e2e] text-[#6b6b63]">
             {language}
           </span>
         </div>
         <button
           onClick={handleCopy}
-          className="flex items-center gap-1 text-[0.65rem] font-mono-code text-[#888880] hover:text-[#fdfdfc] transition-colors cursor-pointer"
+          className="flex items-center gap-1 text-[0.65rem] font-mono-code text-[#6b6b63] hover:text-[#fdfdfc] transition-colors cursor-pointer"
           title="Copy code snippet"
         >
           {copied ? (
@@ -358,7 +358,7 @@ export const CodeSnippetViewer: React.FC<CodeSnippetViewerProps> = ({
       </pre>
 
       {caption && (
-        <div className="px-4 py-2 bg-[#181818] border-t border-[#262626] text-[0.65rem] font-mono-code text-[#888880]">
+        <div className="px-4 py-2 bg-[#181818] border-t border-[#262626] text-[0.65rem] font-mono-code text-[#6b6b63]">
           {caption}
         </div>
       )}

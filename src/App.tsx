@@ -141,7 +141,7 @@ export default function App() {
               /* Dedicated Individual Article Page with Smooth Entrance */
               <motion.div
                 key="article-detail-page"
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 1, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.35, ease: 'easeOut' }}
@@ -162,7 +162,7 @@ export default function App() {
               /* Portfolio Index & Sections with Smooth Page Load */
               <motion.div
                 key="portfolio-index-page"
-                initial={{ opacity: 0 }}
+                initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.35 }}

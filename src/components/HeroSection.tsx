@@ -105,7 +105,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <span className="label-mono">
               Fullstack Engineer & Architect
             </span>
-            <div className="flex items-center gap-1.5 font-mono-code text-[0.65rem] uppercase tracking-wider text-[#888880]">
+            <div className="flex items-center gap-1.5 font-mono-code text-[0.65rem] uppercase tracking-wider text-[#6b6b63]">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>Available for Enterprise Engagements</span>
             </div>
@@ -121,7 +121,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Large Serif Headline */}
           <motion.h1
             id="hero-name-heading"
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 1, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
             className="font-serif-display italic text-6xl sm:text-7xl md:text-8xl lg:text-[6.8rem] xl:text-[7.8rem] font-light leading-[0.88] tracking-[-0.04em] text-[#121212] my-4 sm:my-6"
@@ -133,7 +133,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Subtitle / Focus */}
           <motion.p
             key={`hero-sub-${currentMode}`}
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 1, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
             className="text-base sm:text-lg md:text-xl font-light text-[#444440] leading-relaxed max-w-2xl mt-2 mb-6"
@@ -144,7 +144,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Dynamic Highlight Banner Based on Active Track */}
           <motion.div
             key={`hero-banner-${currentMode}`}
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 1, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
             className="mb-8 p-3.5 sm:p-4 rounded-none bg-[#f7f7f0] border border-[#e0e0d8] flex items-center gap-3 text-xs sm:text-sm text-[#121212]"
@@ -206,7 +206,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <span className="font-mono-code text-xs uppercase tracking-wider text-[#121212] font-semibold">
                   Ali A. Fauzie
                 </span>
-                <span className="text-[11px] text-[#888880] font-mono-code">
+                <span className="text-[11px] text-[#6b6b63] font-mono-code">
                   Kuala Lumpur & Bandung
                 </span>
                 <button
@@ -235,7 +235,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Experience Statistics Bar - Hard Business ROI Figures */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mb-10 p-5 bg-[#f7f7f0] border border-[#e0e0d8]">
             <div className="stat-item">
-              <span className="label-mono block mb-1 text-[#888880]">Licensing ROI</span>
+              <span className="label-mono block mb-1 text-[#6b6b63]">Licensing ROI</span>
               <h4 className="font-serif-display italic text-2xl sm:text-3xl text-[#1d4ed8] font-normal leading-tight">
                 MYR 360K<span className="text-xs font-mono-code text-[#444440]">/yr</span>
               </h4>
@@ -245,7 +245,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             <div className="stat-item">
-              <span className="label-mono block mb-1 text-[#888880]">Scale</span>
+              <span className="label-mono block mb-1 text-[#6b6b63]">Scale</span>
               <h4 className="font-serif-display italic text-2xl sm:text-3xl text-[#1d4ed8] font-normal leading-tight">
                 361 Forms
               </h4>
@@ -255,7 +255,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             <div className="stat-item">
-              <span className="label-mono block mb-1 text-[#888880]">Leadership</span>
+              <span className="label-mono block mb-1 text-[#6b6b63]">Leadership</span>
               <h4 className="font-serif-display italic text-2xl sm:text-3xl text-[#0f766e] font-normal leading-tight">
                 34 FTE
               </h4>
@@ -265,7 +265,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             <div className="stat-item">
-              <span className="label-mono block mb-1 text-[#888880]">Delivered</span>
+              <span className="label-mono block mb-1 text-[#6b6b63]">Delivered</span>
               <h4 className="font-serif-display italic text-2xl sm:text-3xl text-[#121212] font-normal leading-tight">
                 16+ Apps
               </h4>
@@ -279,7 +279,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="project-list">
             <div className="flex items-center justify-between mb-3">
               <div className="label-mono">Featured Executive Case Studies</div>
-              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880]">
+              <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63]">
                 Technical Depth & Leadership Scale
               </span>
             </div>
@@ -337,7 +337,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="label-mono">01 — Candidate Perspective</span>
-                <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#888880]">
+                <span className="text-[0.65rem] font-mono-code uppercase tracking-wider text-[#6b6b63]">
                   Interactive View Filter
                 </span>
               </div>
@@ -357,13 +357,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     <Compass className="w-4 h-4 flex-shrink-0" />
                     <div>
                       <div className="font-semibold uppercase tracking-wider text-[0.74rem]">Full Profile</div>
-                      <div className={`text-[0.62rem] normal-case font-light ${currentMode === 'full' || currentMode === 'hybrid' ? 'text-[#dcdccb]' : 'text-[#888880]'}`}>
+                      <div className={`text-[0.62rem] normal-case font-light ${currentMode === 'full' || currentMode === 'hybrid' ? 'text-[#dcdccb]' : 'text-[#6b6b63]'}`}>
                         Comprehensive Pro-Code, Architecture &amp; Leadership Overview
                       </div>
                     </div>
                   </div>
                   <span className={`text-[0.6rem] font-mono-code uppercase tracking-wider px-2 py-0.5 border ${
-                    currentMode === 'full' || currentMode === 'hybrid' ? 'border-[#fdfdfc]/40 text-[#fdfdfc] font-semibold' : 'border-[#e0e0d8] text-[#888880]'
+                    currentMode === 'full' || currentMode === 'hybrid' ? 'border-[#fdfdfc]/40 text-[#fdfdfc] font-semibold' : 'border-[#e0e0d8] text-[#6b6b63]'
                   }`}>
                     {currentMode === 'full' || currentMode === 'hybrid' ? 'Active' : 'Select'}
                   </span>
@@ -382,13 +382,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     <Cpu className="w-4 h-4 flex-shrink-0" />
                     <div>
                       <div className="font-semibold uppercase tracking-wider text-[0.74rem]">Architecture &amp; Solution Engineering</div>
-                      <div className={`text-[0.62rem] normal-case font-light ${currentMode === 'architecture' || currentMode === 'architect' ? 'text-blue-100' : 'text-[#888880]'}`}>
+                      <div className={`text-[0.62rem] normal-case font-light ${currentMode === 'architecture' || currentMode === 'architect' ? 'text-blue-100' : 'text-[#6b6b63]'}`}>
                         Dataverse, C# Plugins, Power Platform &amp; Mobile App Engineering
                       </div>
                     </div>
                   </div>
                   <span className={`text-[0.6rem] font-mono-code uppercase tracking-wider px-2 py-0.5 border ${
-                    currentMode === 'architecture' || currentMode === 'architect' ? 'border-[#fdfdfc]/40 text-[#fdfdfc] font-semibold' : 'border-[#e0e0d8] text-[#888880]'
+                    currentMode === 'architecture' || currentMode === 'architect' ? 'border-[#fdfdfc]/40 text-[#fdfdfc] font-semibold' : 'border-[#e0e0d8] text-[#6b6b63]'
                   }`}>
                     {currentMode === 'architecture' || currentMode === 'architect' ? 'Active' : 'Select'}
                   </span>
@@ -407,13 +407,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     <Users className="w-4 h-4 flex-shrink-0" />
                     <div>
                       <div className="font-semibold uppercase tracking-wider text-[0.74rem]">Operations &amp; Leadership</div>
-                      <div className={`text-[0.62rem] normal-case font-light ${currentMode === 'operations' ? 'text-teal-100' : 'text-[#888880]'}`}>
+                      <div className={`text-[0.62rem] normal-case font-light ${currentMode === 'operations' ? 'text-teal-100' : 'text-[#6b6b63]'}`}>
                         34-FTE Multilingual BPO, SLA &gt;98%, Lark Bot Automation
                       </div>
                     </div>
                   </div>
                   <span className={`text-[0.6rem] font-mono-code uppercase tracking-wider px-2 py-0.5 border ${
-                    currentMode === 'operations' ? 'border-[#fdfdfc]/40 text-[#fdfdfc] font-semibold' : 'border-[#e0e0d8] text-[#888880]'
+                    currentMode === 'operations' ? 'border-[#fdfdfc]/40 text-[#fdfdfc] font-semibold' : 'border-[#e0e0d8] text-[#6b6b63]'
                   }`}>
                     {currentMode === 'operations' ? 'Active' : 'Select'}
                   </span>
@@ -437,7 +437,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
             </div>
 
-            <div className="pt-4 mt-4 border-t border-[#e0e0d8] text-[0.68rem] font-mono-code text-[#888880] flex items-center justify-between">
+            <div className="pt-4 mt-4 border-t border-[#e0e0d8] text-[0.68rem] font-mono-code text-[#6b6b63] flex items-center justify-between">
               <span>Active Track:</span>
               <strong className="text-[#121212] uppercase font-semibold">
                 {currentMode === 'architecture' || currentMode === 'architect'
@@ -517,7 +517,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Quick Executive Reference */}
-            <div className="mt-4 pt-4 border-t border-[#e0e0d8] flex items-center justify-between text-[0.68rem] font-mono-code text-[#888880]">
+            <div className="mt-4 pt-4 border-t border-[#e0e0d8] flex items-center justify-between text-[0.68rem] font-mono-code text-[#6b6b63]">
               <span>Location: KL, Malaysia (Open to Remote / Relo)</span>
               <span className="text-[#121212] font-semibold">Verified Track Record</span>
             </div>

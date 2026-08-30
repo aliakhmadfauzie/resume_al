@@ -97,7 +97,7 @@ export const TestimonialsSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Quote */}
             <div className="lg:col-span-8 space-y-6">
-              <div className="label-mono text-[#888880]">
+              <div className="label-mono text-[#6b6b63]">
                 Scope: {current.projectOrScope}
               </div>
 
@@ -138,7 +138,7 @@ export const TestimonialsSection: React.FC = () => {
                   <h4 className="font-serif-display italic text-xl font-normal text-[#121212]">
                     {current.name}
                   </h4>
-                  <p className="label-mono text-[#888880]">
+                  <p className="label-mono text-[#6b6b63]">
                     {current.role}
                   </p>
                 </div>
@@ -146,15 +146,15 @@ export const TestimonialsSection: React.FC = () => {
 
               <div className="pt-3 border-t border-[#e0e0d8] space-y-1.5 text-xs text-[#444440]">
                 <div className="flex items-center gap-2">
-                  <Building2 className="w-3.5 h-3.5 text-[#888880]" />
+                  <Building2 className="w-3.5 h-3.5 text-[#6b6b63]" />
                   <span className="font-medium text-[#121212]">{current.company}</span>
                 </div>
                 {current.relationship && (
-                  <div className="font-mono-code text-[0.65rem] text-[#888880] uppercase tracking-wider">
+                  <div className="font-mono-code text-[0.65rem] text-[#6b6b63] uppercase tracking-wider">
                     Rel: {current.relationship}
                   </div>
                 )}
-                <div className="font-mono-code text-[0.65rem] text-[#888880] uppercase tracking-wider">
+                <div className="font-mono-code text-[0.65rem] text-[#6b6b63] uppercase tracking-wider">
                   Date: {current.date}
                 </div>
               </div>
