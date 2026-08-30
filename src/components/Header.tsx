@@ -63,25 +63,25 @@ export const Header: React.FC<HeaderProps> = ({
           : 'bg-[#fdfdfc]/90 backdrop-blur-sm py-4'
       }`}
     >
-      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 flex items-center justify-between">
+      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
         {/* Brand Logo / Monogram */}
         <a
           href="#home"
           id="logo-brand-link"
           onClick={(e) => handleLinkClick('#home', e)}
-          className="flex items-center gap-3 group focus:outline-none"
+          className="flex items-center gap-3 group focus:outline-none shrink-0 whitespace-nowrap"
         >
-          <span className="font-mono-code font-bold text-xs uppercase tracking-[0.2em] text-[#121212] group-hover:text-[#6b6b63] transition-colors">
+          <span className="font-mono-code font-bold text-xs uppercase tracking-[0.2em] text-[#121212] group-hover:text-[#6b6b63] transition-colors whitespace-nowrap">
             Ali Fauzie
           </span>
-          <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-[#121212]" />
-          <span className="hidden sm:inline-block font-mono-code text-[0.65rem] uppercase tracking-[0.15em] text-[#6b6b63]">
+          <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-[#121212] shrink-0" />
+          <span className="hidden sm:inline-block font-mono-code text-[0.65rem] uppercase tracking-[0.15em] text-[#6b6b63] whitespace-nowrap">
             Solution Arch
           </span>
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 text-[0.75rem] font-mono-code uppercase tracking-[0.12em] text-[#121212]">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-8 text-[0.75rem] font-mono-code uppercase tracking-[0.12em] text-[#121212] shrink-0">
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -95,14 +95,14 @@ export const Header: React.FC<HeaderProps> = ({
         </nav>
 
         {/* Action Controls & Audience Persona Switcher */}
-        <div className="hidden lg:flex items-center gap-2.5 xl:gap-4">
+        <div className="hidden lg:flex items-center gap-2 xl:gap-3 shrink-0">
           {/* Audience Perspective Segmented Tab Controller */}
           <div className="flex items-center gap-1.5">
             <span className="hidden 2xl:inline text-[0.6rem] font-mono-code uppercase tracking-wider text-[#6b6b63]">
               Track:
             </span>
             <div
-              className="flex items-center bg-[#f7f7f0] p-1 border border-[#e0e0d8] text-[0.65rem] xl:text-[0.68rem] font-mono-code uppercase tracking-[0.04em]"
+              className="flex items-center bg-[#f7f7f0] p-1 border border-[#e0e0d8] text-[0.6rem] xl:text-[0.65rem] font-mono-code uppercase tracking-[0.02em]"
               title="Tailor portfolio highlights for Full Profile, Architecture & Solution Engineering, or Operations & Leadership"
             >
               <button

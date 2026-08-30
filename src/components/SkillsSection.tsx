@@ -124,19 +124,19 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ currentMode = 'ful
                     {filteredSkills.map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex items-center justify-between p-2 bg-[#f7f7f0] border border-[#e0e0d8] text-xs"
+                        className="flex flex-wrap items-start justify-between gap-x-3 gap-y-1 p-2 bg-[#f7f7f0] border border-[#e0e0d8] text-xs"
                       >
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-start gap-2 shrink-0 min-w-0 max-w-full">
                           {skill.highlight ? (
-                            <Star className="w-3 h-3 text-[#121212] fill-[#121212] shrink-0" />
+                            <Star className="w-3 h-3 text-[#121212] fill-[#121212] shrink-0 mt-0.5" />
                           ) : (
-                            <Check className="w-3 h-3 text-[#6b6b63] shrink-0" />
+                            <Check className="w-3 h-3 text-[#6b6b63] shrink-0 mt-0.5" />
                           )}
-                          <span className="font-normal text-[#121212]">
+                          <span className="font-normal text-[#121212] leading-snug min-w-0 break-words">
                             {skill.name}
                           </span>
                         </div>
-                        <div className="flex items-center gap-1.5 shrink-0 font-mono-code text-[0.65rem] uppercase tracking-wider">
+                        <div className="flex flex-wrap items-center justify-end gap-1.5 shrink-0 font-mono-code text-[0.65rem] uppercase tracking-wider">
                           {skill.yearsOrScope && (
                             <span className="px-1.5 py-0.5 bg-[#fdfdfc] text-[#6b6b63] border border-[#e0e0d8]">
                               {skill.yearsOrScope}

@@ -94,7 +94,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   };
 
   return (
-    <section id="home" className="relative pt-24 sm:pt-28 pb-24 sm:pb-28 border-b border-[#e0e0d8] overflow-hidden">
+    <section id="home" className="relative pt-10 sm:pt-14 pb-24 sm:pb-28 border-b border-[#e0e0d8] overflow-hidden">
       <div className="max-w-[1360px] mx-auto grid grid-cols-1 lg:grid-cols-12 border-x border-[#e0e0d8]">
         
         {/* Left Column: Hero & Key Statements */}
