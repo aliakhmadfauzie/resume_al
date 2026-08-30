@@ -1,0 +1,335 @@
+{
+  "communities": {
+    "0": [
+      "src_components_certificationssection",
+      "src_components_certificationssection_certificationssection",
+      "src_components_resumemodal",
+      "src_components_resumemodal_resumemodal",
+      "src_components_resumemodal_resumemodalprops",
+      "src_components_skillssection",
+      "src_components_skillssection_skillssection",
+      "src_components_skillssection_skillssectionprops",
+      "src_components_testimonialssection",
+      "src_components_testimonialssection_testimonialssection",
+      "src_components_timelinesection",
+      "src_components_timelinesection_timelinesection",
+      "src_components_timelinesection_timelinesectionprops",
+      "src_data_resumedata",
+      "src_data_resumedata_certificationsdata",
+      "src_data_resumedata_developeraccreditation",
+      "src_data_resumedata_developerbadges",
+      "src_data_resumedata_languagesdata",
+      "src_data_resumedata_projectsdata",
+      "src_data_resumedata_skillcategories",
+      "src_data_resumedata_skillscategories",
+      "src_data_resumedata_testimonialsdata",
+      "src_data_resumedata_timelinedata",
+      "src_types_certificationitem",
+      "src_types_skillcategory",
+      "src_types_testimonialitem",
+      "src_types_timelineitem"
+    ],
+    "1": [
+      "src_app",
+      "src_app_app",
+      "src_components_architecturediagram",
+      "src_components_architecturediagram_architecturediagram",
+      "src_components_contactsection",
+      "src_components_contactsection_contactsection",
+      "src_components_contactsection_contactsectionprops",
+      "src_components_footer",
+      "src_components_footer_footer",
+      "src_components_footer_footerprops",
+      "src_components_header",
+      "src_components_header_header",
+      "src_components_header_headerprops",
+      "src_components_herosection",
+      "src_components_herosection_herosection",
+      "src_components_herosection_herosectionprops",
+      "src_components_projectssection_projectssection",
+      "src_components_scrollprogress",
+      "src_components_scrollprogress_scrollprogress",
+      "src_components_scrollprogress_scrollprogressprops",
+      "src_components_shaderbackground",
+      "src_components_shaderbackground_shaderbackground",
+      "src_components_shaderbackground_shaderbackgroundprops",
+      "src_data_articlesdata_initialarticlesdata",
+      "src_data_resumedata_personalinfo",
+      "src_main"
+    ],
+    "2": [
+      "dotenv",
+      "express",
+      "google_genai",
+      "lucide_react",
+      "motion",
+      "package_dependencies",
+      "package_dependencies_dotenv",
+      "package_dependencies_express",
+      "package_dependencies_google_genai",
+      "package_dependencies_lucide_react",
+      "package_dependencies_motion",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_dependencies_react_markdown",
+      "package_dependencies_tailwindcss_vite",
+      "package_dependencies_vitejs_plugin_react",
+      "react",
+      "react_dom",
+      "react_markdown",
+      "tailwindcss_vite",
+      "vitejs_plugin_react"
+    ],
+    "3": [
+      "ref_dom",
+      "ref_dom_iterable",
+      "ref_es2022",
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowimportingtsextensions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_experimentaldecorators",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduledetection",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_paths",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_target",
+      "tsconfig_compileroptions_usedefineforclassfields"
+    ],
+    "4": [
+      "autoprefixer",
+      "esbuild",
+      "package_dependencies_vite",
+      "package_devdependencies",
+      "package_devdependencies_autoprefixer",
+      "package_devdependencies_esbuild",
+      "package_devdependencies_tailwindcss",
+      "package_devdependencies_tsx",
+      "package_devdependencies_types_express",
+      "package_devdependencies_types_node",
+      "package_devdependencies_typescript",
+      "package_devdependencies_vite",
+      "tailwindcss",
+      "tsx",
+      "types_express",
+      "types_node",
+      "typescript",
+      "vite"
+    ],
+    "5": [
+      "src_components_architectureartifact",
+      "src_components_architectureartifact_architectureartifact",
+      "src_components_architectureartifact_architectureartifactprops",
+      "src_components_architectureartifact_codesnippetviewer",
+      "src_components_architectureartifact_codesnippetviewerprops",
+      "src_components_flagshipshowcase",
+      "src_components_flagshipshowcase_flagshipshowcase",
+      "src_components_flagshipshowcase_flagshipshowcaseprops",
+      "src_components_projectdetailmodal",
+      "src_components_projectdetailmodal_projectdetailmodal",
+      "src_components_projectdetailmodal_projectdetailmodalprops",
+      "src_components_projectssection",
+      "src_components_projectssection_projectssectionprops",
+      "src_components_stickyquickdock",
+      "src_components_stickyquickdock_stickyquickdock",
+      "src_components_stickyquickdock_stickyquickdockprops",
+      "src_types_profilemode",
+      "src_types_projectitem"
+    ],
+    "6": [
+      "src_components_articledetailview",
+      "src_components_articledetailview_articledetailview",
+      "src_components_articledetailview_articledetailviewprops",
+      "src_components_articlessection",
+      "src_components_articlessection_articlessection",
+      "src_components_articlessection_articlessectionprops",
+      "src_components_createarticlemodal",
+      "src_components_createarticlemodal_createarticlemodal",
+      "src_components_createarticlemodal_createarticlemodalprops",
+      "src_data_articlesdata",
+      "src_types",
+      "src_types_articleitem",
+      "src_types_messagepayload",
+      "src_types_newarticleinput",
+      "src_types_trackmetadata"
+    ],
+    "7": [
+      "package",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_clean",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_preview",
+      "package_type",
+      "package_version"
+    ],
+    "8": [
+      "vite_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.10541310541310542,
+    "1": 0.11076923076923077,
+    "2": 0.09523809523809523,
+    "3": 0.10526315789473684,
+    "4": 0.1111111111111111,
+    "5": 0.19607843137254902,
+    "6": 0.20952380952380953,
+    "7": 0.18181818181818182,
+    "8": 1.0
+  },
+  "gods": [
+    {
+      "id": "src_types_profilemode",
+      "label": "ProfileMode",
+      "degree": 18
+    },
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 15
+    },
+    {
+      "id": "src_types_projectitem",
+      "label": "ProjectItem",
+      "degree": 9
+    },
+    {
+      "id": "src_types_articleitem",
+      "label": "ArticleItem",
+      "degree": 9
+    },
+    {
+      "id": "src_data_resumedata_personalinfo",
+      "label": "personalInfo",
+      "degree": 6
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 6
+    },
+    {
+      "id": "tsconfig_compileroptions_lib",
+      "label": "lib",
+      "degree": 4
+    },
+    {
+      "id": "src_types_testimonialitem",
+      "label": "TestimonialItem",
+      "degree": 3
+    },
+    {
+      "id": "src_components_flagshipshowcase_flagshipshowcaseprops",
+      "label": "FlagshipShowcaseProps",
+      "degree": 3
+    },
+    {
+      "id": "src_components_projectssection_projectssectionprops",
+      "label": "ProjectsSectionProps",
+      "degree": 3
+    }
+  ],
+  "surprises": [
+    {
+      "source": "ResumeModalProps",
+      "target": "ProfileMode",
+      "source_files": [
+        "src/components/ResumeModal.tsx",
+        "src/types.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities; peripheral node `ResumeModalProps` unexpectedly reaches hub `ProfileMode`"
+    },
+    {
+      "source": "SkillsSectionProps",
+      "target": "ProfileMode",
+      "source_files": [
+        "src/components/SkillsSection.tsx",
+        "src/types.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities; peripheral node `SkillsSectionProps` unexpectedly reaches hub `ProfileMode`"
+    },
+    {
+      "source": "TimelineSectionProps",
+      "target": "ProfileMode",
+      "source_files": [
+        "src/components/TimelineSection.tsx",
+        "src/types.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities; peripheral node `TimelineSectionProps` unexpectedly reaches hub `ProfileMode`"
+    },
+    {
+      "source": "HeaderProps",
+      "target": "ProfileMode",
+      "source_files": [
+        "src/components/Header.tsx",
+        "src/types.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities; peripheral node `HeaderProps` unexpectedly reaches hub `ProfileMode`"
+    },
+    {
+      "source": "HeroSectionProps",
+      "target": "ProfileMode",
+      "source_files": [
+        "src/components/HeroSection.tsx",
+        "src/types.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities; peripheral node `HeroSectionProps` unexpectedly reaches hub `ProfileMode`"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `dependencies` connect `Community 2` to `Community 4`, `Community 7`?",
+      "why": "High betweenness centrality (0.066) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `devDependencies` connect `Community 4` to `Community 7`?",
+      "why": "High betweenness centrality (0.050) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `ProfileMode` connect `Community 5` to `Community 0`, `Community 1`, `Community 6`?",
+      "why": "High betweenness centrality (0.031) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `DeveloperAccreditation`, `ContactSectionProps`, `FooterProps` to the rest of the system?",
+      "why": "53 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10541310541310542 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.11076923076923077 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 2` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
